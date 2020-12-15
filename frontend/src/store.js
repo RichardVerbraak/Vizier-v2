@@ -7,7 +7,7 @@ import { movieListReducer } from './reducers/movieReducer'
 const middleware = [thunk]
 
 const reducers = combineReducers({
-	movieReducer: movieListReducer,
+	movieList: movieListReducer,
 })
 
 const store = createStore(
