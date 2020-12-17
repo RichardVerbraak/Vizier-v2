@@ -1,5 +1,5 @@
-const express = require('express')
-const movies = require('./routes/movies')
+import express from 'express'
+import movies from './routes/movies.js'
 
 const app = express()
 const port = 3000
