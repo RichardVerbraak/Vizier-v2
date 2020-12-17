@@ -3,6 +3,6 @@ import { getMovies } from '../controllers/movieController.js'
 
 const router = express.Router()
 
-router.get('/', getMovies)
+router.get('/popular', getMovies)
 
 export default router

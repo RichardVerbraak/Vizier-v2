@@ -8,7 +8,7 @@ export const getMovies = () => {
 			})
 
 			// Get /api/movies, give back data
-			const { data } = await axios.get()
+			const { data } = await axios.get('/api/movies/popular')
 
 			dispatch({
 				type: 'GET_MOVIES_SUCCESS',
