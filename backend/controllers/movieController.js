@@ -17,14 +17,15 @@ const getMovies = async (req, res) => {
 	}
 }
 
-//	TODO:		Get movie id from the header (Wonder Woman 1984 ID Placeholder)
 //  @desc       Get recommended movies based on ID
 //  @route      GET /api/movies/:id/recommended (?)
 //  @access     Public
 const getRecommendedMovies = async (req, res) => {
 	try {
+		const movieID = req.params.id
+
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/movie/464052/recommendations?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=1`
 		)
 
 		res.send(data)
@@ -39,8 +40,10 @@ const getRecommendedMovies = async (req, res) => {
 //  @access     Public
 const getMovieDetails = async (req, res) => {
 	try {
+		const movieID = req.params.id
+
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/movie/464052?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US`
+			`https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US`
 		)
 
 		res.send(data)
