@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMovieDetails } from '../actions/movies'
+import { getMovieDetails, getRecommendedMovies } from '../actions/movies'
 
-const MovieDetailScreen = ({ match }) => {
+const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
 
 	const dispatch = useDispatch()
@@ -22,8 +22,13 @@ const MovieDetailScreen = ({ match }) => {
 	} = movieRecommended
 
 	useEffect(() => {
-		dispatch(getMovieDetails(movieID))
-	}, [dispatch, movieID])
+		if (movieID) {
+			dispatch(getMovieDetails(movieID))
+			dispatch(getRecommendedMovies(movieID))
+		} else {
+			history.push('/')
+		}
+	}, [dispatch, history, movieID])
 
 	return (
 		<div>
