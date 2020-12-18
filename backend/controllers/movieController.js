@@ -18,8 +18,8 @@ const getMovies = async (req, res) => {
 }
 
 //	TODO:		Get movie id from the header (Wonder Woman 1984 ID Placeholder)
-//  @desc       Get 1 page with 20 popular movies
-//  @route      GET /api/movies/popular
+//  @desc       Get recommended movies based on ID
+//  @route      GET /api/movies/:id/recommended (?)
 //  @access     Public
 const getRecommendedMovies = async (req, res) => {
 	try {
@@ -34,6 +34,9 @@ const getRecommendedMovies = async (req, res) => {
 	}
 }
 
+//  @desc       Get details from a movie
+//  @route      GET /api/movies/:id
+//  @access     Public
 const getMovieDetails = async (req, res) => {
 	try {
 		const { data } = await axios.get(
