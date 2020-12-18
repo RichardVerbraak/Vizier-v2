@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { getMovieDetails } from '../actions/movies'
 
 const MovieDetailScreen = ({ match }) => {
 	const movieID = match.params.id
@@ -20,9 +21,9 @@ const MovieDetailScreen = ({ match }) => {
 		movies,
 	} = movieRecommended
 
-	// useEffect(() => {
-	//     dispatch(movieDetails(movieID))
-	// }, [dispatch])
+	useEffect(() => {
+		dispatch(getMovieDetails(movieID))
+	}, [dispatch, movieID])
 
 	return (
 		<div>

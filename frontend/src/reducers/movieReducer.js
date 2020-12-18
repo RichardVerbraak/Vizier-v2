@@ -53,18 +53,18 @@ export const movieListRecommendedReducer = (state = { movies: [] }, action) => {
 // Movie details
 export const movieDetailReducer = (state = { details: {} }, action) => {
 	switch (action.type) {
-		case 'GET_DETAILS_MOVIES_REQUEST': {
+		case 'GET_MOVIE_DETAILS_REQUEST': {
 			return {
 				loading: true,
 			}
 		}
-		case 'GET_DETAILS_MOVIES_SUCCESS': {
+		case 'GET_MOVIE_DETAILS_SUCCESS': {
 			return {
 				loading: false,
-				details: action.payload.results,
+				details: action.payload,
 			}
 		}
-		case 'GET_DETAILS_MOVIES_FAIL': {
+		case 'GET_MOVIE_DETAILS_FAIL': {
 			return {
 				loading: false,
 				error: action.payload,

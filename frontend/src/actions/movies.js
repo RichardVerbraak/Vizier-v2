@@ -7,7 +7,6 @@ export const getMovies = () => {
 				type: 'GET_MOVIES_REQUEST',
 			})
 
-			// Get /api/movies, give back data
 			const { data } = await axios.get('/api/movies/popular')
 
 			dispatch({
@@ -17,6 +16,28 @@ export const getMovies = () => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_MOVIES_FAIL',
+				payload: error,
+			})
+		}
+	}
+}
+
+export const getMovieDetails = (id) => {
+	return async (dispatch) => {
+		try {
+			dispatch({
+				type: 'GET_MOVIE_DETAILS',
+			})
+
+			const { data } = await axios.get(`/api/movies/${id}`)
+
+			dispatch({
+				type: 'GET_MOVIE_DETAILS_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'GET_MOVIE_DETAILS_FAIL',
 				payload: error,
 			})
 		}
