@@ -1,17 +1,11 @@
-const initialState = {
-	loading: null,
-	movies: [],
-	error: null,
-}
-
-export const movieListReducer = (state = initialState, action) => {
+// Popular movies
+export const movieListReducer = (state = { movies: [] }, action) => {
 	switch (action.type) {
 		case 'GET_MOVIES_REQUEST': {
 			return {
 				loading: true,
 			}
 		}
-		// Results being the 20 movies
 		case 'GET_MOVIES_SUCCESS': {
 			return {
 				loading: false,
@@ -19,6 +13,32 @@ export const movieListReducer = (state = initialState, action) => {
 			}
 		}
 		case 'GET_MOVIES_FAIL': {
+			return {
+				loading: false,
+				error: action.payload,
+			}
+		}
+
+		default:
+			return state
+	}
+}
+
+// Recommended Movies
+export const getRecommendedMovies = (state = { movies: [] }, action) => {
+	switch (action.type) {
+		case 'GET_RECOMMENDED_MOVIES_REQUEST': {
+			return {
+				loading: true,
+			}
+		}
+		case 'GET_RECOMMENDED_MOVIES_SUCCESS': {
+			return {
+				loading: false,
+				movies: action.payload.results,
+			}
+		}
+		case 'GET_RECOMMENDED_MOVIES_FAIL': {
 			return {
 				loading: false,
 				error: action.payload,
