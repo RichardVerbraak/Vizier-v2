@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import connectDB from './config/db.js'
 import movies from './routes/movies.js'
 
 // Only use env variables when in development (set env variables directly on the host later like Heroku env vars)
@@ -7,6 +8,8 @@ import movies from './routes/movies.js'
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config()
 }
+
+connectDB()
 
 const app = express()
 

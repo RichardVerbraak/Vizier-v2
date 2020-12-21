@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovieDetails, getRecommendedMovies } from '../actions/movies'
 
+// TODO: Make Details & Recommended into own component
+
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
 
