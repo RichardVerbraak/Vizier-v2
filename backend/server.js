@@ -13,12 +13,21 @@ if (process.env.NODE_ENV !== 'production') {
 
 connectDB()
 
-const user = await User.create({
-	name: 'Richard Verbraak',
-	email: 'richard@example.com',
-	password: 'billybob',
-})
-console.log(user)
+// const user = await User.create({
+// 	name: 'Richard Verbraak',
+// 	email: 'richard@example.com',
+// 	password: 'billybob',
+// })
+
+const isMatch = async () => {
+	const user = await User.findOne({ name: 'Richard Verbraak' })
+	console.log(user)
+
+	const isMatch = await user.comparePassword('billybob')
+	console.log(isMatch)
+}
+
+isMatch()
 
 const app = express()
 
