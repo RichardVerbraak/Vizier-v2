@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
+// Add movies to the user (watchlist)
+
 const userSchema = mongoose.Schema({
 	name: {
 		type: String,
