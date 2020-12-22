@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-// Export to server.js to run everything in there simultaneously
+// Export to server.js to run everything in there simultaneously (dotenv variables accessible there)
 const connectDB = async () => {
 	try {
 		const connect = await mongoose.connect(process.env.MONGO_URI, {

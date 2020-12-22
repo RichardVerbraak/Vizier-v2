@@ -19,15 +19,15 @@ connectDB()
 // 	password: 'billybob',
 // })
 
-const isMatch = async () => {
-	const user = await User.findOne({ name: 'Richard Verbraak' })
-	console.log(user)
+// const isMatch = async () => {
+// 	const user = await User.findOne({ name: 'Richard Verbraak' })
+// 	console.log(user)
 
-	const isMatch = await user.comparePassword('billybob')
-	console.log(isMatch)
-}
+// 	const isMatch = await user.comparePassword('billybob')
+// 	console.log(isMatch)
+// }
 
-isMatch()
+// isMatch()
 
 const app = express()
 
