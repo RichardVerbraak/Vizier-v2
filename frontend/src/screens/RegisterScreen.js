@@ -9,8 +9,11 @@ const RegisterScreen = ({ history }) => {
 	const submitHandler = (e) => {
 		e.preventDefault()
 
-		// Push user to Home and log him simultaneously
-		if (password === confirmPassword) {
+		// Make alert component
+		if (password !== confirmPassword) {
+			alert('Passwords do not match')
+		} else {
+			// Push user to Home and log him simultaneously
 			history.push('/')
 		}
 	}

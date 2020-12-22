@@ -1,7 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
-import movies from './routes/movies.js'
+import movieRoutes from './routes/movieRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 import User from './models/userModel.js'
 
@@ -33,7 +34,11 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
-app.use('/api/movies', movies)
+// Enables parsing of body
+app.use(express.json())
+
+app.use('/api/movies', movieRoutes)
+app.use('/api/users', userRoutes)
 
 app.listen(PORT, () => {
 	console.log(
