@@ -22,6 +22,8 @@ const registerUser = async (req, res) => {
 				email,
 				password,
 			})
+
+			res.json({ name, email })
 		}
 	} catch (error) {
 		res.status(500)

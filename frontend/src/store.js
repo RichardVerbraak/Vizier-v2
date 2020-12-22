@@ -16,7 +16,7 @@ const reducers = combineReducers({
 	movieRecommended: movieListRecommendedReducer,
 	movieDetails: movieDetailReducer,
 
-	user: userReducer,
+	userInfo: userReducer,
 })
 
 const store = createStore(

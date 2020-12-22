@@ -13,7 +13,7 @@ export const registerUser = (user) => {
 				},
 			}
 
-			const { data } = await axios.post('/api/users', config, user)
+			const { data } = await axios.post('/api/users', user, config)
 
 			dispatch({
 				type: 'USER_REGISTER_SUCCESS',

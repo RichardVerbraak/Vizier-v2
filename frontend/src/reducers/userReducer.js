@@ -1,6 +1,4 @@
-import { bindActionCreators } from 'redux'
-
-export const userReducer = (state = { user: {} }, action) => {
+export const userReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'USER_REGISTER_REQUEST':
 			return {
