@@ -1,7 +1,9 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { getMovies } from '../actions/movies'
 import Movies from '../components/Movies'
+import Pagination from '../components/Pagination'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
 
@@ -9,7 +11,8 @@ import Movies from '../components/Movies'
 // TODO: Make seperate components for movies and header (user info + sign in button etc)
 
 const HomeScreen = ({ match }) => {
-	const page = match.params.page
+	// Didnt get converted to number at first
+	const page = Number(match.params.page) || 1
 
 	console.log(match)
 
@@ -48,8 +51,7 @@ const HomeScreen = ({ match }) => {
 				</div>
 			)}
 
-			<button>Page 1</button>
-			<button>Page 2</button>
+			<Pagination page={page} />
 		</Fragment>
 	)
 }
