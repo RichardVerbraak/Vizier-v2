@@ -15,6 +15,7 @@ const App = () => {
 				<Route path='/login' component={LoginScreen} />
 
 				<Route path='/' component={HomeScreen} exact />
+				<Route path='/popular/:page' component={HomeScreen} />
 			</div>
 		</Router>
 	)

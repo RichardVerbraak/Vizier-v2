@@ -8,7 +8,11 @@ import Movies from '../components/Movies'
 // TODO: Make error and loading component
 // TODO: Make seperate components for movies and header (user info + sign in button etc)
 
-const HomeScreen = () => {
+const HomeScreen = ({ match }) => {
+	const page = match.params.page
+
+	console.log(match)
+
 	const dispatch = useDispatch()
 
 	const movieList = useSelector((state) => {
@@ -24,8 +28,8 @@ const HomeScreen = () => {
 	const { user, userLoading, userError } = userLogin
 
 	useEffect(() => {
-		dispatch(getMovies())
-	}, [dispatch])
+		dispatch(getMovies(page))
+	}, [dispatch, page])
 
 	return (
 		<Fragment>

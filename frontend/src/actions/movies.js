@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-export const getMovies = (page = 1) => {
+// If page is left empty it will default to 1 in the movieController
+export const getMovies = (page = '') => {
 	return async (dispatch) => {
 		try {
 			dispatch({
