@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from '../actions/users'
 
-const LoginScreen = () => {
+const LoginScreen = ({ history }) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -18,6 +18,12 @@ const LoginScreen = () => {
 	})
 
 	const { loading, error, user } = userLogin
+
+	useEffect(() => {
+		if (user) {
+			history.push('/')
+		}
+	}, [history, dispatch, user])
 
 	return (
 		<div>
