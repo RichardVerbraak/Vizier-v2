@@ -19,10 +19,12 @@ const userSchema = mongoose.Schema({
 	},
 })
 
+//////// !! Moved the compare passwords function into the controller itself currently
+
 // Compare password the user entered in vs the one in DB
-userSchema.methods.comparePassword = async function (enteredPassword) {
-	return await bcrypt.compare(enteredPassword, this.password)
-}
+// userSchema.methods.comparePassword = async function (enteredPassword) {
+// 	return await bcrypt.compare(enteredPassword, this.password)
+// }
 
 // Hash password if it's modified else go next
 userSchema.pre('save', async function (next) {

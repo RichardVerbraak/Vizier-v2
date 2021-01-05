@@ -1,4 +1,5 @@
 import User from '../models/userModel.js'
+import bcrypt from 'bcrypt'
 
 // Use error middleware?
 
@@ -34,20 +35,26 @@ const registerUser = async (req, res) => {
 //@desc		Login the user
 //@route	POST /api/users/login
 //@access	Public
-
-// TODO: matchpassword to verify
 const loginUser = async (req, res) => {
 	try {
+		// Destructure data from body
 		const { email, password } = req.body
 
+		// Find user by mail in DB
 		const user = await User.findOne({ email })
 
-		if (user) {
+		const matchPassword = await bcrypt.compare(password, user.password)
+
+		// If user exists AND passwords are a match => return id, name and email to be used in header component
+		if (user && matchPassword) {
 			res.json({
 				_id: user._id,
 				name: user.name,
 				email: user.email,
 			})
+		} else {
+			// Move on to catch block below, not sure how to handle this more cleanly
+			throw new Error()
 		}
 	} catch (error) {
 		res.status(404)
