@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { loginUser } from '../actions/users'
 
 const LoginScreen = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const submitHandler = () => {
-		console.log('submitted')
+	const dispatch = useDispatch()
+
+	const submitHandler = (e) => {
+		e.preventDefault()
+		dispatch(loginUser({ email, password }))
 	}
+
+	const userLogin = useSelector((state) => {
+		return state.userLogin
+	})
+
+	const { loading, error, user } = userLogin
 
 	return (
 		<div>

@@ -27,28 +27,31 @@ const registerUser = async (req, res) => {
 		}
 	} catch (error) {
 		res.status(500)
-		throw new Error('Server Error')
+		throw new Error('Invalid or missing data')
 	}
 }
 
 //@desc		Login the user
-//@route	POST /api/users
+//@route	POST /api/users/login
 //@access	Public
+
+// TODO: matchpassword to verify
 const loginUser = async (req, res) => {
 	try {
 		const { email, password } = req.body
 
-		const existingUser = User.findOne(email)
+		const user = await User.findOne({ email })
 
-		if (!existingUser) {
-			res.status(404)
-			throw new Error('No user found')
-		} else {
-			res.json(existingUser.select('-password'))
+		if (user) {
+			res.json({
+				_id: user._id,
+				name: user.name,
+				email: user.email,
+			})
 		}
 	} catch (error) {
-		res.status(500)
-		throw new Error('Server Error')
+		res.status(404)
+		throw new Error('Invalid email or password')
 	}
 }
 

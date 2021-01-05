@@ -27,3 +27,31 @@ export const registerUser = (user) => {
 		}
 	}
 }
+
+export const loginUser = (user) => {
+	return async (dispatch) => {
+		try {
+			dispatch({
+				type: 'USER_LOGIN_REQUEST',
+			})
+
+			const config = {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+
+			const { data } = await axios.post('/api/users/login', user, config)
+
+			dispatch({
+				type: 'USER_LOGIN_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'USER_LOGIN_FAIL',
+				payload: error,
+			})
+		}
+	}
+}
