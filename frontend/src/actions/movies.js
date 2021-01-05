@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-export const getMovies = () => {
+export const getMovies = (page = 1) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
 				type: 'GET_MOVIES_REQUEST',
 			})
 
-			const { data } = await axios.get('/api/movies/popular')
+			const { data } = await axios.get(`/api/movies/popular?page=${page}`)
 
 			dispatch({
 				type: 'GET_MOVIES_SUCCESS',

@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovies } from '../actions/movies'
+import Movies from '../components/Movies'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
 
@@ -39,11 +40,12 @@ const HomeScreen = () => {
 				<h1>{error}</h1>
 			) : (
 				<div>
-					{movies.map((movie) => {
-						return <p key={movie.id}>{movie.original_title}</p>
-					})}
+					<Movies movies={movies} />
 				</div>
 			)}
+
+			<button>Page 1</button>
+			<button>Page 2</button>
 		</Fragment>
 	)
 }
