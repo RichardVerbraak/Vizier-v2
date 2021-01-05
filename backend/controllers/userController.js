@@ -31,4 +31,25 @@ const registerUser = async (req, res) => {
 	}
 }
 
-export { registerUser }
+//@desc		Login the user
+//@route	POST /api/users
+//@access	Public
+const loginUser = async (req, res) => {
+	try {
+		const { email, password } = req.body
+
+		const existingUser = User.findOne(email)
+
+		if (!existingUser) {
+			res.status(404)
+			throw new Error('No user found')
+		} else {
+			res.json(existingUser.select('-password'))
+		}
+	} catch (error) {
+		res.status(500)
+		throw new Error('Server Error')
+	}
+}
+
+export { registerUser, loginUser }
