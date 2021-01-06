@@ -2,14 +2,15 @@ import axios from 'axios'
 
 //	TODO:		Get page from the header
 //  @desc       Get a page with 20 popular movies
-//  @route      GET /api/movies/popular
+//  @route      GET /api/movies
 //  @access     Public
 const getMovies = async (req, res) => {
 	try {
 		const page = Number(req.query.page) || 1
+		const trending = req.query.trending
 
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=${page}`
+			`https://api.themoviedb.org/3/movie/${trending}?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=${page}`
 		)
 
 		res.send(data)

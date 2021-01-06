@@ -7,7 +7,8 @@ import {
 
 const router = express.Router()
 
-router.get('/popular', getMovies)
+router.get('/', getMovies)
+
 router.get('/:id', getMovieDetails)
 router.get('/:id/recommended', getRecommendedMovies)
 
