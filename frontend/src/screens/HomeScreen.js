@@ -16,13 +16,15 @@ const HomeScreen = ({ match, location }) => {
 	const page = Number(match.params.page) || 1
 
 	// Removes first slash from match.path i.e /top_rated
-	const trending = match.path.substring(1)
+	const trending = match.path.substring(1) || 'popular'
 
 	const dispatch = useDispatch()
 
 	const movieList = useSelector((state) => {
 		return state.movieList
 	})
+
+	console.log(trending)
 
 	const { movies, loading, error } = movieList
 

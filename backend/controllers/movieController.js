@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-//	TODO:		Get page from the header
-//  @desc       Get a page with 20 popular movies
+//  @desc       Get a page with 20 popular/top_rated/upcoming movies
 //  @route      GET /api/movies
 //  @access     Public
 const getMovies = async (req, res) => {
