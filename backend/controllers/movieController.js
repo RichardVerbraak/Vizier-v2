@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-//  @desc       Get a page with 20 popular/top rated/upcoming movies
+//  @desc       Get a single page with 20 popular/top rated/upcoming movies
 //  @route      GET /api/movies
 //  @access     Public
 const getMovies = async (req, res) => {
@@ -10,6 +10,24 @@ const getMovies = async (req, res) => {
 
 		const { data } = await axios.get(
 			`https://api.themoviedb.org/3/movie/${trending}?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=${page}`
+		)
+
+		res.send(data)
+	} catch (error) {
+		res.status(500)
+		res.json({ message: 'Server error' })
+	}
+}
+
+//  @desc       Get movies based on genre
+//  @route      GET /api/movies/genres/:genre
+//  @access     Public
+const getMoviesByGenre = async (req, res) => {
+	try {
+		const genre = req.params.genre
+
+		const { data } = await axios.get(
+			`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=${genre}`
 		)
 
 		res.send(data)
@@ -55,4 +73,4 @@ const getMovieDetails = async (req, res) => {
 	}
 }
 
-export { getMovies, getRecommendedMovies, getMovieDetails }
+export { getMovies, getMoviesByGenre, getRecommendedMovies, getMovieDetails }

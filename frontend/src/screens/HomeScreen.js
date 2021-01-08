@@ -12,21 +12,16 @@ import Pagination from '../components/Pagination'
 // TODO: Make seperate components for movies and header (user info + sign in button etc)
 
 const HomeScreen = ({ match, location }) => {
-	// Didnt get converted to number at first
+	// Convert from string to number
 	const page = Number(match.params.page) || 1
 
-	// Removes first slash from match.path i.e /top_rated
-	const trending = match.params.trending || 'popular'
-
-	console.log(match.params)
+	const trending = match.params.trending
 
 	const dispatch = useDispatch()
 
 	const movieList = useSelector((state) => {
 		return state.movieList
 	})
-
-	console.log(trending)
 
 	const { movies, loading, error } = movieList
 
@@ -38,7 +33,7 @@ const HomeScreen = ({ match, location }) => {
 
 	useEffect(() => {
 		dispatch(getMovies(page, trending))
-	}, [dispatch, page])
+	}, [dispatch, page, trending])
 
 	return (
 		<Fragment>
@@ -47,6 +42,9 @@ const HomeScreen = ({ match, location }) => {
 
 			<Link to='/top_rated'>Top Rated</Link>
 			<Link to='/upcoming'>Upcoming</Link>
+
+			<h3>Genres</h3>
+			<Link to='/genres/action'>Action</Link>
 
 			{user && <p>{user.name}</p>}
 

@@ -15,6 +15,7 @@ const App = () => {
 				<Route path='/login' component={LoginScreen} />
 
 				<Route path='/:trending/:page?' component={HomeScreen} exact />
+				<Route path='/genres/:genre' component={HomeScreen} exact />
 
 				<Route path='/' component={HomeScreen} exact>
 					<Redirect to='/popular' />
