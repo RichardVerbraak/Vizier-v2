@@ -5,6 +5,8 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import MovieDetailScreen from './screens/MovieDetailScreen'
 import RegisterScreen from './screens/RegisterScreen'
+import GenreScreen from './screens/GenreScreen'
+import Test from './screens/Test'
 
 const App = () => {
 	return (
@@ -14,11 +16,12 @@ const App = () => {
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/login' component={LoginScreen} />
 
-				<Route path='/:trending/:page?' component={HomeScreen} exact />
-				<Route path='/genres/:genre' component={HomeScreen} exact />
+				<Route path='/genres/:genre' component={GenreScreen} />
+
+				<Route path='/discover/:trending/:page?' component={HomeScreen} />
 
 				<Route path='/' component={HomeScreen} exact>
-					<Redirect to='/popular' />
+					<Redirect to='/discover/popular' />
 				</Route>
 			</div>
 		</Router>

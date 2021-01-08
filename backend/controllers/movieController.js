@@ -24,6 +24,7 @@ const getMovies = async (req, res) => {
 //  @access     Public
 const getMoviesByGenre = async (req, res) => {
 	try {
+		const page = Number(req.query.page) || 1
 		const genre = req.params.genre
 
 		const { data } = await axios.get(

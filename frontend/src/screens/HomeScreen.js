@@ -40,8 +40,8 @@ const HomeScreen = ({ match, location }) => {
 			<h1>HomeScreen</h1>
 			<h2>Movies</h2>
 
-			<Link to='/top_rated'>Top Rated</Link>
-			<Link to='/upcoming'>Upcoming</Link>
+			<Link to='/discover/top_rated'>Top Rated</Link>
+			<Link to='/discover/upcoming'>Upcoming</Link>
 
 			<h3>Genres</h3>
 			<Link to='/genres/action'>Action</Link>
