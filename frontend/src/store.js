@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import {
 	movieDetailReducer,
+	movieGenreListReducer,
 	movieListRecommendedReducer,
 	movieListReducer,
 } from './reducers/movieReducer'
@@ -13,6 +14,7 @@ const middleware = [thunk]
 
 const reducers = combineReducers({
 	movieList: movieListReducer,
+	movieGenre: movieGenreListReducer,
 	movieRecommended: movieListRecommendedReducer,
 	movieDetails: movieDetailReducer,
 

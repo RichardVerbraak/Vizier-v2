@@ -24,7 +24,7 @@ export const movieListReducer = (state = { movies: [] }, action) => {
 	}
 }
 
-export const movieGenreListReducer = (state= {}, action) {
+export const movieGenreListReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'GET_MOVIES_BY_GENRE_REQUEST': {
 			return {
