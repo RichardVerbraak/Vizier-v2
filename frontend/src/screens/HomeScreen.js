@@ -16,7 +16,9 @@ const HomeScreen = ({ match, location }) => {
 	const page = Number(match.params.page) || 1
 
 	// Removes first slash from match.path i.e /top_rated
-	const trending = match.path.substring(1) || 'popular'
+	const trending = match.params.trending || 'popular'
+
+	console.log(match.params)
 
 	const dispatch = useDispatch()
 
@@ -58,7 +60,7 @@ const HomeScreen = ({ match, location }) => {
 				</div>
 			)}
 
-			<Pagination page={page} />
+			<Pagination trending={trending} page={page} />
 		</Fragment>
 	)
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Pagination = ({ page }) => {
+const Pagination = ({ trending, page }) => {
 	return (
 		<div>
-			<Link to={`/popular/${page + 1}`}>Page {page + 1}</Link>
+			<Link to={`/${trending}/${page + 1}`}>Page {page + 1}</Link>
 		</div>
 	)
 }
