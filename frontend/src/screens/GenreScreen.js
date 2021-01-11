@@ -10,8 +10,6 @@ import Pagination from '../components/Pagination'
 const GenreScreen = ({ match }) => {
 	// Convert from string to number
 	const page = Number(match.params.page) || 1
-	console.log(page)
-	console.log(match)
 
 	const genre = match.params.genre
 

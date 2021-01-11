@@ -12,6 +12,7 @@ import Pagination from '../components/Pagination'
 
 // TODO: Make error and loading component
 // TODO: Make seperate components for movies and header (user info + sign in button etc)
+// TODO: Make components for the links
 
 const HomeScreen = ({ match, location }) => {
 	// Convert from string to number
