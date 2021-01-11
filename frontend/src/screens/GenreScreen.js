@@ -10,6 +10,7 @@ import Pagination from '../components/Pagination'
 const GenreScreen = ({ match, location }) => {
 	// Convert from string to number
 	const page = Number(match.params.page) || 1
+	console.log(page)
 
 	const genre = match.params.genre
 
@@ -28,7 +29,7 @@ const GenreScreen = ({ match, location }) => {
 	const { user, userLoading, userError } = userLogin
 
 	useEffect(() => {
-		dispatch(getMoviesByGenre())
+		dispatch(getMoviesByGenre(page))
 	}, [dispatch, page])
 
 	return (
@@ -48,7 +49,7 @@ const GenreScreen = ({ match, location }) => {
 				</div>
 			)}
 
-			<Pagination page={page} />
+			<Pagination screen={'GenreScreen'} genre={genre} page={page} />
 		</Fragment>
 	)
 }

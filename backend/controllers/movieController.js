@@ -28,7 +28,7 @@ const getMoviesByGenre = async (req, res) => {
 		const genre = req.params.genre
 
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=${genre}`
+			`https://api.themoviedb.org/3/discover/movie?api_key=${process.ENV.MOVIEDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`
 		)
 
 		res.send(data)

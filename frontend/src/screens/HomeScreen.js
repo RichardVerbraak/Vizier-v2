@@ -43,6 +43,7 @@ const HomeScreen = ({ match, location }) => {
 			<h1>HomeScreen</h1>
 			<Header trending={trending} />
 
+			<Link to='/discover/popular'>Popular</Link>
 			<Link to='/discover/top_rated'>Top Rated</Link>
 			<Link to='/discover/upcoming'>Upcoming</Link>
 
@@ -61,7 +62,7 @@ const HomeScreen = ({ match, location }) => {
 				</div>
 			)}
 
-			<Pagination trending={trending} page={page} />
+			<Pagination screen={'HomeScreen'} trending={trending} page={page} />
 		</Fragment>
 	)
 }

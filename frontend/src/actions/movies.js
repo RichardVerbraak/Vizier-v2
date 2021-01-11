@@ -25,14 +25,16 @@ export const getMovies = (page = '', trending) => {
 	}
 }
 
-export const getMoviesByGenre = (genreID) => {
+export const getMoviesByGenre = (page = '', genreID = 18) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
 				type: 'GET_MOVIES_BY_GENRE_REQUEST',
 			})
 
-			const { data } = await axios.get('/api/movies/genres/18')
+			const { data } = await axios.get(
+				`/api/movies/genres/${genreID}/?page=${page}`
+			)
 
 			dispatch({
 				type: 'GET_MOVIES_BY_GENRE_SUCCESS',
