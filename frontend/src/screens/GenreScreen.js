@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { getMoviesByGenre } from '../actions/movies'
+import Header from '../components/Header'
 import Movies from '../components/Movies'
 import Pagination from '../components/Pagination'
 
@@ -10,7 +11,7 @@ const GenreScreen = ({ match, location }) => {
 	// Convert from string to number
 	const page = Number(match.params.page) || 1
 
-	console.log(match.params.genre)
+	const genre = match.params.genre
 
 	const dispatch = useDispatch()
 
@@ -33,9 +34,7 @@ const GenreScreen = ({ match, location }) => {
 	return (
 		<Fragment>
 			<h1>GenreScreen</h1>
-			<h2>Movies</h2>
-
-			<h3>Genres</h3>
+			<Header genre={genre} />
 
 			{user && <p>{user.name}</p>}
 

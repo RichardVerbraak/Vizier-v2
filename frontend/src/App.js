@@ -6,8 +6,8 @@ import LoginScreen from './screens/LoginScreen'
 import MovieDetailScreen from './screens/MovieDetailScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import GenreScreen from './screens/GenreScreen'
-import Test from './screens/Test'
 
+// TODO: Find another way for the genre movies to be loaded into HomeScreen instead of making another screen
 const App = () => {
 	return (
 		<Router>

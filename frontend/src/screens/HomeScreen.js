@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { getMovies } from '../actions/movies'
+import Header from '../components/Header'
 import Movies from '../components/Movies'
 import Pagination from '../components/Pagination'
 
@@ -38,7 +39,7 @@ const HomeScreen = ({ match, location }) => {
 	return (
 		<Fragment>
 			<h1>HomeScreen</h1>
-			<h2>Movies</h2>
+			<Header trending={trending} />
 
 			<Link to='/discover/top_rated'>Top Rated</Link>
 			<Link to='/discover/upcoming'>Upcoming</Link>
