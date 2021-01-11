@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { getMovies } from '../actions/movies'
 import Header from '../components/Header'
 import Movies from '../components/Movies'
+import Navigation from '../components/Navigation'
 import Pagination from '../components/Pagination'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
@@ -38,6 +39,7 @@ const HomeScreen = ({ match, location }) => {
 
 	return (
 		<Fragment>
+			<Navigation />
 			<h1>HomeScreen</h1>
 			<Header trending={trending} />
 

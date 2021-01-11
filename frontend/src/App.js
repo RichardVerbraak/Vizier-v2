@@ -11,7 +11,7 @@ import GenreScreen from './screens/GenreScreen'
 const App = () => {
 	return (
 		<Router>
-			<div>
+			<div className='container'>
 				<Route path='/movie/:id' component={MovieDetailScreen} />
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/login' component={LoginScreen} />
