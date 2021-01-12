@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 //@desc		Get all genres
 //@route	GET api/genres
 //@access	Public

@@ -39,8 +39,8 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 
 app.use('/api/movies', movieRoutes)
-app.use('/api/users', userRoutes)
 app.use('/api/genres', genreRoutes)
+app.use('/api/users', userRoutes)
 
 app.listen(PORT, () => {
 	console.log(
