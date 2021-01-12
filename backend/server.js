@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import movieRoutes from './routes/movieRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import genreRoutes from './routes/genreRoutes.js'
 
 import User from './models/userModel.js'
 
@@ -39,6 +40,7 @@ app.use(express.json())
 
 app.use('/api/movies', movieRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/genres', genreRoutes)
 
 app.listen(PORT, () => {
 	console.log(

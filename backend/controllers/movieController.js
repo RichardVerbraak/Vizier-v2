@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+// Do something else with the error handling
+
 //  @desc       Get a single page with 20 popular/top rated/upcoming movies
 //  @route      GET /api/movies
 //  @access     Public
