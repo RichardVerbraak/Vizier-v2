@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getGenres } from '../actions/genres'
 
+import Search from './Search'
+
 // TODO: Make genres a hover button with links to other genres
 // 1. Fetch the genres from MovieDB API and map over them outputting a <Link> with a value of to=/genres/${genre.id} and <Link>{genre.name}<Link/>
 const Navigation = () => {
@@ -21,7 +23,7 @@ const Navigation = () => {
 			<Link to='/' className='navbar__logo'>
 				Logo
 			</Link>
-			<h3>Search component</h3>
+			<Search />
 
 			<div className='navbar__links'>
 				<Link className='navbar__links--link'>Placeholder</Link>
