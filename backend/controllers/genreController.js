@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //@desc		Get all genres
-//@route	GET api/genres
+//@route	GET /api/genres
 //@access	Public
 const getGenres = async (req, res) => {
 	try {

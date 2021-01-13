@@ -7,7 +7,7 @@ export const getGenres = () => {
 				type: 'GET_GENRES_REQUEST',
 			})
 
-			const { data } = axios.get('/api/genres')
+			const { data } = await axios.get('/api/genres')
 
 			dispatch({
 				type: 'GET_GENRES_SUCCESS',

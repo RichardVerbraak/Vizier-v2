@@ -1,4 +1,10 @@
-export const genreReducer = (state = { genres: [] }, action) => {
+const initialState = {
+	loading: false,
+	error: false,
+	genres: [],
+}
+
+export const genreReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'GET_GENRES_REQUEST':
 			return {

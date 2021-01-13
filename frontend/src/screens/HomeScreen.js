@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { getGenres } from '../actions/genres'
 
 import { getMovies } from '../actions/movies'
 import Header from '../components/Header'
@@ -36,6 +37,7 @@ const HomeScreen = ({ match, location }) => {
 
 	useEffect(() => {
 		dispatch(getMovies(page, trending))
+		dispatch(getGenres())
 	}, [dispatch, page, trending])
 
 	return (
