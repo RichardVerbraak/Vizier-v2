@@ -14,7 +14,7 @@ const Navigation = () => {
 
 	useEffect(() => {
 		dispatch(getGenres())
-	}, [dispatch, genres])
+	}, [dispatch])
 
 	return (
 		<div className='navbar'>
@@ -29,6 +29,18 @@ const Navigation = () => {
 					Sign In
 				</Link>
 			</div>
+
+			{!loading && (
+				<div>
+					{genres.map((genre) => {
+						return (
+							<Link to={`/genres/${genre.name.toLowerCase()}`}>
+								{genre.name}
+							</Link>
+						)
+					})}
+				</div>
+			)}
 		</div>
 	)
 }

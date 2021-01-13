@@ -11,7 +11,7 @@ export const getGenres = () => {
 
 			dispatch({
 				type: 'GET_GENRES_SUCCESS',
-				payload: data,
+				payload: data.genres,
 			})
 		} catch (error) {
 			dispatch({
