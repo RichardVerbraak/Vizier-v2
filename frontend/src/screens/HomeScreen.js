@@ -37,7 +37,6 @@ const HomeScreen = ({ match, location }) => {
 
 	useEffect(() => {
 		dispatch(getMovies(page, trending))
-		dispatch(getGenres())
 	}, [dispatch, page, trending])
 
 	return (
