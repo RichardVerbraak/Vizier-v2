@@ -18,7 +18,9 @@ const Navigation = () => {
 
 	return (
 		<div className='navbar'>
-			<h1 className='navbar__logo'>Logo</h1>
+			<Link to='/' className='navbar__logo'>
+				Logo
+			</Link>
 			<h3>Search component</h3>
 
 			<div className='navbar__links'>

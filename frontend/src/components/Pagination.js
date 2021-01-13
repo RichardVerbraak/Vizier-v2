@@ -6,10 +6,23 @@ const Pagination = ({ screen, trending, genre, page }) => {
 	return (
 		<div>
 			{screen === 'HomeScreen' && (
-				<Link to={`/discover/${trending}/${page + 1}`}>Page {page + 1}</Link>
+				<div>
+					{page > 1 && (
+						<Link to={`/discover/${trending}/${page - 1}`}>
+							Page {page - 1}
+						</Link>
+					)}
+					<Link to={`/discover/${trending}/${page + 1}`}>Page {page + 1}</Link>
+				</div>
 			)}
 			{screen === 'GenreScreen' && (
-				<Link to={`/genres/${genre}/${page + 1}`}>Page {page + 1}</Link>
+				<div>
+					{page > 1 && (
+						<Link to={`/genres/${genre}/${page - 1}`}>Page {page - 1}</Link>
+					)}
+
+					<Link to={`/genres/${genre}/${page + 1}`}>Page {page + 1}</Link>
+				</div>
 			)}
 		</div>
 	)
