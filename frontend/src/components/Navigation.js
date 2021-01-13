@@ -36,7 +36,7 @@ const Navigation = () => {
 				<div>
 					{genres.map((genre) => {
 						return (
-							<Link key={genre.id} to={`/genres/${genre.name.toLowerCase()}`}>
+							<Link key={genre.id} to={`/genres/${genre.name}`}>
 								{genre.name}
 							</Link>
 						)
