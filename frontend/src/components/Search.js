@@ -19,7 +19,7 @@ const Search = () => {
 				name=''
 				id=''
 				value={search}
-				onSubmit={(e) => {
+				onChange={(e) => {
 					setSearch(e.target.value)
 				}}
 			/>

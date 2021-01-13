@@ -16,7 +16,7 @@ const App = () => {
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/login' component={LoginScreen} />
 
-				<Route path='/genres/:genre/:page?' component={GenreScreen} />
+				<Route path='/genres/:genre/:page?' component={HomeScreen} />
 
 				<Route path='/discover/:trending/:page?' component={HomeScreen} />
 
