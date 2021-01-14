@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { getMovies } from '../actions/movies'
+import { getMovies, getMoviesBySearch } from '../actions/movies'
 import Header from '../components/Header'
 import Movies from '../components/Movies'
 import Navigation from '../components/Navigation'
@@ -37,6 +37,9 @@ const HomeScreen = ({ match, location }) => {
 	const { user, userLoading, userError } = userLogin
 
 	useEffect(() => {
+		if (searchQuery) {
+			dispatch(getMoviesBySearch(searchQuery, page))
+		}
 		// dispatch(getMovies(page, trending))
 	}, [dispatch, page, trending])
 

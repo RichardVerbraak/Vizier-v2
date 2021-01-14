@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // If page is left empty it will default to 1 in the movieController
-export const getMovies = (page = '', trending) => {
+export const getMovies = (page, trending) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
@@ -25,7 +25,7 @@ export const getMovies = (page = '', trending) => {
 	}
 }
 
-export const getMoviesByGenre = (page = '', genreID = 18) => {
+export const getMoviesByGenre = (page = '', genreID) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
@@ -34,6 +34,30 @@ export const getMoviesByGenre = (page = '', genreID = 18) => {
 
 			const { data } = await axios.get(
 				`/api/movies/genres/${genreID}/?page=${page}`
+			)
+
+			dispatch({
+				type: 'GET_MOVIES_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'GET_MOVIES_FAIL',
+				payload: error,
+			})
+		}
+	}
+}
+
+export const getMoviesBySearch = (query, page) => {
+	return async (dispatch) => {
+		try {
+			dispatch({
+				type: 'GET_MOVIES_REQUEST',
+			})
+
+			const { data } = await axios.get(
+				`/api/movies/search/${query}/?page=${page}`
 			)
 
 			dispatch({
