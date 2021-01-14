@@ -7,7 +7,9 @@ import Movies from '../components/Movies'
 import Navigation from '../components/Navigation'
 import Pagination from '../components/Pagination'
 
-const GenreScreen = ({ match }) => {
+// TODO: Figure out a way to not use this Screen at all and just use HomeScreen, problem is probably in the Routes that I set up
+
+const GenreScreen = ({ match, history }) => {
 	// Convert from string to number
 	const page = Number(match.params.page) || 1
 
@@ -51,7 +53,7 @@ const GenreScreen = ({ match }) => {
 
 	return (
 		<Fragment>
-			<Navigation />
+			<Navigation history={history} />
 			<h1>GenreScreen</h1>
 			<Header genre={genre} />
 
