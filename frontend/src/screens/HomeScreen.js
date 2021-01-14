@@ -35,7 +35,7 @@ const HomeScreen = ({ match, location }) => {
 	const { user, userLoading, userError } = userLogin
 
 	useEffect(() => {
-		dispatch(getMovies(page, trending))
+		// dispatch(getMovies(page, trending))
 	}, [dispatch, page, trending])
 
 	return (
