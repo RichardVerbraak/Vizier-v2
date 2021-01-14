@@ -71,7 +71,12 @@ const HomeScreen = ({ match, history }) => {
 				</div>
 			)}
 
-			<Pagination screen={'HomeScreen'} trending={trending} page={page} />
+			<Pagination
+				screen={'HomeScreen'}
+				trending={trending}
+				page={page}
+				searchQuery={searchQuery}
+			/>
 		</Fragment>
 	)
 }
