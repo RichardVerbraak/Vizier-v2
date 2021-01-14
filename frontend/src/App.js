@@ -18,6 +18,8 @@ const App = () => {
 
 				<Route path='/genres/:genre/:page?' component={GenreScreen} />
 
+				<Route path='/search/:searchQuery/:page?' component={HomeScreen} />
+
 				<Route path='/discover/:trending/:page?' component={HomeScreen} />
 
 				<Redirect from='/' to='/discover/popular' component={HomeScreen} />

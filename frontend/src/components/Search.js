@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-const Search = () => {
-	const dispatch = useDispatch()
-
+const Search = ({ history }) => {
 	const [search, setSearch] = useState('')
 
-	useEffect(() => {
+	const onSubmitHandler = () => {
 		if (search) {
-			// dispatch(searchMovie(search))
+			// history.push('/search/query')
 		}
-	}, [dispatch, search])
+	}
 
 	return (
-		<div>
+		<form onSubmit={onSubmitHandler}>
 			<input
 				type='text'
-				name=''
-				id=''
+				name='searchQuery'
+				id='searchQuery'
+				placeholder='Search movies...'
 				value={search}
 				onChange={(e) => {
 					setSearch(e.target.value)
 				}}
 			/>
-		</div>
+		</form>
 	)
 }
 
