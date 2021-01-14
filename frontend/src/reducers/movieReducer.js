@@ -24,30 +24,30 @@ export const movieListReducer = (state = { movies: [] }, action) => {
 	}
 }
 
-export const movieGenreListReducer = (state = { movies: [] }, action) => {
-	switch (action.type) {
-		case 'GET_MOVIES_BY_GENRE_REQUEST': {
-			return {
-				loading: true,
-			}
-		}
-		case 'GET_MOVIES_BY_GENRE_SUCCESS': {
-			return {
-				loading: false,
-				movies: action.payload.results,
-			}
-		}
-		case 'GET_MOVIES_BY_GENRE_FAIL': {
-			return {
-				loading: false,
-				error: action.payload,
-			}
-		}
+// export const movieGenreListReducer = (state = { movies: [] }, action) => {
+// 	switch (action.type) {
+// 		case 'GET_MOVIES_BY_GENRE_REQUEST': {
+// 			return {
+// 				loading: true,
+// 			}
+// 		}
+// 		case 'GET_MOVIES_BY_GENRE_SUCCESS': {
+// 			return {
+// 				loading: false,
+// 				movies: action.payload.results,
+// 			}
+// 		}
+// 		case 'GET_MOVIES_BY_GENRE_FAIL': {
+// 			return {
+// 				loading: false,
+// 				error: action.payload,
+// 			}
+// 		}
 
-		default:
-			return state
-	}
-}
+// 		default:
+// 			return state
+// 	}
+// }
 
 // Recommended Movies
 export const movieListRecommendedReducer = (state = { movies: [] }, action) => {

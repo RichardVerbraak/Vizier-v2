@@ -29,7 +29,7 @@ export const getMoviesByGenre = (page = '', genreID = 18) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
-				type: 'GET_MOVIES_BY_GENRE_REQUEST',
+				type: 'GET_MOVIES_REQUEST',
 			})
 
 			const { data } = await axios.get(
@@ -37,12 +37,12 @@ export const getMoviesByGenre = (page = '', genreID = 18) => {
 			)
 
 			dispatch({
-				type: 'GET_MOVIES_BY_GENRE_SUCCESS',
+				type: 'GET_MOVIES_SUCCESS',
 				payload: data,
 			})
 		} catch (error) {
 			dispatch({
-				type: 'GET_MOVIES_BY_GENRE_FAIL',
+				type: 'GET_MOVIES_FAIL',
 				payload: error,
 			})
 		}

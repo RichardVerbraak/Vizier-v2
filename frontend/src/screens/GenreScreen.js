@@ -15,11 +15,11 @@ const GenreScreen = ({ match }) => {
 
 	const dispatch = useDispatch()
 
-	const movieGenre = useSelector((state) => {
-		return state.movieGenre
+	const movieList = useSelector((state) => {
+		return state.movieList
 	})
 
-	const { movies, loading, error } = movieGenre
+	const { movies, loading, error } = movieList
 
 	const userLogin = useSelector((state) => {
 		return state.userLogin
