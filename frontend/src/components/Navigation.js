@@ -5,8 +5,6 @@ import { getGenres } from '../actions/genres'
 
 import Search from './Search'
 
-// TODO: Make genres a hover button with links to other genres
-// 1. Fetch the genres from MovieDB API and map over them outputting a <Link> with a value of to=/genres/${genre.id} and <Link>{genre.name}<Link/>
 const Navigation = () => {
 	const dispatch = useDispatch()
 
@@ -34,7 +32,7 @@ const Navigation = () => {
 				</Link>
 			</div>
 
-			{!loading && (
+			{!loading && !error && (
 				<div>
 					{genres.map((genre) => {
 						return (

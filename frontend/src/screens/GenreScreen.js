@@ -33,9 +33,9 @@ const GenreScreen = ({ match }) => {
 
 	const { genres, genreLoading, genreError } = genreList
 
+	// When genres get loaded into Redux, find the name of that genre that also matches the genre in the URL => return the ID
+	// then search by that genre of movies in the backend side (the call to the API needs the ID of the genre)
 	useEffect(() => {
-		// When genres get loaded into Redux, find the name of that genre that also matches the genre in the URL => return the ID of that one
-		// to search by that genre of movies in the backend side (the call to the API needs the ID of the genre to look for them)
 		if (genres) {
 			const genreID = genres.find((x) => {
 				return x.id && x.name.toLowerCase() === genre.toLowerCase()

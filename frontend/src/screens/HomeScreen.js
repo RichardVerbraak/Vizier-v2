@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getGenres } from '../actions/genres'
 
-import { getMovies, getMoviesByGenre } from '../actions/movies'
+import { getMovies } from '../actions/movies'
 import Header from '../components/Header'
 import Movies from '../components/Movies'
 import Navigation from '../components/Navigation'
@@ -21,8 +20,6 @@ const HomeScreen = ({ match, location }) => {
 
 	const trending = match.params.trending
 
-	const genre = match.params.genre
-
 	const dispatch = useDispatch()
 
 	const movieList = useSelector((state) => {
@@ -37,27 +34,9 @@ const HomeScreen = ({ match, location }) => {
 
 	const { user, userLoading, userError } = userLogin
 
-	const genreList = useSelector((state) => {
-		return state.genreList
-	})
-
-	const { genres, genreLoading, genreError } = genreList
-
 	useEffect(() => {
-		if (trending) {
-			dispatch(getMovies(page, trending))
-		} else if (genres) {
-			const genreID = genres.find((x) => {
-				return x.id && x.name.toLowerCase() === genre.toLowerCase()
-			})
-
-			if (genreID) {
-				dispatch(getMoviesByGenre(page, genreID.id))
-			} else {
-				// Insert message with 'something went wrong'
-			}
-		}
-	}, [dispatch, page, trending, genres, genre])
+		dispatch(getMovies(page, trending))
+	}, [dispatch, page, trending])
 
 	return (
 		<Fragment>

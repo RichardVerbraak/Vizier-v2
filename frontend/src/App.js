@@ -16,13 +16,11 @@ const App = () => {
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/login' component={LoginScreen} />
 
-				<Route path='/genres/:genre/:page?' component={HomeScreen} />
+				<Route path='/genres/:genre/:page?' component={GenreScreen} />
 
 				<Route path='/discover/:trending/:page?' component={HomeScreen} />
 
-				<Route path='/' component={HomeScreen} exact>
-					<Redirect to='/discover/popular' />
-				</Route>
+				<Redirect from='/' to='/discover/popular' component={HomeScreen} />
 			</div>
 		</Router>
 	)

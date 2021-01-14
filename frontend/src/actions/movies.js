@@ -37,7 +37,7 @@ export const getMoviesByGenre = (page = '', genreID = 18) => {
 			)
 
 			dispatch({
-				type: 'GET_MOVIES_SUCCESS',
+				type: 'GET_MOVIES_BY_GENRE_SUCCESS',
 				payload: data,
 			})
 		} catch (error) {
