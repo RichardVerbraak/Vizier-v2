@@ -14,7 +14,7 @@ import Pagination from '../components/Pagination'
 // TODO: Make seperate components for movies and header (user info + sign in button etc)
 // TODO: Make components for the links
 
-const HomeScreen = ({ match, location }) => {
+const HomeScreen = ({ match, history }) => {
 	// Convert from string to number
 	const page = Number(match.params.page) || 1
 
@@ -40,12 +40,15 @@ const HomeScreen = ({ match, location }) => {
 		if (searchQuery) {
 			dispatch(getMoviesBySearch(searchQuery, page))
 		}
-		// dispatch(getMovies(page, trending))
-	}, [dispatch, page, trending])
+
+		if (trending) {
+			dispatch(getMovies(page, trending))
+		}
+	}, [dispatch, page, trending, searchQuery])
 
 	return (
 		<Fragment>
-			<Navigation />
+			<Navigation history={history} />
 			<h1>HomeScreen</h1>
 			<Header trending={trending} />
 

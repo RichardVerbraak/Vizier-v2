@@ -3,9 +3,15 @@ import React, { useState } from 'react'
 const Search = ({ history }) => {
 	const [search, setSearch] = useState('')
 
-	const onSubmitHandler = () => {
+	const onSubmitHandler = (e) => {
+		e.preventDefault()
+
+		console.log(e.target.value)
+
 		if (search) {
-			// history.push('/search/query')
+			history.push(`/search/${search}`)
+		} else {
+			history.push('/')
 		}
 	}
 
@@ -21,6 +27,7 @@ const Search = ({ history }) => {
 					setSearch(e.target.value)
 				}}
 			/>
+			<button type='submit'>Search</button>
 		</form>
 	)
 }

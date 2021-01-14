@@ -5,7 +5,9 @@ import { getGenres } from '../actions/genres'
 
 import Search from './Search'
 
-const Navigation = () => {
+// Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
+// in order for it to have access to the history prop
+const Navigation = ({ history }) => {
 	const dispatch = useDispatch()
 
 	const genreList = useSelector((state) => state.genreList)
@@ -21,7 +23,8 @@ const Navigation = () => {
 			<Link to='/' className='navbar__logo'>
 				Logo
 			</Link>
-			<Search />
+
+			<Search history={history} />
 
 			<div className='navbar__links'>
 				<Link to='/' className='navbar__links--link'>
