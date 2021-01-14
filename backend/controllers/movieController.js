@@ -40,6 +40,25 @@ const getMoviesByGenre = async (req, res) => {
 	}
 }
 
+//  @desc       Get movies based on search query
+//  @route      GET /api/movies/search/:query
+//  @access     Public
+const getMoviesBySearch = async (req, res) => {
+	try {
+		const page = Number(req.query.page) || 1
+		const query = req.params.query
+
+		const { data } = await axios.get(
+			`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`
+		)
+
+		res.send(data)
+	} catch (error) {
+		res.status(500)
+		res.json({ message: 'Server error' })
+	}
+}
+
 //  @desc       Get recommended movies based on ID
 //  @route      GET /api/movies/:id/recommended (?)
 //  @access     Public
@@ -76,4 +95,10 @@ const getMovieDetails = async (req, res) => {
 	}
 }
 
-export { getMovies, getMoviesByGenre, getRecommendedMovies, getMovieDetails }
+export {
+	getMovies,
+	getMoviesByGenre,
+	getMoviesBySearch,
+	getRecommendedMovies,
+	getMovieDetails,
+}

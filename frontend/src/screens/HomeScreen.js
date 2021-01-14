@@ -20,6 +20,8 @@ const HomeScreen = ({ match, location }) => {
 
 	const trending = match.params.trending
 
+	const searchQuery = match.params.query || ''
+
 	const dispatch = useDispatch()
 
 	const movieList = useSelector((state) => {
