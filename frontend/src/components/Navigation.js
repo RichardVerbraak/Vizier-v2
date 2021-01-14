@@ -24,9 +24,15 @@ const Navigation = () => {
 			<Search />
 
 			<div className='navbar__links'>
-				<Link className='navbar__links--link'>Placeholder</Link>
-				<Link className='navbar__links--link'>Genres</Link>
-				<Link className='navbar__links--link'>Your List</Link>
+				<Link to='/' className='navbar__links--link'>
+					Placeholder
+				</Link>
+				<Link to='/' className='navbar__links--link'>
+					Genres
+				</Link>
+				<Link to='/' className='navbar__links--link'>
+					Your List
+				</Link>
 				<Link to='/login' className='navbar__links--link'>
 					Sign In
 				</Link>
