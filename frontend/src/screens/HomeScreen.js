@@ -56,9 +56,6 @@ const HomeScreen = ({ match, history }) => {
 			<Link to='/discover/top_rated'>Top Rated</Link>
 			<Link to='/discover/upcoming'>Upcoming</Link>
 
-			<h3>Genres</h3>
-			<Link to='/genres/action'>Action</Link>
-
 			{user && <p>{user.name}</p>}
 
 			{loading ? (

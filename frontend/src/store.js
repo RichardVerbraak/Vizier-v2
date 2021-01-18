@@ -23,8 +23,17 @@ const reducers = combineReducers({
 	userLogin: userLoginReducer,
 })
 
+const userFromLocalStorage = localStorage.getItem('user')
+	? JSON.parse(localStorage.getItem('user'))
+	: {}
+
+const initialState = {
+	user: userFromLocalStorage,
+}
+
 const store = createStore(
 	reducers,
+	initialState,
 	composeWithDevTools(applyMiddleware(...middleware))
 )
 
