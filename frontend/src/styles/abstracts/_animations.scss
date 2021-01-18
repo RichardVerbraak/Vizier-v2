@@ -1,0 +1,23 @@
+@keyframes leftToRight {
+	0% {
+		transform: translateX(5rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes rightToLeft {
+	0% {
+		transform: translateX(-5rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}

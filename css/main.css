@@ -1,4 +1,55 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Quicksand:300,400,500,600,700&display=swap");
+@-webkit-keyframes leftToRight {
+  0% {
+    -webkit-transform: translateX(5rem);
+            transform: translateX(5rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes leftToRight {
+  0% {
+    -webkit-transform: translateX(5rem);
+            transform: translateX(5rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rightToLeft {
+  0% {
+    -webkit-transform: translateX(-5rem);
+            transform: translateX(-5rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    -webkit-transform: translateX(-5rem);
+            transform: translateX(-5rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -143,23 +194,29 @@ body {
   width: 10rem;
   height: 1px;
   background-color: #d72525;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .logo::before {
   top: -40%;
   left: -20%;
+  -webkit-animation: 1.4s rightToLeft;
+          animation: 1.4s rightToLeft;
 }
 
 .logo::after {
   bottom: -40%;
   right: -20%;
+  -webkit-animation: 1.4s leftToRight;
+          animation: 1.4s leftToRight;
 }
 
-.logo-login {
-  font-size: 3.6rem;
+.logo__login {
+  font-size: 4rem;
 }
 
-.logo-login::before, .logo-login::after {
+.logo__login::before, .logo__login::after {
   position: absolute;
   content: '';
   display: inline-block;

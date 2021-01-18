@@ -17,24 +17,28 @@
 		width: 10rem;
 		height: 1px;
 		background-color: $color-primary;
+
+		transition: all 0.2s ease;
 	}
 
 	&::before {
 		top: -40%;
 		left: -20%;
+		animation: 1.4s rightToLeft;
 	}
 
 	&::after {
 		bottom: -40%;
 		right: -20%;
+		animation: 1.4s leftToRight;
 	}
 
 	&-navigation {
 	}
 
 	// Increased font size and line width
-	&-login {
-		font-size: 3.6rem;
+	&__login {
+		font-size: 4rem;
 
 		&::before,
 		&::after {

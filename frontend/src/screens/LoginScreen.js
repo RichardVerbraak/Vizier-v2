@@ -30,7 +30,7 @@ const LoginScreen = ({ history }) => {
 	return (
 		<div className='login'>
 			<div className='logo__box'>
-				<div className='logo logo-login'>Vizier</div>
+				<div className='logo logo__login'>Vizier</div>
 			</div>
 
 			{loading && <h1>Loading...</h1>}
