@@ -1,7 +1,60 @@
 .login {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 	width: 100vw;
+
+	&__form {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		&--input {
+			border: 1px solid #d72525;
+			background: #ffffff;
+			padding: 2.5rem 3.5rem;
+			width: 55rem;
+
+			color: #000;
+
+			line-height: 1.6rem;
+			font-size: 1.3rem;
+			font-family: 'Quicksand';
+			font-weight: bold;
+			letter-spacing: $letter-spacing-small;
+
+			&::placeholder {
+				color: #000;
+				letter-spacing: $letter-spacing-default;
+				text-transform: uppercase;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 4rem;
+			}
+		}
+
+		&--btn {
+			width: 16rem;
+			margin-bottom: 5rem;
+		}
+	}
+
+	&__text {
+		color: #000;
+		text-transform: uppercase;
+		font-size: 1.3rem;
+		letter-spacing: 0.105em;
+
+		&--signup {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}
+}
+
+.logo__box {
+	margin-bottom: 10rem;
 }

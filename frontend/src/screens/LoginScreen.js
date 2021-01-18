@@ -37,40 +37,34 @@ const LoginScreen = ({ history }) => {
 			{error && <h1>{error}</h1>}
 
 			<form className='login__form' onSubmit={submitHandler}>
-				<label className='login__form--label'>
-					Email:
-					<input
-						className='login__form--input'
-						type='text'
-						placeholder='Email'
-						value={email}
-						onChange={(e) => {
-							setEmail(e.target.value)
-						}}
-					></input>
-				</label>
+				<input
+					className='login__form--input'
+					type='text'
+					placeholder='Email'
+					value={email}
+					onChange={(e) => {
+						setEmail(e.target.value)
+					}}
+				></input>
 
-				<label className='login__form--input'>
-					Password:
-					<input
-						className='login__form--input'
-						type='password'
-						placeholder='Password'
-						value={password}
-						onChange={(e) => {
-							setPassword(e.target.value)
-						}}
-					></input>
-				</label>
+				<input
+					className='login__form--input'
+					type='password'
+					placeholder='Password'
+					value={password}
+					onChange={(e) => {
+						setPassword(e.target.value)
+					}}
+				></input>
 
-				<button className='btn btn__login' type='submit'>
+				<button className='btn login__form--btn' type='submit'>
 					Login
 				</button>
 			</form>
 
 			<p className='login__text'>
 				Don't have an account yet?{' '}
-				<Link className='login__signup' to='/register'>
+				<Link className='login__text--signup' to='/register'>
 					Sign up here
 				</Link>
 			</p>
