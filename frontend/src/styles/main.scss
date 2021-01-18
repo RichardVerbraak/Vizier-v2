@@ -1,15 +1,15 @@
 // GENERAL
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Quicksand:300,400,500,600,700&display=swap');
-@import './abstracts/variables.scss';
+@import './abstracts/variables';
 
 // BASE
-@import './base/base.scss';
-@import './base/typography.scss';
+@import './base/base';
+@import './base/typography';
 
 // SCREENS
-@import './screens/login.scss';
+@import './screens/login';
 
 // COMPONENTS
-@import './components/logo.scss';
-@import './components/button.scss';
-@import './components/navigation.scss';
+@import './components/logo';
+@import './components/button';
+@import './components/navigation';

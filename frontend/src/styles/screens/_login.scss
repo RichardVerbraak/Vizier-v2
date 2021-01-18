@@ -17,7 +17,7 @@
 			padding: 2.5rem 3.5rem;
 			width: 55rem;
 
-			color: #000;
+			color: $color-black;
 
 			line-height: 1.6rem;
 			font-size: 1.3rem;
@@ -26,13 +26,13 @@
 			letter-spacing: $letter-spacing-small;
 
 			&::placeholder {
-				color: #000;
+				color: $color-black;
 				letter-spacing: $letter-spacing-default;
 				text-transform: uppercase;
 			}
 
 			&:not(:last-child) {
-				margin-bottom: 4rem;
+				margin-bottom: 5rem;
 			}
 		}
 
@@ -43,7 +43,7 @@
 	}
 
 	&__text {
-		color: #000;
+		color: $color-black;
 		text-transform: uppercase;
 		font-size: 1.3rem;
 		letter-spacing: 0.105em;
@@ -51,6 +51,7 @@
 		&--signup {
 			font-weight: bold;
 			text-decoration: underline;
+			color: $color-black;
 		}
 	}
 }

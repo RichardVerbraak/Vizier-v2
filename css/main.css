@@ -23,13 +23,6 @@ body {
   color: #000;
 }
 
-a,
-a:link,
-a:visited,
-a:focus {
-  text-decoration: none;
-}
-
 ::-moz-selection {
   background-color: #d72525;
   color: #fff;
@@ -109,7 +102,7 @@ a:focus {
 }
 
 .login__form--input:not(:last-child) {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .login__form--btn {
@@ -127,6 +120,7 @@ a:focus {
 .login__text--signup {
   font-weight: bold;
   text-decoration: underline;
+  color: #000;
 }
 
 .logo__box {
@@ -134,7 +128,7 @@ a:focus {
 }
 
 .logo {
-  font-size: 2.4rem;
+  font-size: 2.7rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.32em;
@@ -231,5 +225,9 @@ button {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 8rem;
+}
+
+.navbar__links--link {
+  text-decoration: none;
 }
 /*# sourceMappingURL=main.css.map */

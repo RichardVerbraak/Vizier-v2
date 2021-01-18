@@ -10,4 +10,8 @@
           align-items: center;
   margin-bottom: 8rem;
 }
+
+.navbar__links--link {
+  text-decoration: none;
+}
 /*# sourceMappingURL=navigation.css.map */
