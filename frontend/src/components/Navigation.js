@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getGenres } from '../actions/genres'
+import { logoutUser } from '../actions/users'
 
 import Search from './Search'
 
@@ -14,9 +15,17 @@ const Navigation = ({ history }) => {
 
 	const { loading, error, genres } = genreList
 
+	const userLogin = useSelector((state) => state.userLogin)
+
+	const { user, userLoading, userError } = userLogin
+
+	const logout = () => {
+		dispatch(logoutUser())
+	}
+
 	useEffect(() => {
 		dispatch(getGenres())
-	}, [dispatch])
+	}, [dispatch, user])
 
 	return (
 		<div className='navbar'>
@@ -36,9 +45,16 @@ const Navigation = ({ history }) => {
 				<Link to='/' className='navbar__links--link'>
 					Your List
 				</Link>
-				<Link to='/login' className='navbar__links--link'>
-					Sign In
-				</Link>
+
+				{user ? (
+					<Link to='/' className='navbar__links--link' onClick={logout}>
+						Logout
+					</Link>
+				) : (
+					<Link to='/login' className='navbar__links--link'>
+						Sign In
+					</Link>
+				)}
 			</div>
 
 			{!loading && !error && (

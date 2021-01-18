@@ -59,3 +59,13 @@ export const loginUser = (user) => {
 		}
 	}
 }
+
+export const logoutUser = () => {
+	return async (dispatch) => {
+		dispatch({
+			type: 'USER_LOGOUT',
+		})
+
+		localStorage.removeItem('user')
+	}
+}
