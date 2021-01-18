@@ -36,6 +36,8 @@ const HomeScreen = ({ match, history }) => {
 
 	const { user, userLoading, userError } = userLogin
 
+	console.log(user)
+
 	useEffect(() => {
 		if (searchQuery) {
 			dispatch(getMoviesBySearch(searchQuery, page))

@@ -28,7 +28,7 @@ const userFromLocalStorage = localStorage.getItem('user')
 	: {}
 
 const initialState = {
-	userLogin: { userinfo: userFromLocalStorage },
+	userLogin: { user: userFromLocalStorage },
 }
 
 const store = createStore(
