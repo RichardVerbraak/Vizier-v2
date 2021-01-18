@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { loginUser } from '../actions/users'
 
 const LoginScreen = ({ history }) => {
@@ -19,6 +20,7 @@ const LoginScreen = ({ history }) => {
 
 	const { loading, error, user } = userLogin
 
+	// Redirect to home if logged in
 	useEffect(() => {
 		if (user) {
 			history.push('/')
@@ -26,16 +28,21 @@ const LoginScreen = ({ history }) => {
 	}, [history, dispatch, user])
 
 	return (
-		<div>
-			<h1>Logo</h1>
+		<div className='login'>
+			<div className='logo__box'>
+				<div className='logo logo-login'>Vizier</div>
+			</div>
+
 			{loading && <h1>Loading...</h1>}
 			{error && <h1>{error}</h1>}
-			<form onSubmit={submitHandler}>
-				<label>
+
+			<form className='login__form' onSubmit={submitHandler}>
+				<label className='login__form--label'>
 					Email:
 					<input
+						className='login__form--input'
 						type='text'
-						placeholder='Enter email'
+						placeholder='Email'
 						value={email}
 						onChange={(e) => {
 							setEmail(e.target.value)
@@ -43,11 +50,12 @@ const LoginScreen = ({ history }) => {
 					></input>
 				</label>
 
-				<label>
+				<label className='login__form--input'>
 					Password:
 					<input
+						className='login__form--input'
 						type='password'
-						placeholder='Enter password'
+						placeholder='Password'
 						value={password}
 						onChange={(e) => {
 							setPassword(e.target.value)
@@ -55,8 +63,17 @@ const LoginScreen = ({ history }) => {
 					></input>
 				</label>
 
-				<button type='submit'>Register</button>
+				<button className='btn btn__login' type='submit'>
+					Login
+				</button>
 			</form>
+
+			<p className='login__text'>
+				Don't have an account yet?{' '}
+				<Link className='login__signup' to='/register'>
+					Sign up here
+				</Link>
+			</p>
 		</div>
 	)
 }

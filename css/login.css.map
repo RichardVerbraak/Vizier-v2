@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACN,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;CACZ",
+    "sources": [
+        "../frontend/src/styles/screens/login.scss"
+    ],
+    "names": [],
+    "file": "login.css"
+}

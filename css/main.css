@@ -40,6 +40,18 @@ a:focus {
   color: #fff;
 }
 
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,5 +62,47 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 8rem;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: #d72525;
+  position: relative;
+}
+
+.logo::before, .logo::after {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  width: 10rem;
+  height: 1px;
+  background-color: #d72525;
+}
+
+.logo::before {
+  top: -40%;
+  left: -20%;
+}
+
+.logo::after {
+  bottom: -40%;
+  right: -20%;
+}
+
+.logo-login {
+  font-size: 3.6rem;
+}
+
+.logo-login::before, .logo-login::after {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  width: 15rem;
+  height: 1px;
+  background-color: #d72525;
 }
 /*# sourceMappingURL=main.css.map */

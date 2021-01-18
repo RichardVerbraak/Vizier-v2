@@ -8,6 +8,7 @@ import Search from './Search'
 
 // Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
 // in order for it to have access to the history prop
+// TODO: Fix logout button still showing logout when there is no user
 const Navigation = ({ history }) => {
 	const dispatch = useDispatch()
 
