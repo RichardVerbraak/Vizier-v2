@@ -3,6 +3,8 @@ import bcrypt from 'bcrypt'
 
 // Use error middleware?
 
+//TODO: Fix error handling
+
 // @desc        Register the user
 // @route       POST /api/users
 // @access      Public
@@ -54,11 +56,10 @@ const loginUser = async (req, res) => {
 			})
 		} else {
 			// Move on to catch block below, not sure how to handle this more cleanly
-			throw new Error()
+			throw new Error('Invalid email or password')
 		}
 	} catch (error) {
-		res.status(404)
-		throw new Error('Invalid email or password')
+		res.status(404).json({ error: error })
 	}
 }
 

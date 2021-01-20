@@ -13,7 +13,7 @@ import GenreScreen from './screens/GenreScreen'
 const App = () => {
 	return (
 		<Router>
-			<div className='container'>
+			<div>
 				<Route path='/movie/:id' component={MovieDetailScreen} />
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/login' component={LoginScreen} />

@@ -13,3 +13,8 @@ html {
 body {
 	background-color: $color-grey-white;
 }
+
+.container {
+	max-width: 144rem;
+	margin: 0 auto;
+}

@@ -5,6 +5,11 @@ body {
 	color: #000;
 }
 
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
 ::selection {
 	background-color: $color-primary;
 	color: #fff;

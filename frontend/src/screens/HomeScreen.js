@@ -49,31 +49,33 @@ const HomeScreen = ({ match, history }) => {
 	return (
 		<Fragment>
 			<Navigation history={history} />
-			<h1>HomeScreen</h1>
-			<Header trending={trending} />
+			<div className='container'>
+				<h1>HomeScreen</h1>
+				<Header trending={trending} />
 
-			<Link to='/discover/popular'>Popular</Link>
-			<Link to='/discover/top_rated'>Top Rated</Link>
-			<Link to='/discover/upcoming'>Upcoming</Link>
+				<Link to='/discover/popular'>Popular</Link>
+				<Link to='/discover/top_rated'>Top Rated</Link>
+				<Link to='/discover/upcoming'>Upcoming</Link>
 
-			{user && <p>{user.name}</p>}
+				{user && <p>{user.name}</p>}
 
-			{loading ? (
-				<h1>Loading...</h1>
-			) : error ? (
-				<h1>{error}</h1>
-			) : (
-				<div>
-					<Movies movies={movies} />
-				</div>
-			)}
+				{loading ? (
+					<h1>Loading...</h1>
+				) : error ? (
+					<h1>{error}</h1>
+				) : (
+					<div>
+						<Movies movies={movies} />
+					</div>
+				)}
 
-			<Pagination
-				screen={'HomeScreen'}
-				trending={trending}
-				page={page}
-				searchQuery={searchQuery}
-			/>
+				<Pagination
+					screen={'HomeScreen'}
+					trending={trending}
+					page={page}
+					searchQuery={searchQuery}
+				/>
+			</div>
 		</Fragment>
 	)
 }

@@ -9,6 +9,7 @@ import Search from './Search'
 // Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
 // in order for it to have access to the history prop
 // TODO: Fix logout button still showing logout when there is no user
+// IDEA: Load genres in HomeScreen and pass down to navigation and show a loader for homepage untill genre fetching is done
 const Navigation = ({ history }) => {
 	const dispatch = useDispatch()
 
@@ -30,45 +31,52 @@ const Navigation = ({ history }) => {
 
 	return (
 		<div className='navbar'>
-			<Link to='/' className='navbar__logo'>
-				Logo
-			</Link>
-
-			<Search history={history} />
-
-			<div className='navbar__links'>
-				<Link to='/' className='navbar__links--link'>
-					Placeholder
-				</Link>
-				<Link to='/' className='navbar__links--link'>
-					Genres
-				</Link>
-				<Link to='/' className='navbar__links--link'>
-					Your List
+			<div className='navbar__container container'>
+				<Link to='/' className='logo logo__navbar'>
+					Vizier
 				</Link>
 
-				{user ? (
-					<Link to='/' className='navbar__links--link' onClick={logout}>
-						Logout
+				<Search history={history} />
+
+				<div className='navbar__links'>
+					<Link to='/' className='navbar__links--link'>
+						Movies
 					</Link>
-				) : (
-					<Link to='/login' className='navbar__links--link'>
-						Sign In
-					</Link>
-				)}
-			</div>
 
-			{!loading && !error && (
-				<div>
-					{genres.map((genre) => {
-						return (
-							<Link key={genre.id} to={`/genres/${genre.name}`}>
-								{genre.name}
+					<div>
+						{!loading && !error && (
+							<ul className='navbar__genres'>
+								{genres.map((genre) => {
+									return (
+										<li className='navbar__genres--item'>
+											<Link key={genre.id} to={`/genres/${genre.name}`}>
+												{genre.name}
+											</Link>
+										</li>
+									)
+								})}
+							</ul>
+						)}
+					</div>
+
+					<Link to='/' className='navbar__links--link'>
+						Watchlist
+					</Link>
+
+					{user ? (
+						<div>
+							<Link to='/' className='navbar__links--link' onClick={logout}>
+								Logout
 							</Link>
-						)
-					})}
+							<p>{user.name}</p>
+						</div>
+					) : (
+						<Link to='/login' className='navbar__links--link'>
+							Sign In
+						</Link>
+					)}
 				</div>
-			)}
+			</div>
 		</div>
 	)
 }

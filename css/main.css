@@ -67,11 +67,21 @@ body {
   background-color: #f7f7f7;
 }
 
+.container {
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
 body {
   font-family: "Quicksand", "sans-serif";
   font-weight: 400;
   font-size: 1.8rem;
   color: #000;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
 ::-moz-selection {
@@ -212,6 +222,10 @@ body {
           animation: 1.4s leftToRight;
 }
 
+.logo__navbar {
+  text-decoration: none;
+}
+
 .logo__login {
   font-size: 4rem;
 }
@@ -272,6 +286,10 @@ button {
 }
 
 .navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,10 +299,13 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 8rem;
 }
 
 .navbar__links--link {
   text-decoration: none;
+}
+
+.navbar__genres {
+  list-style-type: none;
 }
 /*# sourceMappingURL=main.css.map */

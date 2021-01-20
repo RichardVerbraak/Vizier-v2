@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { loginUser } from '../actions/users'
 
+// IDEA: Maybe add a nice loader while loading in the movies the user has on his watchlist like: Welcome John...
+
 const LoginScreen = ({ history }) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -34,7 +36,6 @@ const LoginScreen = ({ history }) => {
 			</div>
 
 			{loading && <h1>Loading...</h1>}
-			{error && <h1>{error}</h1>}
 
 			<form className='login__form' onSubmit={submitHandler}>
 				<input

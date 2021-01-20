@@ -48,10 +48,9 @@ export const loginUser = (user) => {
 				payload: data,
 			})
 
-			console.log(data)
-
 			localStorage.setItem('user', JSON.stringify(data))
 		} catch (error) {
+			console.log(error)
 			dispatch({
 				type: 'USER_LOGIN_FAIL',
 				payload: error,

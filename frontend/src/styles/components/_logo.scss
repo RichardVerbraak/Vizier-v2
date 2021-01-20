@@ -6,9 +6,6 @@
 	color: $color-primary;
 	position: relative;
 
-	&__box {
-	}
-
 	&::before,
 	&::after {
 		position: absolute;
@@ -33,7 +30,8 @@
 		animation: 1.4s leftToRight;
 	}
 
-	&-navigation {
+	&__navbar {
+		text-decoration: none;
 	}
 
 	// Increased font size and line width
