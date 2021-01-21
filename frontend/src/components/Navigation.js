@@ -54,11 +54,13 @@ const Navigation = ({ history }) => {
 								<ul className='navbar__dropdown'>
 									{genres.map((genre) => {
 										return (
-											<li className='navbar__dropdown--item'>
-												<Link key={genre.id} to={`/genres/${genre.name}`}>
-													{genre.name}
-												</Link>
-											</li>
+											<Link
+												className='navbar__dropdown--item'
+												key={genre.id}
+												to={`/genres/${genre.name}`}
+											>
+												{genre.name}
+											</Link>
 										)
 									})}
 								</ul>

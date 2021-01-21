@@ -168,7 +168,7 @@ a {
 
 .login__form--btn {
   width: 16rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3.5rem;
 }
 
 .login__text {
@@ -426,11 +426,21 @@ button {
 
 .navbar__dropdown {
   position: absolute;
-  top: 2.5rem;
-  left: 0;
+  top: 5.5rem;
+  left: -1.5rem;
+  background-color: #2d2626;
   display: none;
   opacity: 0;
-  background-color: black;
   list-style-type: none;
+}
+
+.navbar__dropdown--item {
+  display: block;
+  font-size: 1.2rem;
+  padding: 1.5rem;
+}
+
+.navbar__dropdown--item:hover {
+  background-color: #d72525;
 }
 /*# sourceMappingURL=main.css.map */
