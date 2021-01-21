@@ -5,6 +5,7 @@
 	height: 11.3rem;
 
 	margin-bottom: 8rem;
+	box-shadow: $box-shadow;
 
 	background-color: rgba($color: $color-black, $alpha: 0.8);
 
@@ -22,7 +23,35 @@
 		margin-left: auto;
 		flex: 0 0 30%;
 
+		color: $color-grey-white;
+		font-weight: 300;
+		font-size: 1.6rem;
+		align-items: center;
+
+		&--box {
+			display: flex;
+			justify-content: center;
+			cursor: pointer;
+			border-top: solid 1px $color-primary;
+			border-bottom: solid 1px $color-primary;
+			width: 10rem;
+			margin: 0 2rem;
+			text-decoration: none;
+			transition: all 0.2s;
+			backface-visibility: hidden;
+
+			&:hover {
+				background-color: $color-primary;
+				// transform: scale(1.1);
+			}
+		}
+
 		&--link {
+			color: #f7f7f7;
+			letter-spacing: $letter-spacing-small;
+			text-transform: uppercase;
+			padding: 1.7rem 0.8rem;
+
 			text-decoration: none;
 		}
 
