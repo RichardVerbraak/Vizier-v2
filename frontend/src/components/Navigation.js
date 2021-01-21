@@ -31,7 +31,7 @@ const Navigation = ({ history }) => {
 
 	return (
 		<div className='navbar'>
-			<div className='navbar__container container'>
+			<div className='navbar__container'>
 				<Link to='/' className='logo logo__navbar'>
 					Vizier
 				</Link>

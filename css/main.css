@@ -223,6 +223,7 @@ a {
 }
 
 .logo__navbar {
+  margin-right: 18rem;
   text-decoration: none;
 }
 
@@ -243,6 +244,8 @@ button {
   border: none;
   background-color: #f7f7f7;
   outline: none;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .btn {
@@ -258,7 +261,6 @@ button {
   font-size: 1.3rem;
   background-color: #d72525;
   border-radius: 5rem;
-  cursor: pointer;
   border: none;
   color: #fff;
   font-family: "Quicksand", "sans-serif";
@@ -285,8 +287,58 @@ button {
           transform: scale(1.05);
 }
 
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  position: relative;
+}
+
+.search__input {
+  font-family: "Quicksand", "sans-serif";
+  font-weight: bold;
+  font-size: 1.3rem;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  background-color: #f7f7f7;
+  border-radius: 1.2rem;
+  padding: 1rem 2rem;
+  border: none;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.search__input:focus, .search__input:active {
+  outline: none;
+}
+
+.search__submit {
+  position: absolute;
+  right: 2rem;
+}
+
 .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 11.3rem;
+  margin-bottom: 8rem;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -300,6 +352,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 144rem;
 }
 
 .navbar__links {
@@ -312,6 +365,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: auto;
 }
 
 .navbar__links--link {

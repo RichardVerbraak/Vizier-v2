@@ -11,13 +11,15 @@ const Search = ({ history }) => {
 		if (search) {
 			history.push(`/search/${search}`)
 		} else {
+			// Message that search doesnt have any input
 			history.push('/')
 		}
 	}
 
 	return (
-		<form onSubmit={onSubmitHandler}>
+		<form onSubmit={onSubmitHandler} className='search'>
 			<input
+				className='search__input'
 				type='text'
 				name='searchQuery'
 				id='searchQuery'
@@ -27,7 +29,9 @@ const Search = ({ history }) => {
 					setSearch(e.target.value)
 				}}
 			/>
-			<button type='submit'>Search</button>
+			<button type='submit' className='search__submit'>
+				Search
+			</button>
 		</form>
 	)
 }

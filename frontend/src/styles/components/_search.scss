@@ -1,0 +1,37 @@
+.search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0 0 30%;
+
+	position: relative;
+
+	&__input {
+		font-family: $font-primary;
+		font-weight: bold;
+		font-size: 1.3rem;
+
+		width: 100%;
+
+		// maybe no uppercase?
+		text-transform: uppercase;
+
+		letter-spacing: $letter-spacing-default;
+		background-color: $color-grey-white;
+		border-radius: 1.2rem;
+
+		padding: 1rem 2rem;
+		border: none;
+		transition: all 0.4s;
+
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+
+	&__submit {
+		position: absolute;
+		right: 2rem;
+	}
+}
