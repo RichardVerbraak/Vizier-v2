@@ -17,12 +17,18 @@
 
 	&__links {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		margin-left: auto;
+		flex: 0 0 30%;
 
 		&--link {
 			text-decoration: none;
+		}
+
+		&--profile {
+			padding: 1.8rem 3rem;
+			margin-left: auto;
 		}
 	}
 

@@ -63,20 +63,24 @@ const Navigation = ({ history }) => {
 					<Link to='/' className='navbar__links--link'>
 						Watchlist
 					</Link>
-
-					{user ? (
-						<div>
-							<Link to='/' className='navbar__links--link' onClick={logout}>
-								Logout
-							</Link>
-							<p>{user.name}</p>
-						</div>
-					) : (
-						<Link to='/login' className='navbar__links--link'>
-							Sign In
-						</Link>
-					)}
 				</div>
+
+				{user ? (
+					<div>
+						<Link
+							to='/'
+							className='navbar__links--profile btn'
+							onClick={logout}
+						>
+							Logout
+						</Link>
+						<p>{user.name}</p>
+					</div>
+				) : (
+					<Link to='/login' className='navbar__links--profile btn'>
+						Sign In
+					</Link>
+				)}
 			</div>
 		</div>
 	)

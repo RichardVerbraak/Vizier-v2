@@ -135,30 +135,30 @@ a {
   font-size: 1.3rem;
   font-family: 'Quicksand';
   font-weight: bold;
-  letter-spacing: 0.125em;
+  letter-spacing: 0.2rem;
 }
 
 .login__form--input::-webkit-input-placeholder {
   color: #000;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 
 .login__form--input:-ms-input-placeholder {
   color: #000;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 
 .login__form--input::-ms-input-placeholder {
   color: #000;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 
 .login__form--input::placeholder {
   color: #000;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 
@@ -192,7 +192,7 @@ a {
   font-size: 2.7rem;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.32em;
+  letter-spacing: 1rem;
   color: #d72525;
   position: relative;
 }
@@ -264,7 +264,7 @@ button {
   border: none;
   color: #fff;
   font-family: "Quicksand", "sans-serif";
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2rem;
   font-weight: 600;
   text-transform: uppercase;
   -webkit-transition: all 0.2s;
@@ -309,7 +309,7 @@ button {
   font-size: 1.3rem;
   width: 100%;
   text-transform: uppercase;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2rem;
   background-color: #f7f7f7;
   border-radius: 1.2rem;
   padding: 1rem 2rem;
@@ -359,17 +359,25 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-left: auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
 }
 
 .navbar__links--link {
   text-decoration: none;
+}
+
+.navbar__links--profile {
+  padding: 1.8rem 3rem;
+  margin-left: auto;
 }
 
 .navbar__genres {
