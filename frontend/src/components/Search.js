@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Search = ({ history }) => {
 	const [search, setSearch] = useState('')
@@ -30,7 +32,7 @@ const Search = ({ history }) => {
 				}}
 			/>
 			<button type='submit' className='search__submit'>
-				Search
+				<FontAwesomeIcon className='search__icon' icon={faSearch} />
 			</button>
 		</form>
 	)

@@ -31,7 +31,11 @@
 	}
 
 	&__submit {
+		color: $color-grey-black;
 		position: absolute;
 		right: 2rem;
+	}
+
+	&__icon {
 	}
 }

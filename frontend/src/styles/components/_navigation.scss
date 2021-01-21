@@ -34,7 +34,7 @@
 			cursor: pointer;
 			border-top: solid 1px $color-primary;
 			border-bottom: solid 1px $color-primary;
-			width: 10rem;
+			width: 12rem;
 			margin: 0 2rem;
 			text-decoration: none;
 			transition: all 0.2s;
@@ -42,7 +42,6 @@
 
 			&:hover {
 				background-color: $color-primary;
-				// transform: scale(1.1);
 			}
 		}
 

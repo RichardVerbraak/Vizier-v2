@@ -323,6 +323,7 @@ button {
 }
 
 .search__submit {
+  color: #444;
   position: absolute;
   right: 2rem;
 }
@@ -387,7 +388,7 @@ button {
   cursor: pointer;
   border-top: solid 1px #d72525;
   border-bottom: solid 1px #d72525;
-  width: 10rem;
+  width: 12rem;
   margin: 0 2rem;
   text-decoration: none;
   -webkit-transition: all 0.2s;
