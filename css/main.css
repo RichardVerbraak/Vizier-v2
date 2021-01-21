@@ -286,10 +286,23 @@ button {
 }
 
 .navbar {
+  height: 11.3rem;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .navbar__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,6 +319,22 @@ button {
 }
 
 .navbar__genres {
+  position: relative;
+  color: inherit;
+}
+
+.navbar__genres:hover > .navbar__dropdown {
+  display: block;
+  opacity: 1;
+}
+
+.navbar__dropdown {
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  display: none;
+  opacity: 0;
+  background-color: black;
   list-style-type: none;
 }
 /*# sourceMappingURL=main.css.map */

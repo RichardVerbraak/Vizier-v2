@@ -43,12 +43,13 @@ const Navigation = ({ history }) => {
 						Movies
 					</Link>
 
-					<div>
+					<div className='navbar__genres'>
+						Genres
 						{!loading && !error && (
-							<ul className='navbar__genres'>
+							<ul className='navbar__dropdown'>
 								{genres.map((genre) => {
 									return (
-										<li className='navbar__genres--item'>
+										<li className='navbar__dropdown--item'>
 											<Link key={genre.id} to={`/genres/${genre.name}`}>
 												{genre.name}
 											</Link>

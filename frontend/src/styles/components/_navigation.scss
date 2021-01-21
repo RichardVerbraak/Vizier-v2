@@ -1,4 +1,6 @@
 .navbar {
+	height: 11.3rem;
+
 	background-color: rgba($color: $color-black, $alpha: 0.8);
 
 	&__container {
@@ -8,12 +10,34 @@
 	}
 
 	&__links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
 		&--link {
 			text-decoration: none;
 		}
 	}
 
 	&__genres {
+		position: relative;
+		color: inherit;
+	}
+
+	&__genres:hover > &__dropdown {
+		display: block;
+		opacity: 1;
+	}
+
+	&__dropdown {
+		position: absolute;
+		top: 2.5rem;
+		left: 0;
+
+		display: none;
+		opacity: 0;
+
+		background-color: black;
 		list-style-type: none;
 
 		&--item {
