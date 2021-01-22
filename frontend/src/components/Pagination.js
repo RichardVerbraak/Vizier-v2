@@ -9,32 +9,43 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 			{searchQuery && (
 				<div>
 					{page > 1 && (
-						<Link to={`/search/${searchQuery}/${page - 1}`}>
+						<Link
+							className='page btn'
+							to={`/search/${searchQuery}/${page - 1}`}
+						>
 							Page {page - 1}
 						</Link>
 					)}
-					<Link to={`/search/${searchQuery}/${page + 1}`}>Page {page + 1}</Link>
+					<Link className='page btn' to={`/search/${searchQuery}/${page + 1}`}>
+						Page {page + 1}
+					</Link>
 				</div>
 			)}
 
 			{screen === 'HomeScreen' && !searchQuery && (
 				<div>
 					{page > 1 && (
-						<Link to={`/discover/${trending}/${page - 1}`}>
+						<Link className='page btn' to={`/discover/${trending}/${page - 1}`}>
 							Page {page - 1}
 						</Link>
 					)}
-					<Link to={`/discover/${trending}/${page + 1}`}>Page {page + 1}</Link>
+					<Link className='page btn' to={`/discover/${trending}/${page + 1}`}>
+						Page {page + 1}
+					</Link>
 				</div>
 			)}
 
 			{screen === 'GenreScreen' && !searchQuery && (
 				<div>
 					{page > 1 && (
-						<Link to={`/genres/${genre}/${page - 1}`}>Page {page - 1}</Link>
+						<Link className='page' to={`/genres/${genre}/${page - 1}`}>
+							Page {page - 1}
+						</Link>
 					)}
 
-					<Link to={`/genres/${genre}/${page + 1}`}>Page {page + 1}</Link>
+					<Link className='page' to={`/genres/${genre}/${page + 1}`}>
+						Page {page + 1}
+					</Link>
 				</div>
 			)}
 		</div>

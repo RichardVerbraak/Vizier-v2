@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 // TODO: Uppercase first letter (or uppercase everything) and remove underscore from top_rated
 // OR operator or two h3s?
 const Header = ({ trending, genre }) => {
+	console.log(trending)
+
 	return (
 		<div className='header'>
 			<div header__title>
