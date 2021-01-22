@@ -1,0 +1,31 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-bottom: 10rem;
+
+	&__title {
+	}
+
+	// Make variable for bigger letter spacing
+	&__main {
+		font-size: 4.4rem;
+		font-weight: 400;
+		letter-spacing: 1.4rem;
+		text-transform: uppercase;
+
+		margin-bottom: 1.4rem;
+	}
+
+	&__sub {
+		font-size: 2.4rem;
+		font-weight: 300;
+		letter-spacing: 0.6rem;
+		text-transform: uppercase;
+	}
+
+	&__links a {
+		color: $color-black;
+	}
+}

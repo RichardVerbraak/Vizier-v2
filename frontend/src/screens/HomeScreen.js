@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { getMovies, getMoviesBySearch } from '../actions/movies'
 import Header from '../components/Header'
@@ -50,12 +49,7 @@ const HomeScreen = ({ match, history }) => {
 		<Fragment>
 			<Navigation history={history} />
 			<div className='container'>
-				<h1>HomeScreen</h1>
 				<Header trending={trending} />
-
-				<Link to='/discover/popular'>Popular</Link>
-				<Link to='/discover/top_rated'>Top Rated</Link>
-				<Link to='/discover/upcoming'>Upcoming</Link>
 
 				{user && <p>{user.name}</p>}
 

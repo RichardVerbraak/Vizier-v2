@@ -27,6 +27,8 @@
 		&:focus,
 		&:active {
 			outline: none;
+
+			// Have an transition effect with the search bar increasing in width, only it's difficult with an absolute positioned icon
 		}
 	}
 
