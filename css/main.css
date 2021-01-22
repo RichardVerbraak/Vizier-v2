@@ -68,7 +68,7 @@ body {
 }
 
 .container {
-  max-width: 144rem;
+  max-width: 154rem;
   margin: 0 auto;
 }
 
@@ -346,7 +346,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 144rem;
+  width: 154rem;
 }
 
 .navbar__links {
