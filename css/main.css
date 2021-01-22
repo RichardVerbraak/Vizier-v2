@@ -330,7 +330,7 @@ button {
       -ms-flex-align: center;
           align-items: center;
   height: 11.3rem;
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
   -webkit-box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
           box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
   background-color: rgba(0, 0, 0, 0.8);
@@ -422,6 +422,7 @@ button {
   background-color: #2d2626;
   display: none;
   opacity: 0;
+  z-index: 10000;
   list-style-type: none;
 }
 
@@ -447,7 +448,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 10rem;
+  margin-bottom: 6rem;
 }
 
 .header__main {
@@ -472,16 +473,16 @@ button {
 .movies {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(11rem, 33rem))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(11rem, 33rem));
-  grid-column-gap: 4rem;
+  -ms-grid-columns: (minmax(11rem, 26.8rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 26.8rem));
+  grid-column-gap: 5rem;
   grid-row-gap: 5.4rem;
 }
 
 .movies__item {
   -webkit-box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
           box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
-  height: 44.5rem;
+  height: 40.5rem;
   border-radius: 5px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -493,8 +494,8 @@ button {
 
 .movies__item-img {
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
   border-radius: 5px;
   height: 100%;
   width: 100%;

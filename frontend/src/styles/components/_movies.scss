@@ -1,13 +1,16 @@
 .movies {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(11rem, 33rem));
-	grid-column-gap: 4rem;
+	grid-template-columns: repeat(auto-fit, minmax(11rem, 26.8rem));
+	grid-column-gap: 5rem;
 	grid-row-gap: 5.4rem;
 
 	// Setting border radius on both fixes small whitespace (idk why)
 	&__item {
 		box-shadow: $box-shadow;
-		height: 44.5rem;
+
+		// Not entirely sure what height looks best (44.5rem previously)
+		height: 40.5rem;
+
 		border-radius: 5px;
 		transition: all 0.2s;
 		position: relative;
@@ -18,9 +21,11 @@
 
 		&-img {
 			display: block;
-			object-fit: cover;
+
+			// Cover didn't work as good?
+			object-fit: fill;
 			border-radius: 5px;
-			// cursor: default;
+
 			height: 100%;
 			width: 100%;
 		}

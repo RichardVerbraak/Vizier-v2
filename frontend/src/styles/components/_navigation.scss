@@ -4,7 +4,7 @@
 	align-items: center;
 	height: 11.3rem;
 
-	margin-bottom: 8rem;
+	margin-bottom: 6rem;
 	box-shadow: $box-shadow;
 
 	background-color: rgba($color: $color-black, $alpha: 0.8);
@@ -80,6 +80,7 @@
 
 		display: none;
 		opacity: 0;
+		z-index: 10000;
 
 		list-style-type: none;
 
