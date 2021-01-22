@@ -84,12 +84,13 @@
 
 		list-style-type: none;
 
+		// Maybe have an animation with the background starting from left to right from 0% width to 100%?
 		&--item {
 			display: block;
 			font-size: 1.2rem;
 			padding: 1.5rem;
 
-			transition: all 0.2s ease;
+			transition: all 0.3s ease;
 
 			&:hover {
 				background-color: $color-primary;

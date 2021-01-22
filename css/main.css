@@ -430,8 +430,8 @@ button {
   display: block;
   font-size: 1.2rem;
   padding: 1.5rem;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navbar__dropdown--item:hover {
@@ -473,8 +473,8 @@ button {
 .movies {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(11rem, 26.8rem))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(11rem, 26.8rem));
+  -ms-grid-columns: (minmax(11rem, 26.7rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 26.7rem));
   grid-column-gap: 5rem;
   grid-row-gap: 5.4rem;
 }
