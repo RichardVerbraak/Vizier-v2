@@ -44,6 +44,15 @@ const HomeScreen = ({ match, history }) => {
 		if (trending) {
 			dispatch(getMovies(page, trending))
 		}
+
+		// Smooth scroll to top, not perfect but not sure how to improve upon
+		if (movies) {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth',
+			})
+		}
+		//eslint-disable-next-line
 	}, [dispatch, page, trending, searchQuery])
 
 	return (
@@ -51,8 +60,6 @@ const HomeScreen = ({ match, history }) => {
 			<Navigation history={history} />
 			<div className='container'>
 				<Header trending={trending} />
-
-				{user && <p>{user.name}</p>}
 
 				{loading ? (
 					<Loader />

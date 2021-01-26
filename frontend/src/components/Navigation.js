@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { getGenres } from '../actions/genres'
 import { logoutUser } from '../actions/users'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
 import Search from './Search'
 
 // Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
@@ -77,7 +80,8 @@ const Navigation = ({ history }) => {
 
 				{user ? (
 					<Link to='/' className='navbar__links--profile btn' onClick={logout}>
-						Logout
+						<FontAwesomeIcon className='profile__icon' icon={faUser} />
+						<p>Logout</p>
 					</Link>
 				) : (
 					<Link to='/login' className='navbar__links--profile btn'>
@@ -88,5 +92,8 @@ const Navigation = ({ history }) => {
 		</div>
 	)
 }
+
+// Instead of 'Logout'
+// <p className='profile__name'>{user.name.split(' ')[0]} </p>
 
 export default Navigation

@@ -55,6 +55,9 @@
 		}
 
 		&--profile {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 			padding: 1.8rem 3rem;
 			margin-left: auto;
 		}
@@ -96,5 +99,15 @@
 				background-color: $color-primary;
 			}
 		}
+	}
+}
+
+// Profile icon and user name inside the link
+.profile {
+	&__icon {
+		margin-right: 0.8rem;
+	}
+
+	&__name {
 	}
 }

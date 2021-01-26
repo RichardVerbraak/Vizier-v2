@@ -414,6 +414,15 @@ button {
 }
 
 .navbar__links--profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 1.8rem 3rem;
   margin-left: auto;
 }
@@ -449,6 +458,10 @@ button {
 
 .navbar__dropdown--item:hover {
   background-color: #d72525;
+}
+
+.profile__icon {
+  margin-right: 0.8rem;
 }
 
 .header {
