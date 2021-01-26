@@ -7,7 +7,7 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 	return (
 		<div>
 			{searchQuery && (
-				<div>
+				<div className='pagination'>
 					{page > 1 && (
 						<Link
 							className='page btn'
@@ -23,7 +23,7 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 			)}
 
 			{screen === 'HomeScreen' && !searchQuery && (
-				<div>
+				<div className='pagination'>
 					{page > 1 && (
 						<Link className='page btn' to={`/discover/${trending}/${page - 1}`}>
 							Page {page - 1}
@@ -36,7 +36,7 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 			)}
 
 			{screen === 'GenreScreen' && !searchQuery && (
-				<div>
+				<div className='pagination'>
 					{page > 1 && (
 						<Link className='page' to={`/genres/${genre}/${page - 1}`}>
 							Page {page - 1}
