@@ -1,6 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Loader from '../components/Loader'
 import { getMovieDetails, getRecommendedMovies } from '../actions/movies'
+import Navigation from '../components/Navigation'
+import Movie from '../components/Movie'
+import Movies from '../components/Movies'
+import Header from '../components/Header'
 
 // TODO: Make Details & Recommended into own component
 
@@ -33,33 +38,33 @@ const MovieDetailScreen = ({ match, history }) => {
 	}, [dispatch, history, movieID])
 
 	return (
-		<div>
-			<div>
-				<h1>Details</h1>
-				{loading ? (
-					<p>Loading...</p>
-				) : error ? (
-					<p>{error}</p>
-				) : (
-					<p>{details.original_title}</p>
-				)}
-			</div>
+		<Fragment>
+			<Navigation history={history} />
+			<div className='container'>
+				<div>
+					{loading ? (
+						<Loader />
+					) : error ? (
+						<p>{error}</p>
+					) : (
+						<Movie details={details} />
+					)}
+				</div>
 
-			<div>
-				<h2>Recommended</h2>
-				{loadingRecommended ? (
-					<p>Loading...</p>
-				) : errorRecommended ? (
-					<p>{error}</p>
-				) : (
-					<div>
-						{movies.map((movie) => {
-							return <p key={movie.id}>{movie.original_title}</p>
-						})}
-					</div>
-				)}
+				<div>
+					<h1 className='header__sub'>Recommended</h1>
+					{loadingRecommended ? (
+						<Loader />
+					) : errorRecommended ? (
+						<p>{error}</p>
+					) : (
+						<div>
+							<Movies movies={movies} />
+						</div>
+					)}
+				</div>
 			</div>
-		</div>
+		</Fragment>
 	)
 }
 

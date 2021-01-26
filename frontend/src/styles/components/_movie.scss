@@ -1,0 +1,122 @@
+// Make widths 100% with media queries
+
+.movie {
+	grid-column: center-start / center-end;
+	display: grid;
+	grid-template-columns: 50rem 1fr;
+	column-gap: 9rem;
+	margin-top: 7.5rem;
+
+	// Some look better with object fit off?
+	&__img {
+		box-shadow: $box-shadow;
+		// object-fit: cover;
+		height: 70rem;
+		width: 50rem;
+		border-radius: 5px;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-rows: min-content;
+		row-gap: 3rem;
+	}
+
+	&__heading {
+	}
+
+	&__heading-main {
+		font-size: 4.4rem;
+		font-weight: 300;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: #151515;
+		margin-bottom: 0.8rem;
+	}
+
+	&__heading-sub {
+		font-size: 2.6rem;
+		font-weight: 500;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: #151515;
+	}
+
+	&__details {
+		display: flex;
+		justify-content: space-between;
+		font-family: 'Montserrat';
+		letter-spacing: 0.1em;
+		font-weight: 600;
+
+		// Temporary
+		width: 80%;
+
+		&--genre {
+			font-size: 1.9rem;
+			font-weight: 600;
+		}
+
+		&--score {
+			font-size: 1.8rem;
+		}
+
+		&--runtime {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__overview {
+		font-size: 1.9rem;
+		font-family: 'Montserrat';
+		font-weight: 500;
+		line-height: 3rem;
+		width: 70%;
+
+		&--text {
+			color: $color-grey-black;
+		}
+	}
+
+	&__cast {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		// Need overflow hidden for the slick track (otherwise it's width would be 30k+ pixels wide)
+		width: 75%;
+		overflow: hidden;
+
+		&--img {
+			display: block;
+			width: 12rem;
+			height: 14rem;
+			object-fit: cover;
+			box-shadow: $box-shadow;
+			margin-right: 2rem;
+		}
+
+		&--box {
+			display: flex;
+		}
+	}
+
+	&__links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		width: 70%;
+	}
+}
+
+.slick-slider {
+	display: flex;
+	width: 100%;
+}
+
+.slick-list {
+	padding: 0 !important;
+	margin: 0;
+	overflow: hidden;
+}
