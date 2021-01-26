@@ -240,6 +240,19 @@ a {
   background-color: #d72525;
 }
 
+.loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60vh;
+}
+
 button {
   border: none;
   background-color: #f7f7f7;
@@ -550,5 +563,11 @@ button {
       -ms-flex-align: center;
           align-items: center;
   padding: 5.4rem 0;
+}
+
+.flex-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 /*# sourceMappingURL=main.css.map */

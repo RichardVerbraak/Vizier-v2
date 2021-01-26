@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 // TODO: Make it so pagination works in HomeScreen and GenreScreen (pass in a prop to check which screen and then give different links based on that?)
 // TODO: Refactor this screen to something simpler, it works currently but I feel like it could be improved and could do without passing props around
 const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
+	const buttonSpacing = page === 1 && 'flex-end'
+
 	return (
 		<div>
 			{searchQuery && (
-				<div className='pagination'>
+				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
 						<Link
 							className='page btn'
@@ -23,7 +25,7 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 			)}
 
 			{screen === 'HomeScreen' && !searchQuery && (
-				<div className='pagination'>
+				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
 						<Link className='page btn' to={`/discover/${trending}/${page - 1}`}>
 							Page {page - 1}

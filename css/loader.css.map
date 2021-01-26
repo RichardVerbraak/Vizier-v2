@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../frontend/src/styles/components/loader.scss"
+    ],
+    "names": [],
+    "file": "loader.css"
+}

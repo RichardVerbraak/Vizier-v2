@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { getMovies, getMoviesBySearch } from '../actions/movies'
 import Header from '../components/Header'
+import Loader from '../components/Loader'
 import Movies from '../components/Movies'
 import Navigation from '../components/Navigation'
 import Pagination from '../components/Pagination'
@@ -54,7 +55,7 @@ const HomeScreen = ({ match, history }) => {
 				{user && <p>{user.name}</p>}
 
 				{loading ? (
-					<h1>Loading...</h1>
+					<Loader />
 				) : error ? (
 					<h1>{error}</h1>
 				) : (
