@@ -2,6 +2,8 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getMovies, getMoviesBySearch } from '../actions/movies'
+import { getMoviesByGenre } from '../actions/movies'
+
 import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Movies from '../components/Movies'
@@ -22,6 +24,8 @@ const HomeScreen = ({ match, history }) => {
 
 	const searchQuery = match.params.query || ''
 
+	const genre = match.params.genre || ''
+
 	const dispatch = useDispatch()
 
 	const movieList = useSelector((state) => {
@@ -33,16 +37,36 @@ const HomeScreen = ({ match, history }) => {
 	const userLogin = useSelector((state) => {
 		return state.userLogin
 	})
-
 	const { user, userLoading, userError } = userLogin
 
-	useEffect(() => {
-		if (searchQuery) {
-			dispatch(getMoviesBySearch(searchQuery, page))
-		}
+	const genreList = useSelector((state) => {
+		return state.genreList
+	})
+	const { genres, genreLoading, genreError } = genreList
 
+	useEffect(() => {
+		// Get movies if Popular, Top Rated or Upcoming
 		if (trending) {
 			dispatch(getMovies(page, trending))
+		}
+
+		// When genres get loaded into Redux, find the name of that genre that also matches the genre in the URL => return the ID
+		// then search by that genre of movies in the backend side (the call to the API needs the ID of the genre)
+		if (genres) {
+			const genreID = genres.find((x) => {
+				return x.id && x.name.toLowerCase() === genre.toLowerCase()
+			})
+
+			if (genreID) {
+				dispatch(getMoviesByGenre(page, genreID.id))
+			} else {
+				// Insert message with 'something went wrong'
+			}
+		}
+
+		// Search for movies if any query
+		if (searchQuery) {
+			dispatch(getMoviesBySearch(searchQuery, page))
 		}
 
 		// Smooth scroll to top, not perfect but not sure how to improve upon
@@ -53,7 +77,7 @@ const HomeScreen = ({ match, history }) => {
 			})
 		}
 		//eslint-disable-next-line
-	}, [dispatch, page, trending, searchQuery])
+	}, [dispatch, page, trending, searchQuery, genre, genres])
 
 	return (
 		<Fragment>
@@ -75,6 +99,7 @@ const HomeScreen = ({ match, history }) => {
 					screen={'HomeScreen'}
 					trending={trending}
 					page={page}
+					genre={genre}
 					searchQuery={searchQuery}
 				/>
 			</div>

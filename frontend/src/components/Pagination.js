@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 	const buttonSpacing = page === 1 && 'flex-end'
 
+	console.log(trending)
+	console.log(genre)
+
 	return (
 		<div>
 			{searchQuery && (
@@ -24,7 +27,7 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 				</div>
 			)}
 
-			{screen === 'HomeScreen' && !searchQuery && (
+			{trending && !searchQuery && (
 				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
 						<Link className='page btn' to={`/discover/${trending}/${page - 1}`}>
@@ -37,15 +40,15 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 				</div>
 			)}
 
-			{screen === 'GenreScreen' && !searchQuery && (
-				<div className='pagination'>
+			{genre && !searchQuery && (
+				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
-						<Link className='page' to={`/genres/${genre}/${page - 1}`}>
+						<Link className='page btn' to={`/genres/${genre}/${page - 1}`}>
 							Page {page - 1}
 						</Link>
 					)}
 
-					<Link className='page' to={`/genres/${genre}/${page + 1}`}>
+					<Link className='page btn' to={`/genres/${genre}/${page + 1}`}>
 						Page {page + 1}
 					</Link>
 				</div>

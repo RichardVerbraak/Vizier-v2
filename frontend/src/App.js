@@ -20,7 +20,7 @@ const App = () => {
 
 				<Route path='/search/:query/:page?' component={HomeScreen} />
 
-				<Route path='/genres/:genre/:page?' component={GenreScreen} />
+				<Route path='/genres/:genre/:page?' component={HomeScreen} />
 
 				<Route path='/discover/:trending/:page?' component={HomeScreen} />
 

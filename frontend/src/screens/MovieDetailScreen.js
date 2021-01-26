@@ -5,7 +5,7 @@ import { getMovieDetails, getRecommendedMovies } from '../actions/movies'
 import Navigation from '../components/Navigation'
 import Movie from '../components/Movie'
 import Movies from '../components/Movies'
-import Header from '../components/Header'
+import Pagination from '../components/Pagination'
 
 // TODO: Make Details & Recommended into own component
 

@@ -262,6 +262,15 @@ button {
 }
 
 .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.3rem;
   background-color: #d72525;
   border-radius: 5rem;
@@ -621,6 +630,7 @@ button {
   letter-spacing: 0.1em;
   font-weight: 600;
   width: 80%;
+  color: rgba(215, 37, 37, 0.75);
 }
 
 .movie__details--genre {
