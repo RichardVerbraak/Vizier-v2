@@ -2,7 +2,7 @@
 
 .movie {
 	display: flex;
-	margin-bottom: 8rem;
+	margin-bottom: 12rem;
 
 	&__img {
 		box-shadow: $box-shadow;
@@ -62,7 +62,6 @@
 	}
 
 	&__cast {
-		margin-bottom: 5.5rem;
 	}
 
 	&__links {

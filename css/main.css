@@ -352,7 +352,7 @@ button {
       -ms-flex-align: center;
           align-items: center;
   height: 11.3rem;
-  margin-bottom: 6rem;
+  margin-bottom: 12rem;
   -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.4);
           box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.4);
   background-color: rgba(0, 0, 0, 0.8);
@@ -578,7 +578,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 8rem;
+  margin-bottom: 12rem;
 }
 
 .movie__img {
@@ -644,10 +644,6 @@ button {
   font-weight: 500;
   line-height: 3rem;
   margin-bottom: 3.5rem;
-}
-
-.movie__cast {
-  margin-bottom: 5.5rem;
 }
 
 .movie__links {
