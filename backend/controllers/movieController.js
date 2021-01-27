@@ -95,6 +95,9 @@ const getMovieDetails = async (req, res) => {
 	}
 }
 
+//  @desc       Get cast members from a movie
+//  @route      GET /api/movies/cast/:id
+//  @access     Public
 const getMovieCast = async (req, res) => {
 	try {
 		const id = req.params.id

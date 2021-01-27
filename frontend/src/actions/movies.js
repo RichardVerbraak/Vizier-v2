@@ -102,7 +102,7 @@ export const getMovieCast = (id) => {
 				type: 'GET_MOVIE_CAST_REQUEST',
 			})
 
-			const { data } = await axios.get(`/api/movies/${id}`)
+			const { data } = await axios.get(`/api/movies/cast/${id}`)
 
 			dispatch({
 				type: 'GET_MOVIE_CAST_SUCCESS',

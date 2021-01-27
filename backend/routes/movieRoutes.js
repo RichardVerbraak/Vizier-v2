@@ -1,5 +1,6 @@
 import express from 'express'
 import {
+	getMovieCast,
 	getMovieDetails,
 	getMovies,
 	getMoviesByGenre,
@@ -16,6 +17,7 @@ router.get('/genres/:genre', getMoviesByGenre)
 
 router.get('/search/:query', getMoviesBySearch)
 
+router.get('/cast/:id', getMovieCast)
 router.get('/:id', getMovieDetails)
 router.get('/:id/recommended', getRecommendedMovies)
 

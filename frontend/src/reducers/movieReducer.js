@@ -100,3 +100,28 @@ export const movieDetailReducer = (state = { details: {} }, action) => {
 			return state
 	}
 }
+
+export const movieCastReducer = (state = { cast: [] }, action) => {
+	switch (action.type) {
+		case 'GET_MOVIE_CAST_REQUEST': {
+			return {
+				loading: true,
+			}
+		}
+		case 'GET_MOVIE_CAST_SUCCESS': {
+			return {
+				loading: false,
+				cast: action.payload,
+			}
+		}
+		case 'GET_MOVIE_CAST_FAIL': {
+			return {
+				loading: false,
+				error: action.payload,
+			}
+		}
+
+		default:
+			return state
+	}
+}
