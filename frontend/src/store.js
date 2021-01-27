@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import {
+	movieCastReducer,
 	movieDetailReducer,
 	movieListRecommendedReducer,
 	movieListReducer,
@@ -16,6 +17,7 @@ const reducers = combineReducers({
 	movieList: movieListReducer,
 	movieRecommended: movieListRecommendedReducer,
 	movieDetails: movieDetailReducer,
+	movieCast: movieCastReducer,
 
 	genreList: genreReducer,
 

@@ -77,7 +77,7 @@ export const getMovieDetails = (id) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
-				type: 'GET_MOVIE_DETAILS',
+				type: 'GET_MOVIE_DETAILS_REQUEST',
 			})
 
 			const { data } = await axios.get(`/api/movies/${id}`)
@@ -106,7 +106,7 @@ export const getMovieCast = (id) => {
 
 			dispatch({
 				type: 'GET_MOVIE_CAST_SUCCESS',
-				payload: data,
+				payload: data.cast,
 			})
 		} catch (error) {
 			dispatch({

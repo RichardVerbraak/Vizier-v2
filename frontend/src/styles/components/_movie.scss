@@ -62,12 +62,22 @@
 	}
 
 	&__cast {
+		display: inline-grid;
+
+		// Need overflow hidden for the slick track (otherwise it's width would be 30k+ pixels wide)
+		width: 100%;
+		overflow: hidden;
 	}
 
 	&__links {
 		display: flex;
 		margin-top: auto;
 	}
+}
+
+.slick-slider {
+	width: 100%;
+	overflow: hidden;
 }
 
 // .movie {

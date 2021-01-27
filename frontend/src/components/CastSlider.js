@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const CastSlider = () => {
+const CastSlider = ({ cast }) => {
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -15,7 +15,22 @@ const CastSlider = () => {
 		slidesToScroll: 1,
 	}
 
-	return <Fragment></Fragment>
+	return (
+		<Slider {...settings}>
+			{cast.map((cast) => {
+				return (
+					<a href='!#' key={cast.id}>
+						<img
+							key={cast.id}
+							className='movie__cast--img'
+							src={`https://image.tmdb.org/t/p/w185/${cast.profile_path}`}
+							alt={`${cast.name}`}
+						></img>
+					</a>
+				)
+			})}
+		</Slider>
+	)
 }
 
 export default CastSlider

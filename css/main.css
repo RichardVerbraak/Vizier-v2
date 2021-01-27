@@ -646,11 +646,23 @@ button {
   margin-bottom: 3.5rem;
 }
 
+.movie__cast {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  width: 100%;
+  overflow: hidden;
+}
+
 .movie__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: auto;
+}
+
+.slick-slider {
+  width: 100%;
+  overflow: hidden;
 }
 
 .pagination {

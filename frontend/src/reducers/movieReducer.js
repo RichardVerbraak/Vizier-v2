@@ -101,10 +101,13 @@ export const movieDetailReducer = (state = { details: {} }, action) => {
 	}
 }
 
+// Movie cast members
+// No clue why I have to return state here in order for it to work and not in other reducers???
 export const movieCastReducer = (state = { cast: [] }, action) => {
 	switch (action.type) {
 		case 'GET_MOVIE_CAST_REQUEST': {
 			return {
+				...state,
 				loading: true,
 			}
 		}

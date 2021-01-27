@@ -1,7 +1,11 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
-import { getMovieDetails, getRecommendedMovies } from '../actions/movies'
+import {
+	getMovieDetails,
+	getRecommendedMovies,
+	getMovieCast,
+} from '../actions/movies'
 import Navigation from '../components/Navigation'
 import Movie from '../components/Movie'
 import Movies from '../components/Movies'
@@ -17,6 +21,11 @@ const MovieDetailScreen = ({ match, history }) => {
 	})
 	const { loading, error, details } = movieDetails
 
+	const movieCast = useSelector((state) => {
+		return state.movieCast
+	})
+	const { loadingCast, errorCast, cast } = movieCast
+
 	const movieRecommended = useSelector((state) => {
 		return state.movieRecommended
 	})
@@ -29,22 +38,25 @@ const MovieDetailScreen = ({ match, history }) => {
 	useEffect(() => {
 		if (movieID) {
 			dispatch(getMovieDetails(movieID))
+			dispatch(getMovieCast(movieID))
 			dispatch(getRecommendedMovies(movieID))
 		} else {
 			history.push('/')
 		}
 	}, [dispatch, history, movieID])
 
+	console.log(loading, loadingCast)
+
 	return (
 		<Fragment>
 			<Navigation history={history} />
 			<div className='container'>
-				{loading ? (
+				{loading || loadingCast ? (
 					<Loader />
 				) : error ? (
 					<p>{error}</p>
 				) : (
-					<Movie details={details} />
+					<Movie details={details} cast={cast} />
 				)}
 
 				<div>
@@ -54,9 +66,7 @@ const MovieDetailScreen = ({ match, history }) => {
 					) : errorRecommended ? (
 						<p>{error}</p>
 					) : (
-						<div>
-							<Movies movies={movies} />
-						</div>
+						<Movies movies={movies} />
 					)}
 				</div>
 			</div>
