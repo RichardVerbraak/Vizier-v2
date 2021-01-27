@@ -45,6 +45,11 @@ const HomeScreen = ({ match, history }) => {
 	const { genres, genreLoading, genreError } = genreList
 
 	useEffect(() => {
+		// Search for movies if any query
+		if (searchQuery) {
+			dispatch(getMoviesBySearch(searchQuery, page))
+		}
+
 		// Get movies if Popular, Top Rated or Upcoming
 		if (trending) {
 			dispatch(getMovies(page, trending))
@@ -64,11 +69,6 @@ const HomeScreen = ({ match, history }) => {
 			}
 		}
 
-		// Search for movies if any query
-		if (searchQuery) {
-			dispatch(getMoviesBySearch(searchQuery, page))
-		}
-
 		// Smooth scroll to top, not perfect but not sure how to improve upon
 		if (movies) {
 			window.scrollTo({
@@ -83,7 +83,7 @@ const HomeScreen = ({ match, history }) => {
 		<Fragment>
 			<Navigation history={history} />
 			<div className='container'>
-				<Header trending={trending} />
+				<Header trending={trending} genre={genre} />
 
 				{loading ? (
 					<Loader />

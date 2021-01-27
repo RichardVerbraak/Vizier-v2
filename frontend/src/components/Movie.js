@@ -11,8 +11,8 @@ const Movie = ({ details }) => {
 
 			<div className='movie__content'>
 				<div className='movie__heading'>
-					<h1 className='movie__heading-main'>{details.title}</h1>
-					<h2 className='movie__heading-sub'>{details.tagline}</h2>
+					<h1 className='movie__heading--main'>{details.title}</h1>
+					<h2 className='movie__heading--sub'>{details.tagline}</h2>
 				</div>
 
 				<div className='movie__details'>

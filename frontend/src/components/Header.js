@@ -8,7 +8,8 @@ const Header = ({ trending, genre }) => {
 		<div className='header'>
 			<div header__title>
 				<h2 className='header__main'>Movies</h2>
-				<h3 className='header__sub'>{trending && trending}</h3>
+				{trending && <h3 className='header__sub'>{trending}</h3>}
+				{genre && <h3 className='header__sub'>{genre}</h3>}
 			</div>
 
 			<div className='header__links'>

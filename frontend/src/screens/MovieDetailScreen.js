@@ -41,15 +41,13 @@ const MovieDetailScreen = ({ match, history }) => {
 		<Fragment>
 			<Navigation history={history} />
 			<div className='container'>
-				<div>
-					{loading ? (
-						<Loader />
-					) : error ? (
-						<p>{error}</p>
-					) : (
-						<Movie details={details} />
-					)}
-				</div>
+				{loading ? (
+					<Loader />
+				) : error ? (
+					<p>{error}</p>
+				) : (
+					<Movie details={details} />
+				)}
 
 				<div>
 					<h1 className='header__sub'>Recommended</h1>

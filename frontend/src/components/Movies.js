@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// TODO: Add replacement image if there isnt a poster for the movie
+
 const Movies = ({ movies }) => {
 	return (
 		<div className='movies'>
