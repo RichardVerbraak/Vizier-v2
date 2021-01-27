@@ -67,6 +67,21 @@
 		// Need overflow hidden for the slick track (otherwise it's width would be 30k+ pixels wide)
 		width: 100%;
 		overflow: hidden;
+
+		margin: auto 0;
+
+		&--img {
+			display: block;
+			width: 12rem;
+			height: 14rem;
+			object-fit: cover;
+			box-shadow: $box-shadow;
+			margin-right: 2rem;
+		}
+
+		&--box {
+			display: flex;
+		}
 	}
 
 	&__links {

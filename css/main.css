@@ -651,6 +651,24 @@ button {
   display: inline-grid;
   width: 100%;
   overflow: hidden;
+  margin: auto 0;
+}
+
+.movie__cast--img {
+  display: block;
+  width: 12rem;
+  height: 14rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
+  margin-right: 2rem;
+}
+
+.movie__cast--box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .movie__links {
