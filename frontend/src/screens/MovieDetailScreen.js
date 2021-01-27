@@ -7,8 +7,6 @@ import Movie from '../components/Movie'
 import Movies from '../components/Movies'
 import Pagination from '../components/Pagination'
 
-// TODO: Make Details & Recommended into own component
-
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
 

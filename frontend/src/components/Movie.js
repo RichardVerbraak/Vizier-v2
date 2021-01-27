@@ -1,6 +1,7 @@
 import React from 'react'
+import CastSlider from './CastSlider'
 
-const Movie = ({ details }) => {
+const Movie = ({ details, cast }) => {
 	return (
 		<div className='movie'>
 			<img
@@ -25,7 +26,9 @@ const Movie = ({ details }) => {
 					<p className='movie__overview--text'>{details.overview}</p>
 				</div>
 
-				<div className='movie__cast'>slider</div>
+				<div className='movie__cast'>
+					<CastSlider cast={cast} />
+				</div>
 
 				<div className='movie__links'>
 					<button className='movie__links--watchlist btn btn__watchlist'>

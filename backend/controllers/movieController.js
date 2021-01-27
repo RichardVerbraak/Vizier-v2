@@ -95,10 +95,26 @@ const getMovieDetails = async (req, res) => {
 	}
 }
 
+const getMovieCast = async (req, res) => {
+	try {
+		const id = req.params.id
+
+		const { data } = await axios.get(
+			`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.MOVIEDB_API_KEY}`
+		)
+
+		res.send(data)
+	} catch (error) {
+		res.status(500)
+		res.json({ message: 'Server error' })
+	}
+}
+
 export {
 	getMovies,
 	getMoviesByGenre,
 	getMoviesBySearch,
 	getRecommendedMovies,
 	getMovieDetails,
+	getMovieCast,
 }
