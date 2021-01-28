@@ -40,6 +40,11 @@ const MovieDetailScreen = ({ match, history }) => {
 			dispatch(getMovieDetails(movieID))
 			dispatch(getMovieCast(movieID))
 			dispatch(getRecommendedMovies(movieID))
+
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth',
+			})
 		} else {
 			history.push('/')
 		}
