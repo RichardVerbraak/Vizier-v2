@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 
 import CastSlider from './CastSlider'
 
@@ -32,11 +32,11 @@ const Movie = ({ details, cast }) => {
 					</div>
 
 					<div className='movie__details--info'>
-						<p className='movie__details--info-year'>
+						<p className='movie__details--info-text'>
 							{details.release_date && details.release_date.split('-')[0]}
 						</p>
-						<p className='movie__details--info-runtime'>{details.runtime}min</p>
-						<p className='movie__details--info-language'>
+						<p className='movie__details--info-text'>{details.runtime}min</p>
+						<p className='movie__details--info-text'>
 							{details.spoken_languages && details.spoken_languages[0].name}
 						</p>
 					</div>
@@ -53,6 +53,10 @@ const Movie = ({ details, cast }) => {
 										className='movie__genres--links-link'
 										key={genre.id}
 									>
+										<FontAwesomeIcon
+											className='movie__genres--links-icon'
+											icon={faDotCircle}
+										/>
 										{genre.name}
 									</Link>
 								)

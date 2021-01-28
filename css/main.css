@@ -662,6 +662,11 @@ button {
           flex: 0 0 40%;
 }
 
+.movie__details--info-text:not(:last-child)::after {
+  content: '|';
+  margin-left: 2rem;
+}
+
 .movie__genres {
   margin-bottom: 2.5rem;
 }
@@ -669,7 +674,7 @@ button {
 .movie__genres--header {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   font-weight: 500;
 }
 
@@ -677,6 +682,12 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.movie__genres--links-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
 }
 
 .movie__genres--links-link {
@@ -703,7 +714,6 @@ button {
   font-family: 'Montserrat';
   font-weight: 500;
   line-height: 3rem;
-  margin-bottom: 3.5rem;
 }
 
 .movie__overview--text {
