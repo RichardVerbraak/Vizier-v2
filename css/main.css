@@ -599,8 +599,8 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 45%;
-          flex: 0 0 45%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
 }
 
 .movie__heading {
@@ -608,7 +608,7 @@ button {
 }
 
 .movie__heading--main {
-  font-size: 4.4rem;
+  font-size: 4rem;
   font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -635,7 +635,28 @@ button {
   letter-spacing: 0.1em;
   font-weight: 600;
   color: rgba(215, 37, 37, 0.75);
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.movie__genres {
+  margin-bottom: 2.5rem;
+}
+
+.movie__genres--header {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.movie__genres--link {
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: #d72525;
+}
+
+.movie__genres--link:not(:last-child) {
+  margin-right: 2.5rem;
 }
 
 .movie__overview {
@@ -675,7 +696,10 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
 }
 
 .slick-slider {

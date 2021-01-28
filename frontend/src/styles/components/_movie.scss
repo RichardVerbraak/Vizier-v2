@@ -16,14 +16,14 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		flex: 0 0 45%;
+		flex: 0 0 50%;
 	}
 
 	&__heading {
 		margin-bottom: 2.5rem;
 
 		&--main {
-			font-size: 4.4rem;
+			font-size: 4rem;
 			font-weight: 300;
 			letter-spacing: 0.2em;
 			text-transform: uppercase;
@@ -50,7 +50,27 @@
 
 		color: rgba($color: #d72525, $alpha: 0.75);
 
-		margin-bottom: 3.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	&__genres {
+		margin-bottom: 2.5rem;
+
+		&--header {
+			text-transform: uppercase;
+			letter-spacing: $letter-spacing-small;
+			margin-bottom: 1.5rem;
+			font-weight: 400;
+		}
+
+		&--link {
+			font-size: 1.9rem;
+			font-weight: 500;
+			color: $color-primary;
+			&:not(:last-child) {
+				margin-right: 2.5rem;
+			}
+		}
 	}
 
 	&__overview {
@@ -87,7 +107,9 @@
 
 	&__links {
 		display: flex;
-		margin-top: auto;
+		justify-content: space-between;
+		width: 60%;
+		// margin-top: auto;
 	}
 }
 

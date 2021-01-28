@@ -1,5 +1,6 @@
 import React from 'react'
 import CastSlider from './CastSlider'
+import { Link } from 'react-router-dom'
 
 const Movie = ({ details, cast }) => {
 	return (
@@ -17,9 +18,20 @@ const Movie = ({ details, cast }) => {
 				</div>
 
 				<div className='movie__details'>
-					<p className='movie__details--genre'>Drama | Crime</p>
 					<p className='movie__details--score'>{details.vote_average} / 10</p>
 					<p className='movie__details--runtime'>{details.runtime}min</p>
+				</div>
+
+				<div className='movie__genres'>
+					<h3 className='movie__genres--header'>Genres</h3>
+					{details.genres &&
+						details.genres.map((genre) => {
+							return (
+								<Link to='#' className='movie__genres--link' key={genre.id}>
+									{genre.name}
+								</Link>
+							)
+						})}
 				</div>
 
 				<div className='movie__overview'>
