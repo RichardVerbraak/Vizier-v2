@@ -1,6 +1,9 @@
 import React from 'react'
-import CastSlider from './CastSlider'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+
+import CastSlider from './CastSlider'
 
 const Movie = ({ details, cast }) => {
 	return (
@@ -18,20 +21,43 @@ const Movie = ({ details, cast }) => {
 				</div>
 
 				<div className='movie__details'>
-					<p className='movie__details--score'>{details.vote_average} / 10</p>
-					<p className='movie__details--runtime'>{details.runtime}min</p>
+					<div className='movie__details--score'>
+						<FontAwesomeIcon
+							className='movie__details--score-star'
+							icon={faStar}
+						/>
+						<p className='movie__details--score-rating'>
+							{details.vote_average} / 10
+						</p>
+					</div>
+
+					<div className='movie__details--info'>
+						<p className='movie__details--info-year'>
+							{details.release_date && details.release_date.split('-')[0]}
+						</p>
+						<p className='movie__details--info-runtime'>{details.runtime}min</p>
+						<p className='movie__details--info-language'>
+							{details.spoken_languages && details.spoken_languages[0].name}
+						</p>
+					</div>
 				</div>
 
 				<div className='movie__genres'>
 					<h3 className='movie__genres--header'>Genres</h3>
-					{details.genres &&
-						details.genres.map((genre) => {
-							return (
-								<Link to='#' className='movie__genres--link' key={genre.id}>
-									{genre.name}
-								</Link>
-							)
-						})}
+					<div className='movie__genres--links'>
+						{details.genres &&
+							details.genres.map((genre) => {
+								return (
+									<Link
+										to='#'
+										className='movie__genres--links-link'
+										key={genre.id}
+									>
+										{genre.name}
+									</Link>
+								)
+							})}
+					</div>
 				</div>
 
 				<div className='movie__overview'>

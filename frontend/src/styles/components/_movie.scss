@@ -46,11 +46,29 @@
 
 		font-family: 'Montserrat';
 		letter-spacing: 0.1em;
-		font-weight: 600;
+		font-weight: 500;
 
 		color: rgba($color: #d72525, $alpha: 0.75);
 
 		margin-bottom: 2.5rem;
+
+		&--score {
+			display: flex;
+			margin-right: auto;
+			font-weight: 600;
+
+			&-star {
+				margin-right: 1.5rem;
+			}
+			&-rating {
+			}
+		}
+
+		&--info {
+			display: flex;
+			justify-content: space-between;
+			flex: 0 0 40%;
+		}
 	}
 
 	&__genres {
@@ -60,15 +78,30 @@
 			text-transform: uppercase;
 			letter-spacing: $letter-spacing-small;
 			margin-bottom: 1.5rem;
-			font-weight: 400;
+			font-weight: 500;
 		}
 
-		&--link {
-			font-size: 1.9rem;
-			font-weight: 500;
-			color: $color-primary;
-			&:not(:last-child) {
-				margin-right: 2.5rem;
+		// Note: TranslateY did not work when they were not in a parent element
+		&--links {
+			display: flex;
+
+			&-link {
+				font-size: 1.9rem;
+				font-weight: 500;
+				color: $color-primary;
+
+				transition: all 0.2s;
+
+				// Fix text shake during animation
+				backface-visibility: hidden;
+
+				&:hover {
+					transform: translateY(-3px);
+				}
+
+				&:not(:last-child) {
+					margin-right: 2.5rem;
+				}
 			}
 		}
 	}
@@ -80,6 +113,10 @@
 		line-height: 3rem;
 
 		margin-bottom: 3.5rem;
+
+		&--text {
+			color: $color-grey-black;
+		}
 	}
 
 	&__cast {

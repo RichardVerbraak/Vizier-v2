@@ -633,9 +633,33 @@ button {
           justify-content: space-between;
   font-family: 'Montserrat';
   letter-spacing: 0.1em;
-  font-weight: 600;
+  font-weight: 500;
   color: rgba(215, 37, 37, 0.75);
   margin-bottom: 2.5rem;
+}
+
+.movie__details--score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.movie__details--score-star {
+  margin-right: 1.5rem;
+}
+
+.movie__details--info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
 }
 
 .movie__genres {
@@ -646,16 +670,31 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
-.movie__genres--link {
+.movie__genres--links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.movie__genres--links-link {
   font-size: 1.9rem;
   font-weight: 500;
   color: #d72525;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
-.movie__genres--link:not(:last-child) {
+.movie__genres--links-link:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+
+.movie__genres--links-link:not(:last-child) {
   margin-right: 2.5rem;
 }
 
@@ -665,6 +704,10 @@ button {
   font-weight: 500;
   line-height: 3rem;
   margin-bottom: 3.5rem;
+}
+
+.movie__overview--text {
+  color: #444;
 }
 
 .movie__cast {
