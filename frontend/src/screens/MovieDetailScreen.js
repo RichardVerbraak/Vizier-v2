@@ -45,8 +45,6 @@ const MovieDetailScreen = ({ match, history }) => {
 		}
 	}, [dispatch, history, movieID])
 
-	console.log(loading, loadingCast)
-
 	return (
 		<Fragment>
 			<Navigation history={history} />
