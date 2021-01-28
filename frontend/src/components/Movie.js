@@ -49,7 +49,7 @@ const Movie = ({ details, cast }) => {
 							details.genres.map((genre) => {
 								return (
 									<Link
-										to='#'
+										to={`/genres/${genre.name}`}
 										className='movie__genres--links-link'
 										key={genre.id}
 									>
