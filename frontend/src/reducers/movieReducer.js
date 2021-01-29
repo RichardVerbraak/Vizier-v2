@@ -24,31 +24,7 @@ export const movieListReducer = (state = { movies: [] }, action) => {
 	}
 }
 
-// export const movieGenreListReducer = (state = { movies: [] }, action) => {
-// 	switch (action.type) {
-// 		case 'GET_MOVIES_BY_GENRE_REQUEST': {
-// 			return {
-// 				loading: true,
-// 			}
-// 		}
-// 		case 'GET_MOVIES_BY_GENRE_SUCCESS': {
-// 			return {
-// 				loading: false,
-// 				movies: action.payload.results,
-// 			}
-// 		}
-// 		case 'GET_MOVIES_BY_GENRE_FAIL': {
-// 			return {
-// 				loading: false,
-// 				error: action.payload,
-// 			}
-// 		}
-
-// 		default:
-// 			return state
-// 	}
-// }
-
+// Remove this reducer?
 // Recommended Movies
 export const movieListRecommendedReducer = (state = { movies: [] }, action) => {
 	switch (action.type) {
@@ -61,6 +37,7 @@ export const movieListRecommendedReducer = (state = { movies: [] }, action) => {
 			return {
 				loading: false,
 				movies: action.payload.results,
+				totalPages: action.payload.total_pages,
 			}
 		}
 		case 'GET_RECOMMENDED_MOVIES_FAIL': {
