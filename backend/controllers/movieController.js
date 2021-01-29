@@ -60,14 +60,15 @@ const getMoviesBySearch = async (req, res) => {
 }
 
 //  @desc       Get recommended movies based on ID
-//  @route      GET /api/movies/:id/recommended (?)
+//  @route      GET /api/movies/:id/recommended
 //  @access     Public
 const getRecommendedMovies = async (req, res) => {
 	try {
 		const movieID = req.params.id
+		const page = Number(req.params.page) || 1
 
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=${page}`
 		)
 
 		res.send(data)

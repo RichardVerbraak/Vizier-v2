@@ -19,6 +19,6 @@ router.get('/search/:query', getMoviesBySearch)
 
 router.get('/cast/:id', getMovieCast)
 router.get('/:id', getMovieDetails)
-router.get('/:id/recommended', getRecommendedMovies)
+router.get('/:id/recommended/:page', getRecommendedMovies)
 
 export default router

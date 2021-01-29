@@ -96,7 +96,6 @@ const HomeScreen = ({ match, history }) => {
 				)}
 
 				<Pagination
-					screen={'HomeScreen'}
 					trending={trending}
 					page={page}
 					genre={genre}

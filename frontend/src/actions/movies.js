@@ -117,14 +117,14 @@ export const getMovieCast = (id) => {
 	}
 }
 
-export const getRecommendedMovies = (id) => {
+export const getRecommendedMovies = (id, page = 1) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
 				type: 'GET_RECOMMENDED_MOVIES_REQUEST',
 			})
 
-			const { data } = await axios.get(`/api/movies/${id}/recommended`)
+			const { data } = await axios.get(`/api/movies/${id}/recommended/${page}`)
 
 			dispatch({
 				type: 'GET_RECOMMENDED_MOVIES_SUCCESS',
