@@ -505,6 +505,11 @@ button {
   color: #000;
 }
 
+.header__recommended {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+}
+
 .movies {
   display: -ms-grid;
   display: grid;

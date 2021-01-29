@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { loginUser } from '../actions/users'
+import Loader from '../components/Loader'
 
 // IDEA: Maybe add a nice loader while loading in the movies the user has on his watchlist like: Welcome John...
+// TODO: Add error when it's the wrong password
 
 const LoginScreen = ({ history }) => {
 	const [email, setEmail] = useState('')
@@ -37,7 +39,8 @@ const LoginScreen = ({ history }) => {
 				</Link>
 			</div>
 
-			{loading && <h1>Loading...</h1>}
+			{loading && <Loader />}
+			{error && <p>{error}</p>}
 
 			<form className='login__form' onSubmit={submitHandler}>
 				<input

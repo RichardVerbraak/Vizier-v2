@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '../actions/users'
+import { Link } from 'react-router-dom'
+
+//TODO: Make it look a bit less bland
 
 const RegisterScreen = ({ history }) => {
 	const [name, setName] = useState('')
@@ -35,60 +38,60 @@ const RegisterScreen = ({ history }) => {
 	}
 
 	return (
-		<div>
-			<h1>Logo</h1>
+		<div className='login'>
+			<div className='logo__box'>
+				<Link to='/' className='logo logo__login'>
+					Vizier
+				</Link>
+			</div>
+
 			{loading && <h1>Loading...</h1>}
 			{error && <h1>{error}</h1>}
-			<form onSubmit={submitHandler}>
-				<label>
-					Name:
-					<input
-						type='text'
-						placeholder='Enter name'
-						value={name}
-						onChange={(e) => {
-							setName(e.target.value)
-						}}
-					></input>
-				</label>
 
-				<label>
-					Email:
-					<input
-						type='text'
-						placeholder='Enter email'
-						value={email}
-						onChange={(e) => {
-							setEmail(e.target.value)
-						}}
-					></input>
-				</label>
+			<form className='login__form' onSubmit={submitHandler}>
+				<input
+					className='login__form--input'
+					type='text'
+					placeholder='Enter name'
+					value={name}
+					onChange={(e) => {
+						setName(e.target.value)
+					}}
+				></input>
 
-				<label>
-					Password:
-					<input
-						type='password'
-						placeholder='Enter password'
-						value={password}
-						onChange={(e) => {
-							setPassword(e.target.value)
-						}}
-					></input>
-				</label>
+				<input
+					className='login__form--input'
+					type='text'
+					placeholder='Enter email'
+					value={email}
+					onChange={(e) => {
+						setEmail(e.target.value)
+					}}
+				></input>
 
-				<label>
-					Confirm password:
-					<input
-						type='password'
-						placeholder='Confirm password'
-						value={confirmPassword}
-						onChange={(e) => {
-							setConfirmPassword(e.target.value)
-						}}
-					></input>
-				</label>
+				<input
+					className='login__form--input'
+					type='password'
+					placeholder='Enter password'
+					value={password}
+					onChange={(e) => {
+						setPassword(e.target.value)
+					}}
+				></input>
 
-				<button type='submit'>Register</button>
+				<input
+					className='login__form--input'
+					type='password'
+					placeholder='Confirm password'
+					value={confirmPassword}
+					onChange={(e) => {
+						setConfirmPassword(e.target.value)
+					}}
+				></input>
+
+				<button className='btn login__form--btn' type='submit'>
+					Register
+				</button>
 			</form>
 		</div>
 	)
