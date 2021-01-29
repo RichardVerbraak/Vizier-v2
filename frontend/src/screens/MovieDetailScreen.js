@@ -13,6 +13,9 @@ import Pagination from '../components/Pagination'
 
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
+	const page = Number(match.params.page) || 1
+
+	console.log(match)
 
 	const dispatch = useDispatch()
 
@@ -39,7 +42,7 @@ const MovieDetailScreen = ({ match, history }) => {
 		if (movieID) {
 			dispatch(getMovieDetails(movieID))
 			dispatch(getMovieCast(movieID))
-			dispatch(getRecommendedMovies(movieID))
+			dispatch(getRecommendedMovies(movieID, page))
 
 			window.scrollTo({
 				top: 0,
@@ -48,7 +51,7 @@ const MovieDetailScreen = ({ match, history }) => {
 		} else {
 			history.push('/')
 		}
-	}, [dispatch, history, movieID])
+	}, [dispatch, history, movieID, page])
 
 	return (
 		<Fragment>
@@ -70,6 +73,7 @@ const MovieDetailScreen = ({ match, history }) => {
 					<div>
 						<h1 className='header__recommended header__sub'>Recommended</h1>
 						<Movies movies={movies} />
+						<Pagination page={page} movieID={movieID} />
 					</div>
 				)}
 			</div>

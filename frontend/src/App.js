@@ -13,7 +13,7 @@ const App = () => {
 	return (
 		<Router>
 			<div>
-				<Route path='/movie/:id' component={MovieDetailScreen} />
+				<Route path='/movie/:id/:page?' component={MovieDetailScreen} />
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/login' component={LoginScreen} />
 

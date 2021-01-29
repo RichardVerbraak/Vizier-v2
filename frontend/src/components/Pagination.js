@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// TODO: Make it so pagination works in HomeScreen and GenreScreen (pass in a prop to check which screen and then give different links based on that?)
+// TODO: Look at total pages and stop rendering a button if there arent anymore pages
 // TODO: Refactor this screen to something simpler, it works currently but I feel like it could be improved and could do without passing props around
-const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
+const Pagination = ({ movieID, trending, genre, page, searchQuery }) => {
 	// Pushes the 'Page 2' button to the right side if it's the only button
 	const buttonSpacing = page === 1 && 'flex-end'
 
@@ -47,6 +47,20 @@ const Pagination = ({ screen, trending, genre, page, searchQuery }) => {
 					)}
 
 					<Link className='page btn' to={`/genres/${genre}/${page + 1}`}>
+						Page {page + 1}
+					</Link>
+				</div>
+			)}
+
+			{movieID && !searchQuery && (
+				<div className={`pagination ${buttonSpacing}`}>
+					{page > 1 && (
+						<Link className='page btn' to={`/movie/${movieID}/${page - 1}`}>
+							Page {page - 1}
+						</Link>
+					)}
+
+					<Link className='page btn' to={`/movie/${movieID}/${page + 1}`}>
 						Page {page + 1}
 					</Link>
 				</div>

@@ -117,7 +117,7 @@ export const getMovieCast = (id) => {
 	}
 }
 
-export const getRecommendedMovies = (id, page = 1) => {
+export const getRecommendedMovies = (id, page) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
