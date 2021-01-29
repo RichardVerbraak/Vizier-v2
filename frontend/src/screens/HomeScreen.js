@@ -77,7 +77,7 @@ const HomeScreen = ({ match, history }) => {
 			})
 		}
 		//eslint-disable-next-line
-	}, [dispatch, page, trending, searchQuery, genre, genres])
+	}, [dispatch, page, trending, searchQuery, genre])
 
 	return (
 		<Fragment>

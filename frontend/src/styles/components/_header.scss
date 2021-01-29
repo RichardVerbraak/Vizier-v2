@@ -29,4 +29,10 @@
 	&__links a {
 		color: $color-black;
 	}
+
+	// Recommended header
+	&__recommended {
+		font-size: 4rem;
+		margin-bottom: 6rem;
+	}
 }
