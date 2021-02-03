@@ -15,8 +15,6 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
 	const page = Number(match.params.page) || 1
 
-	console.log(match)
-
 	const dispatch = useDispatch()
 
 	const movieDetails = useSelector((state) => {
@@ -36,6 +34,7 @@ const MovieDetailScreen = ({ match, history }) => {
 		loading: loadingRecommended,
 		error: errorRecommended,
 		movies,
+		totalPages,
 	} = movieRecommended
 
 	useEffect(() => {
@@ -81,7 +80,7 @@ const MovieDetailScreen = ({ match, history }) => {
 					<div>
 						<h1 className='header__recommended header__sub'>Recommended</h1>
 						<Movies movies={movies} />
-						<Pagination page={page} movieID={movieID} />
+						<Pagination page={page} movieID={movieID} totalPages={totalPages} />
 					</div>
 				)}
 			</div>
