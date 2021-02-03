@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 
 import CastSlider from './CastSlider'
+import Iframe from 'react-iframe'
 
 const Movie = ({ details, cast }) => {
 	return (
@@ -101,3 +102,14 @@ const Movie = ({ details, cast }) => {
 }
 
 export default Movie
+
+// Iframe
+// <div>
+// 							<span className='movie__links--link btn btn__trailer'>
+// 								Trailer
+// 							</span>
+// 							<Iframe
+// 								url={`http://www.youtube.com/embed/${details.videos.results[0].key}`}
+// 								className='movie__links--iframe'
+// 							/>
+// 						</div>

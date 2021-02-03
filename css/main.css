@@ -760,7 +760,7 @@ button {
   display: flex;
 }
 
-.movie__links--link {
+.movie__links--link:not(:last-child) {
   margin-right: 4rem;
 }
 

@@ -166,8 +166,15 @@
 		// width: 85%;
 
 		&--link {
-			margin-right: 4rem;
+			&:not(:last-child) {
+				margin-right: 4rem;
+			}
 		}
+
+		// &--iframe {
+		// 	display: none !important;
+		// 	opacity: 0;
+		// }
 	}
 }
 
