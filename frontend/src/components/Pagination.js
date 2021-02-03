@@ -35,9 +35,15 @@ const Pagination = ({
 							Page {page - 1}
 						</Link>
 					)}
-					<Link className='page btn' to={`/search/${searchQuery}/${page + 1}`}>
-						Page {page + 1}
-					</Link>
+
+					{page < totalPages && (
+						<Link
+							className='page btn'
+							to={`/search/${searchQuery}/${page + 1}`}
+						>
+							Page {page + 1}
+						</Link>
+					)}
 				</div>
 			)}
 
@@ -48,9 +54,12 @@ const Pagination = ({
 							Page {page - 1}
 						</Link>
 					)}
-					<Link className='page btn' to={`/discover/${trending}/${page + 1}`}>
-						Page {page + 1}
-					</Link>
+
+					{page < totalPages && (
+						<Link className='page btn' to={`/discover/${trending}/${page + 1}`}>
+							Page {page + 1}
+						</Link>
+					)}
 				</div>
 			)}
 
@@ -62,9 +71,11 @@ const Pagination = ({
 						</Link>
 					)}
 
-					<Link className='page btn' to={`/genres/${genre}/${page + 1}`}>
-						Page {page + 1}
-					</Link>
+					{page < totalPages && (
+						<Link className='page btn' to={`/genres/${genre}/${page + 1}`}>
+							Page {page + 1}
+						</Link>
+					)}
 				</div>
 			)}
 

@@ -32,7 +32,7 @@ const HomeScreen = ({ match, history }) => {
 		return state.movieList
 	})
 
-	const { movies, loading, error } = movieList
+	const { movies, loading, error, totalPages } = movieList
 
 	const userLogin = useSelector((state) => {
 		return state.userLogin
@@ -98,6 +98,7 @@ const HomeScreen = ({ match, history }) => {
 				<Pagination
 					trending={trending}
 					page={page}
+					totalPages={totalPages}
 					genre={genre}
 					searchQuery={searchQuery}
 				/>
