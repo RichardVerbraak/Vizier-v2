@@ -51,6 +51,14 @@ const MovieDetailScreen = ({ match, history }) => {
 		} else {
 			history.push('/')
 		}
+
+		// Scrolls to recommended section instead of all the way to the top if you go through Recommended movie pages
+		if (page > 1) {
+			window.scrollTo({
+				top: 1050,
+				behavior: 'smooth',
+			})
+		}
 	}, [dispatch, history, movieID, page])
 
 	return (
