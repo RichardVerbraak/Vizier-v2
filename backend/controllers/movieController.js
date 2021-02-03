@@ -86,7 +86,7 @@ const getMovieDetails = async (req, res) => {
 		const movieID = req.params.id
 
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US`
+			`https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&append_to_response=videos`
 		)
 
 		res.send(data)

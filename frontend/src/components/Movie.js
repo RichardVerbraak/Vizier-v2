@@ -73,21 +73,22 @@ const Movie = ({ details, cast }) => {
 				</div>
 
 				<div className='movie__links'>
-					<button className='movie__links--watchlist btn btn__watchlist'>
+					<button className='movie__links--link btn btn__watchlist'>
 						Add to watchlist
 					</button>
 
 					{details.imdb_id && (
 						<a
-							className='movie__links--watchlist btn btn__imdb'
+							className='movie__links--link btn btn__imdb'
 							href={`https://www.imdb.com/title/${details.imdb_id}/`}
 						>
 							IMDB
 						</a>
 					)}
-					{details.videos && (
+
+					{details.videos && details.videos.results.length > 0 && (
 						<a
-							className='movie__links--watchlist btn btn__trailer'
+							className='movie__links--link btn btn__trailer'
 							href={`https://www.youtube.com/watch?v=${details.videos.results[0].key}`}
 						>
 							Trailer

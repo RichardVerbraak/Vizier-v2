@@ -733,6 +733,10 @@ button {
   margin: auto 0;
 }
 
+.movie__cast--span {
+  outline: none;
+}
+
 .movie__cast--img {
   display: block;
   width: 12rem;
@@ -754,10 +758,10 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 60%;
+}
+
+.movie__links--link {
+  margin-right: 4rem;
 }
 
 .slick-slider {

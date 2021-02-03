@@ -19,14 +19,15 @@ const CastSlider = ({ cast }) => {
 		<Slider {...settings}>
 			{cast.map((cast) => {
 				return (
-					<a href='!#' key={cast.id}>
+					<span className='movie__cast--span' key={cast.id}>
 						<img
 							key={cast.id}
 							className='movie__cast--img'
 							src={`https://image.tmdb.org/t/p/w185/${cast.profile_path}`}
-							alt={`${cast.name}`}
+							alt={cast.name}
+							title={cast.name}
 						></img>
-					</a>
+					</span>
 				)
 			})}
 		</Slider>

@@ -141,6 +141,11 @@
 
 		margin: auto 0;
 
+		// Remove black box around cast members when focused/dragging them
+		&--span {
+			outline: none;
+		}
+
 		&--img {
 			display: block;
 			width: 12rem;
@@ -155,11 +160,14 @@
 		}
 	}
 
+	// Add margin right for links
 	&__links {
 		display: flex;
-		justify-content: space-between;
-		width: 60%;
-		// margin-top: auto;
+		// width: 85%;
+
+		&--link {
+			margin-right: 4rem;
+		}
 	}
 }
 
