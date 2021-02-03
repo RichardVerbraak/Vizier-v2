@@ -10,7 +10,6 @@ export const movieListReducer = (state = { movies: [] }, action) => {
 			return {
 				loading: false,
 				movies: action.payload.results,
-				totalPages: action.payload.total_pages,
 			}
 		}
 		case 'GET_MOVIES_FAIL': {
