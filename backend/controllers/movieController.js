@@ -1,4 +1,5 @@
 import axios from 'axios'
+import User from '../models/userModel.js'
 
 // Do something else with the error handling
 
@@ -114,6 +115,26 @@ const getMovieCast = async (req, res) => {
 	}
 }
 
+//  @desc       Get movies from user's Watchlist
+//  @route      GET /api/movies/watchlist
+//  @access     Public
+const getWatchList = async (req, res) => {
+	try {
+	} catch (error) {}
+}
+
+//  @desc       Add movie to user's Watchlist
+//  @route      POST /api/movies/watchlist
+//  @access     Public
+const addToWatchList = async (req, res) => {
+	try {
+		console.log('test')
+	} catch (error) {
+		res.status(500)
+		res.json({ message: 'Server error' })
+	}
+}
+
 export {
 	getMovies,
 	getMoviesByGenre,
@@ -121,4 +142,6 @@ export {
 	getRecommendedMovies,
 	getMovieDetails,
 	getMovieCast,
+	getWatchList,
+	addToWatchList,
 }

@@ -6,6 +6,8 @@ import {
 	getMoviesByGenre,
 	getMoviesBySearch,
 	getRecommendedMovies,
+	getWatchList,
+	addToWatchList,
 } from '../controllers/movieController.js'
 
 const router = express.Router()
@@ -20,5 +22,8 @@ router.get('/search/:query', getMoviesBySearch)
 router.get('/cast/:id', getMovieCast)
 router.get('/:id', getMovieDetails)
 router.get('/:id/recommended/:page', getRecommendedMovies)
+
+router.get('/watchlist', getWatchList)
+router.post('/watchlist', addToWatchList)
 
 export default router

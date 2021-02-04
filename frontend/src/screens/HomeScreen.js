@@ -34,10 +34,10 @@ const HomeScreen = ({ match, history }) => {
 
 	const { movies, loading, error, totalPages } = movieList
 
-	const userLogin = useSelector((state) => {
-		return state.userLogin
+	const userInfo = useSelector((state) => {
+		return state.userInfo
 	})
-	const { user, userLoading, userError } = userLogin
+	const { user, userLoading, userError } = userInfo
 
 	const genreList = useSelector((state) => {
 		return state.genreList

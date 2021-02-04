@@ -8,7 +8,7 @@ import {
 	movieListRecommendedReducer,
 	movieListReducer,
 } from './reducers/movieReducer'
-import { userLoginReducer, userReducer } from './reducers/userReducer'
+import { userReducer } from './reducers/userReducer'
 import { genreReducer } from './reducers/genreReducer'
 
 const middleware = [thunk]
@@ -18,11 +18,11 @@ const reducers = combineReducers({
 	movieRecommended: movieListRecommendedReducer,
 	movieDetails: movieDetailReducer,
 	movieCast: movieCastReducer,
+	// movieWatchList: movieWatchListReducer,
 
 	genreList: genreReducer,
 
 	userInfo: userReducer,
-	userLogin: userLoginReducer,
 })
 
 const userFromLocalStorage = localStorage.getItem('user')
@@ -30,7 +30,7 @@ const userFromLocalStorage = localStorage.getItem('user')
 	: null
 
 const initialState = {
-	userLogin: { user: userFromLocalStorage },
+	userInfo: { user: userFromLocalStorage },
 }
 
 const store = createStore(

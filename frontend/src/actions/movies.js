@@ -138,3 +138,40 @@ export const getRecommendedMovies = (id, page) => {
 		}
 	}
 }
+
+export const addToWatchList = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: 'ADD_TO_WATCHLIST_REQUEST',
+			})
+
+			const {
+				userInfo: { user },
+				movieDetails: { details },
+			} = getState()
+
+			const config = {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+
+			const { data } = await axios.post(
+				'/api/movies/watchlist',
+				{ user, details },
+				config
+			)
+
+			dispatch({
+				type: 'ADD_TO_WATCHLIST_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'ADD_TO_WATCHLIST_FAIL',
+				payload: error,
+			})
+		}
+	}
+}

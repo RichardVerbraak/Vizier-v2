@@ -22,9 +22,9 @@ const Navigation = ({ history }) => {
 
 	const { loading, error, genres } = genreList
 
-	const userLogin = useSelector((state) => state.userLogin)
+	const userInfo = useSelector((state) => state.userInfo)
 
-	const { user, userLoading, userError } = userLogin
+	const { user, userLoading, userError } = userInfo
 
 	const logout = () => {
 		dispatch(logoutUser())

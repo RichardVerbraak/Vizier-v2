@@ -15,6 +15,7 @@ export const registerUser = (user) => {
 
 			const { data } = await axios.post('/api/users', user, config)
 
+			// TODO: Refactor
 			dispatch({
 				type: 'USER_REGISTER_SUCCESS',
 				payload: data,

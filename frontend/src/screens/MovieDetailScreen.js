@@ -5,6 +5,7 @@ import {
 	getMovieDetails,
 	getRecommendedMovies,
 	getMovieCast,
+	addToWatchList,
 } from '../actions/movies'
 import Navigation from '../components/Navigation'
 import Movie from '../components/Movie'
@@ -36,6 +37,10 @@ const MovieDetailScreen = ({ match, history }) => {
 		movies,
 		totalPages,
 	} = movieRecommended
+
+	const addMovieToList = () => {
+		dispatch(addToWatchList())
+	}
 
 	useEffect(() => {
 		if (movieID) {
@@ -69,7 +74,11 @@ const MovieDetailScreen = ({ match, history }) => {
 				) : error ? (
 					<p>{error}</p>
 				) : (
-					<Movie details={details} cast={cast} />
+					<Movie
+						details={details}
+						cast={cast}
+						addMovieToList={addMovieToList}
+					/>
 				)}
 
 				{loadingRecommended ? (

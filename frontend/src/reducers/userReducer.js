@@ -1,5 +1,7 @@
+// Refactor?
 export const userReducer = (state = {}, action) => {
 	switch (action.type) {
+		// Register
 		case 'USER_REGISTER_REQUEST':
 			return {
 				loading: true,
@@ -17,17 +19,7 @@ export const userReducer = (state = {}, action) => {
 				error: action.payload,
 			}
 
-		case 'USER_LOGOUT':
-			return {}
-
-		default: {
-			return state
-		}
-	}
-}
-
-export const userLoginReducer = (state = {}, action) => {
-	switch (action.type) {
+		// Login
 		case 'USER_LOGIN_REQUEST':
 			return {
 				loading: true,
@@ -48,7 +40,35 @@ export const userLoginReducer = (state = {}, action) => {
 		case 'USER_LOGOUT':
 			return {}
 
-		default:
+		default: {
 			return state
+		}
 	}
 }
+
+// export const userLoginReducer = (state = {}, action) => {
+// 	switch (action.type) {
+// 		case 'USER_LOGIN_REQUEST':
+// 			return {
+// 				loading: true,
+// 			}
+
+// 		case 'USER_LOGIN_SUCCESS':
+// 			return {
+// 				loading: false,
+// 				user: action.payload,
+// 			}
+
+// 		case 'USER_LOGIN_FAIL':
+// 			return {
+// 				loading: false,
+// 				error: action.payload,
+// 			}
+
+// 		case 'USER_LOGOUT':
+// 			return {}
+
+// 		default:
+// 			return state
+// 	}
+// }

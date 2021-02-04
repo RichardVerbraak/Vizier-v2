@@ -6,7 +6,7 @@ import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
-const Movie = ({ details, cast }) => {
+const Movie = ({ details, cast, addMovieToList }) => {
 	return (
 		<div className='movie'>
 			<img
@@ -74,7 +74,10 @@ const Movie = ({ details, cast }) => {
 				</div>
 
 				<div className='movie__links'>
-					<button className='movie__links--link btn btn__watchlist'>
+					<button
+						onClick={addMovieToList}
+						className='movie__links--link btn btn__watchlist'
+					>
 						Add to watchlist
 					</button>
 

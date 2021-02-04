@@ -18,11 +18,11 @@ const LoginScreen = ({ history }) => {
 		dispatch(loginUser({ email, password }))
 	}
 
-	const userLogin = useSelector((state) => {
-		return state.userLogin
+	const userInfo = useSelector((state) => {
+		return state.userInfo
 	})
 
-	const { loading, error, user } = userLogin
+	const { loading, error, user } = userInfo
 
 	// Redirect to home if logged in
 	useEffect(() => {
