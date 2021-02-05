@@ -23,7 +23,6 @@ const userSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	movies: [],
 })
 
 //////// !! Moved the compare passwords function into the controller itself currently
