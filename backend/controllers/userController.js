@@ -50,6 +50,12 @@ const loginUser = async (req, res, next) => {
 	try {
 		const { email, password } = req.body
 
+		// Check for form input
+		if (!password || !email) {
+			res.status(400)
+			throw new Error('Missing password or email')
+		}
+
 		const user = await User.findOne({ email })
 
 		const matchPassword = await bcrypt.compare(password, user.password)
@@ -58,13 +64,13 @@ const loginUser = async (req, res, next) => {
 		if (user && matchPassword) {
 			res.status(201)
 			res.json({
-				_id: user._id,
-				name: user.name,
+				_id: user.id,
 				email: user.email,
+				name: user.name,
 			})
 		} else {
-			res.status(400)
-			throw new Error('Invalid email or password')
+			res.status(401)
+			throw new Error('Invalid data')
 		}
 	} catch (error) {
 		next(error)
