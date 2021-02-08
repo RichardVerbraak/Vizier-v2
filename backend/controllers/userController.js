@@ -18,7 +18,7 @@ const registerUser = async (req, res, next) => {
 
 		if (userExists) {
 			res.status(400)
-			throw new Error('User already exists')
+			throw new Error('Email already taken')
 		}
 
 		const user = await User.create({

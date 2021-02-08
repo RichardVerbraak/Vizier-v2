@@ -28,7 +28,10 @@ export const registerUser = (user) => {
 		} catch (error) {
 			dispatch({
 				type: 'USER_REGISTER_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
