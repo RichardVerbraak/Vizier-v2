@@ -19,7 +19,10 @@ export const getMovies = (page, trending) => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_MOVIES_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
@@ -43,7 +46,10 @@ export const getMoviesByGenre = (page = '', genreID) => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_MOVIES_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
@@ -67,7 +73,10 @@ export const getMoviesBySearch = (query, page) => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_MOVIES_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
@@ -89,7 +98,10 @@ export const getMovieDetails = (id) => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_MOVIE_DETAILS_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
@@ -111,7 +123,10 @@ export const getMovieCast = (id) => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_MOVIE_DETAILS_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
@@ -133,7 +148,10 @@ export const getRecommendedMovies = (id, page) => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_RECOMMENDED_MOVIES_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}
@@ -170,7 +188,10 @@ export const addToWatchList = () => {
 		} catch (error) {
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}

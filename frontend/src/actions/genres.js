@@ -16,7 +16,10 @@ export const getGenres = () => {
 		} catch (error) {
 			dispatch({
 				type: 'GET_GENRES_FAIL',
-				payload: error,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
 			})
 		}
 	}

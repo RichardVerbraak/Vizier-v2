@@ -18,7 +18,7 @@ const getMovies = async (req, res) => {
 		res.send(data)
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
@@ -37,7 +37,7 @@ const getMoviesByGenre = async (req, res) => {
 		res.send(data)
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
@@ -56,7 +56,7 @@ const getMoviesBySearch = async (req, res) => {
 		res.send(data)
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
@@ -75,7 +75,7 @@ const getRecommendedMovies = async (req, res) => {
 		res.send(data)
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
@@ -93,7 +93,7 @@ const getMovieDetails = async (req, res) => {
 		res.send(data)
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
@@ -111,7 +111,7 @@ const getMovieCast = async (req, res) => {
 		res.send(data)
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
@@ -131,7 +131,7 @@ const addToWatchList = async (req, res) => {
 		console.log('test')
 	} catch (error) {
 		res.status(500)
-		res.json({ message: 'Server error' })
+		throw new Error('Server error')
 	}
 }
 
