@@ -5,7 +5,7 @@ import movieRoutes from './routes/movieRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import genreRoutes from './routes/genreRoutes.js'
 
-import errorHandler from './middleware/errorMiddleware.js'
+import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 // Only use env variables when in development (set env variables directly on the host later like Heroku env vars)
 // Env variables were undefined when running node server.js in backend folder but not when I ran my npm start script?
@@ -41,6 +41,8 @@ app.use(express.json())
 app.use('/api/movies', movieRoutes)
 app.use('/api/genres', genreRoutes)
 app.use('/api/users', userRoutes)
+
+app.use(notFound)
 
 app.use(errorHandler)
 
