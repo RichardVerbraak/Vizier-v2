@@ -163,7 +163,7 @@ a {
 }
 
 .login__form--input:not(:last-child) {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .login__form--btn {
@@ -238,6 +238,28 @@ a {
   width: 15rem;
   height: 1px;
   background-color: #d72525;
+}
+
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  background-color: #d04d4d;
+  padding: 2.5rem 3.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.error__message {
+  text-transform: uppercase;
+  font-size: 1.4rem;
 }
 
 .loader {

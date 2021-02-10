@@ -1,0 +1,20 @@
+.error {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	color: white;
+	background-color: #d04d4d;
+	padding: 2.5rem 3.5rem;
+
+	width: 100%;
+	margin-bottom: 2rem;
+
+	&__message {
+		text-transform: uppercase;
+		font-size: 1.4rem;
+	}
+
+	&__icon {
+	}
+}

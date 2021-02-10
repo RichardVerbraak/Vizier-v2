@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { loginUser } from '../actions/users'
 import Loader from '../components/Loader'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+
 // IDEA: Maybe add a nice loader while loading in the movies the user has on his watchlist like: Welcome John...
 // TODO: Add error when it's the wrong password
 
@@ -33,16 +36,25 @@ const LoginScreen = ({ history }) => {
 
 	return (
 		<div className='login'>
+			{loading && <Loader />}
+
 			<div className='logo__box'>
 				<Link to='/' className='logo logo__login'>
 					Vizier
 				</Link>
 			</div>
 
-			{loading && <Loader />}
-			{error && <p>{error}</p>}
-
 			<form className='login__form' onSubmit={submitHandler}>
+				{error && (
+					<div className='error'>
+						<p className='error__message'>{error}</p>
+						<FontAwesomeIcon
+							className='error__icon'
+							icon={faExclamationCircle}
+						/>
+					</div>
+				)}
+
 				<input
 					className='login__form--input'
 					type='text'
