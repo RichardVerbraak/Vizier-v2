@@ -6,6 +6,8 @@ import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
+// Only addToWatchlist button if there is a user
+
 const Movie = ({ details, cast, addMovieToList }) => {
 	return (
 		<div className='movie'>

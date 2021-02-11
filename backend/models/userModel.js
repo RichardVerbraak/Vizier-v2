@@ -1,14 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
-// Add movies to the user (watchlist)
-
-// const movieSchema = mongoose.Schema({
-// 	movie: {
-// 		type: Object,
-// 	},
-// })
-
 const userSchema = mongoose.Schema({
 	name: {
 		type: String,
@@ -23,6 +15,7 @@ const userSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	watchlist: [{}],
 })
 
 //////// !! Moved the compare passwords function into the controller itself currently

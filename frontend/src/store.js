@@ -7,6 +7,7 @@ import {
 	movieDetailReducer,
 	movieListRecommendedReducer,
 	movieListReducer,
+	movieWatchListReducer,
 } from './reducers/movieReducer'
 import { userReducer } from './reducers/userReducer'
 import { genreReducer } from './reducers/genreReducer'
@@ -18,7 +19,7 @@ const reducers = combineReducers({
 	movieRecommended: movieListRecommendedReducer,
 	movieDetails: movieDetailReducer,
 	movieCast: movieCastReducer,
-	// movieWatchList: movieWatchListReducer,
+	movieWatchList: movieWatchListReducer,
 
 	genreList: genreReducer,
 

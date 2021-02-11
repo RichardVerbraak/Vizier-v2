@@ -23,7 +23,8 @@ router.get('/cast/:id', getMovieCast)
 router.get('/:id', getMovieDetails)
 router.get('/:id/recommended/:page', getRecommendedMovies)
 
-router.get('/watchlist', getWatchList)
+// Maybe assign user to req.object instead of posting the user data to the server each time in order to fetch his watchlist
+router.post('/watchlist/userWatchlist', getWatchList)
 router.post('/watchlist', addToWatchList)
 
 export default router

@@ -183,7 +183,7 @@ export const addToWatchList = () => {
 
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_SUCCESS',
-				payload: data,
+				payload: data.message,
 			})
 		} catch (error) {
 			dispatch({
