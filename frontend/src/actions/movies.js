@@ -196,3 +196,43 @@ export const addToWatchList = () => {
 		}
 	}
 }
+
+// Change the action types and refactor all of them later
+export const getWatchList = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: 'GET_WATCHLIST_REQUEST',
+			})
+
+			const {
+				userInfo: { user },
+			} = getState()
+
+			const config = {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+
+			const { data } = await axios.post(
+				'/api/movies/watchlist/userWatchlist',
+				user,
+				config
+			)
+
+			dispatch({
+				type: 'GET_WATCHLIST_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'GET_WATCHLIST_FAIL',
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
+			})
+		}
+	}
+}

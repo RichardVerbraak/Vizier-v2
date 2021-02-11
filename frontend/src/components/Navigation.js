@@ -72,7 +72,7 @@ const Navigation = ({ history }) => {
 					</div>
 
 					<div className='navbar__links--box'>
-						<Link to='/' className='navbar__links--link'>
+						<Link to='/watchlist' className='navbar__links--link'>
 							Watchlist
 						</Link>
 					</div>

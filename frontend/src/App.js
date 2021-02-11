@@ -5,6 +5,7 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import MovieDetailScreen from './screens/MovieDetailScreen'
 import RegisterScreen from './screens/RegisterScreen'
+import WatchListScreen from './screens/WatchListScreen'
 
 // TODO: Somehow only using redirect doesnt work so I went back to loading the Redirect inside of a Route again
 // TODO: Find another way for the genre movies to be loaded into HomeScreen instead of making another screen
@@ -22,6 +23,8 @@ const App = () => {
 				<Route path='/genres/:genre/:page?' component={HomeScreen} />
 
 				<Route path='/discover/:trending/:page?' component={HomeScreen} />
+
+				<Route path='/watchlist' component={WatchListScreen} />
 
 				<Route path='/' component={HomeScreen} exact>
 					<Redirect to='/discover/popular' component={HomeScreen} />
