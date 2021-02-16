@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import morgan from 'morgan'
 import connectDB from './config/db.js'
 import movieRoutes from './routes/movieRoutes.js'
 import userRoutes from './routes/userRoutes.js'
@@ -37,6 +38,10 @@ const PORT = process.env.PORT || 3000
 
 // Enables parsing of body
 app.use(express.json())
+
+if (process.env.NODE_ENV !== 'production') {
+	app.use(morgan('dev'))
+}
 
 app.use('/api/movies', movieRoutes)
 app.use('/api/genres', genreRoutes)

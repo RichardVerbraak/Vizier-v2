@@ -33,7 +33,6 @@ const WatchListScreen = ({ match, history }) => {
 			dispatch(getWatchList())
 		}
 
-		// Smooth scroll to top, not perfect but not sure how to improve upon
 		if (watchlist) {
 			window.scrollTo({
 				top: 0,
