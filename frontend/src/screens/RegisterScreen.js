@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { registerUser } from '../actions/users'
 import { Link } from 'react-router-dom'
+
+import { registerUser } from '../actions/users'
 
 //TODO: Make it look a bit less bland
 

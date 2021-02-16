@@ -1,14 +1,13 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getMovies, getMoviesBySearch } from '../actions/movies'
-import { getMoviesByGenre } from '../actions/movies'
-
 import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Movies from '../components/Movies'
-import Navigation from '../components/Navigation'
 import Pagination from '../components/Pagination'
+
+import { getMovies, getMoviesBySearch } from '../actions/movies'
+import { getMoviesByGenre } from '../actions/movies'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
 

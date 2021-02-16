@@ -96,6 +96,8 @@ const Movie = ({ details, cast, addMovieToList }) => {
 						<a
 							className='movie__links--link btn btn__trailer'
 							href={`https://www.youtube.com/watch?v=${details.videos.results[0].key}`}
+							target='_blank'
+							rel='noreferrer'
 						>
 							Trailer
 						</a>

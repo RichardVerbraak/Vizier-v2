@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { loginUser } from '../actions/users'
+
 import ErrorMessage from '../components/ErrorMessage'
 import Loader from '../components/Loader'
+
+import { loginUser } from '../actions/users'
 
 // IDEA: Maybe add a nice loader while loading in the movies the user has on his watchlist like: Welcome John...
 // TODO: Add error when it's the wrong password

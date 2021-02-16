@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getGenres } from '../actions/genres'
-import { logoutUser } from '../actions/users'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 import Search from './Search'
+
+import { getGenres } from '../actions/genres'
+import { logoutUser } from '../actions/users'
 
 // Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
 // in order for it to have access to the history prop

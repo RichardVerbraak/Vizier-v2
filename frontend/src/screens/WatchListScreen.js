@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getWatchList } from '../actions/movies'
-
 import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Movies from '../components/Movies'
-import Navigation from '../components/Navigation'
 import Pagination from '../components/Pagination'
+
+import { getWatchList } from '../actions/movies'
 
 // TODO: Add in 'empty boxes' for watchlist page
 // TODO: Add in pages to the backend so pagination can be added in

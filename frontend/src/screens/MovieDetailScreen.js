@@ -1,16 +1,17 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import Loader from '../components/Loader'
+import Movie from '../components/Movie'
+import Movies from '../components/Movies'
+import Pagination from '../components/Pagination'
+
 import {
 	getMovieDetails,
 	getRecommendedMovies,
 	getMovieCast,
 	addToWatchList,
 } from '../actions/movies'
-import Navigation from '../components/Navigation'
-import Movie from '../components/Movie'
-import Movies from '../components/Movies'
-import Pagination from '../components/Pagination'
 
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id

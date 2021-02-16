@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+// TODO: Icon when there isnt a profile_path available?
 const CastSlider = ({ cast }) => {
 	const settings = {
 		dots: false,
@@ -20,13 +21,25 @@ const CastSlider = ({ cast }) => {
 			{cast.map((cast) => {
 				return (
 					<span className='movie__cast--span' key={cast.id}>
-						<img
-							key={cast.id}
-							className='movie__cast--img'
-							src={`https://image.tmdb.org/t/p/w185/${cast.profile_path}`}
-							alt={cast.name}
-							title={cast.name}
-						></img>
+						{cast.profile_path ? (
+							<img
+								key={cast.id}
+								className='movie__cast--img'
+								src={
+									cast.profile_path &&
+									`https://image.tmdb.org/t/p/w185/${cast.profile_path}`
+								}
+								alt={cast.name}
+								title={cast.name}
+							></img>
+						) : (
+							<img
+								key={cast.id}
+								className='movie__cast--img'
+								alt={cast.name}
+								title={cast.name}
+							></img>
+						)}
 					</span>
 				)
 			})}
