@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import Navigation from './components/Navigation'
 
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
@@ -13,10 +14,11 @@ import WatchListScreen from './screens/WatchListScreen'
 const App = () => {
 	return (
 		<Router>
+			<Route path='/login' component={LoginScreen} />
+			<Navigation />
 			<div>
 				<Route path='/movie/:id/:page?' component={MovieDetailScreen} />
 				<Route path='/register' component={RegisterScreen} />
-				<Route path='/login' component={LoginScreen} />
 
 				<Route path='/search/:query/:page?' component={HomeScreen} />
 

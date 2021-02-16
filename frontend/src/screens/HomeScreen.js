@@ -81,7 +81,6 @@ const HomeScreen = ({ match, history }) => {
 
 	return (
 		<Fragment>
-			<Navigation history={history} />
 			<div className='container'>
 				<Header trending={trending} genre={genre} />
 

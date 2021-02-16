@@ -67,7 +67,6 @@ const MovieDetailScreen = ({ match, history }) => {
 
 	return (
 		<Fragment>
-			<Navigation history={history} />
 			<div className='container'>
 				{loading || loadingCast ? (
 					<Loader />

@@ -53,7 +53,6 @@ const GenreScreen = ({ match, history }) => {
 
 	return (
 		<Fragment>
-			<Navigation history={history} />
 			<h1>GenreScreen</h1>
 			<Header genre={genre} />
 

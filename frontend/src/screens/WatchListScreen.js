@@ -44,7 +44,6 @@ const WatchListScreen = ({ match, history }) => {
 
 	return (
 		<Fragment>
-			<Navigation history={history} />
 			<div className='container'>
 				<Header trending={'Watchlist'} />
 
