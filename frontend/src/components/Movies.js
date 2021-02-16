@@ -20,6 +20,7 @@ const Movies = ({ movies }) => {
 					</div>
 				)
 			})}
+			{Array(20 - movies.length).fill(<div className='movies__empty'></div>)}
 		</div>
 	)
 }
