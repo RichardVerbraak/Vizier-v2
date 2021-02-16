@@ -34,7 +34,7 @@
 			cursor: pointer;
 			border-top: solid 1px $color-primary;
 			border-bottom: solid 1px $color-primary;
-			width: 12rem;
+			width: 14rem;
 			margin: 0 2rem;
 			text-decoration: none;
 			transition: all 0.2s;
@@ -77,13 +77,15 @@
 	&__dropdown {
 		position: absolute;
 		top: 5.5rem;
-		left: -1.6rem;
+		left: -2.6rem;
 
 		background-color: #2d2626;
 
 		display: none;
 		opacity: 0;
 		z-index: 10000;
+
+		width: 14rem;
 
 		list-style-type: none;
 

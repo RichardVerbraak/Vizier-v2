@@ -46,9 +46,26 @@ const Navigation = ({ history }) => {
 
 				<div className='navbar__links'>
 					<div className='navbar__links--box'>
-						<Link to='/' className='navbar__links--link'>
+						<div className='navbar__links--link navbar__genres'>
 							Movies
-						</Link>
+							<ul className='navbar__dropdown'>
+								<Link className='navbar__dropdown--item' to='/discover/popular'>
+									Popular
+								</Link>
+								<Link
+									className='navbar__dropdown--item'
+									to='/discover/top_rated'
+								>
+									Top Rated
+								</Link>
+								<Link
+									className='navbar__dropdown--item'
+									to='/discover/upcoming'
+								>
+									Upcoming
+								</Link>
+							</ul>
+						</div>
 					</div>
 
 					<div className='navbar__links--box'>
