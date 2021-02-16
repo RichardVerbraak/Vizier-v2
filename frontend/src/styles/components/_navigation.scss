@@ -20,23 +20,34 @@
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-		margin-left: auto;
 		flex: 0 0 30%;
+
+		margin-left: auto;
 
 		color: $color-grey-white;
 		font-weight: 300;
 		font-size: 1.6rem;
-		align-items: center;
 
 		&--box {
 			display: flex;
 			justify-content: center;
-			cursor: pointer;
+
+			position: relative;
+
 			border-top: solid 1px $color-primary;
 			border-bottom: solid 1px $color-primary;
+
 			width: 14rem;
 			margin: 0 2rem;
+			padding: 1.7rem 0.8rem;
+
+			color: #f7f7f7;
 			text-decoration: none;
+			letter-spacing: $letter-spacing-small;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			cursor: pointer;
 			transition: all 0.2s;
 			backface-visibility: hidden;
 
@@ -46,12 +57,6 @@
 		}
 
 		&--link {
-			color: #f7f7f7;
-			letter-spacing: $letter-spacing-small;
-			text-transform: uppercase;
-			padding: 1.7rem 0.8rem;
-
-			text-decoration: none;
 		}
 
 		&--profile {
@@ -63,13 +68,8 @@
 		}
 	}
 
-	&__genres {
-		position: relative;
-		color: inherit;
-	}
-
-	// Make it onClick or hover?
-	&__genres:hover > &__dropdown {
+	// Navbar dropdown display
+	&__links--box:hover > &__dropdown {
 		display: block;
 		opacity: 1;
 	}
@@ -77,7 +77,7 @@
 	&__dropdown {
 		position: absolute;
 		top: 5.5rem;
-		left: -2.6rem;
+		left: 0rem;
 
 		background-color: #2d2626;
 

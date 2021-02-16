@@ -46,47 +46,37 @@ const Navigation = ({ history }) => {
 
 				<div className='navbar__links'>
 					<div className='navbar__links--box'>
-						<div className='navbar__links--link navbar__genres'>
-							Movies
-							<ul className='navbar__dropdown'>
-								<Link className='navbar__dropdown--item' to='/discover/popular'>
-									Popular
-								</Link>
-								<Link
-									className='navbar__dropdown--item'
-									to='/discover/top_rated'
-								>
-									Top Rated
-								</Link>
-								<Link
-									className='navbar__dropdown--item'
-									to='/discover/upcoming'
-								>
-									Upcoming
-								</Link>
-							</ul>
-						</div>
+						<span className='navbar__links--title'>Movies</span>
+						<ul className='navbar__dropdown'>
+							<Link className='navbar__dropdown--item' to='/discover/popular'>
+								Popular
+							</Link>
+							<Link className='navbar__dropdown--item' to='/discover/top_rated'>
+								Top Rated
+							</Link>
+							<Link className='navbar__dropdown--item' to='/discover/upcoming'>
+								Upcoming
+							</Link>
+						</ul>
 					</div>
 
 					<div className='navbar__links--box'>
-						<div className='navbar__links--link navbar__genres'>
-							Genres
-							{!loading && !error && (
-								<ul className='navbar__dropdown'>
-									{genres.map((genre) => {
-										return (
-											<Link
-												className='navbar__dropdown--item'
-												key={genre.id}
-												to={`/genres/${genre.name}`}
-											>
-												{genre.name}
-											</Link>
-										)
-									})}
-								</ul>
-							)}
-						</div>
+						<span className='navbar__links--title'>Genres</span>
+						{!loading && !error && (
+							<ul className='navbar__dropdown'>
+								{genres.map((genre) => {
+									return (
+										<Link
+											className='navbar__dropdown--item'
+											key={genre.id}
+											to={`/genres/${genre.name}`}
+										>
+											{genre.name}
+										</Link>
+									)
+								})}
+							</ul>
+						)}
 					</div>
 
 					<div className='navbar__links--box'>
