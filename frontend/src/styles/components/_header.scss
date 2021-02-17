@@ -5,29 +5,22 @@
 
 	margin-bottom: 6rem;
 
-	&__title {
-	}
+	&__box {
+		&--main {
+			font-size: 4.4rem;
+			font-weight: 400;
+			letter-spacing: 1.4rem;
+			text-transform: uppercase;
 
-	// Make variable for bigger letter spacing
-	&__main {
-		font-size: 4.4rem;
-		font-weight: 400;
-		letter-spacing: 1.4rem;
-		text-transform: uppercase;
+			margin-bottom: 1.4rem;
+		}
 
-		margin-bottom: 1.4rem;
-	}
-
-	&__sub {
-		font-size: 2.4rem;
-		font-weight: 300;
-		letter-spacing: 0.6rem;
-		text-transform: uppercase;
-	}
-
-	// temporary
-	&__links a {
-		color: $color-black;
+		&--sub {
+			font-size: 2.4rem;
+			font-weight: 300;
+			letter-spacing: 0.6rem;
+			text-transform: uppercase;
+		}
 	}
 
 	// Recommended header

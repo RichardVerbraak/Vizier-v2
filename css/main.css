@@ -496,7 +496,7 @@ button {
   margin-bottom: 6rem;
 }
 
-.header__main {
+.header__box--main {
   font-size: 4.4rem;
   font-weight: 400;
   letter-spacing: 1.4rem;
@@ -504,15 +504,11 @@ button {
   margin-bottom: 1.4rem;
 }
 
-.header__sub {
+.header__box--sub {
   font-size: 2.4rem;
   font-weight: 300;
   letter-spacing: 0.6rem;
   text-transform: uppercase;
-}
-
-.header__links a {
-  color: #000;
 }
 
 .header__recommended {

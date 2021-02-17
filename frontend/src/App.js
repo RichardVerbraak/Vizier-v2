@@ -8,6 +8,8 @@ import MovieDetailScreen from './screens/MovieDetailScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import WatchListScreen from './screens/WatchListScreen'
 
+//TODO: Only render Navigation inside some components
+
 const App = () => {
 	return (
 		<Router>
