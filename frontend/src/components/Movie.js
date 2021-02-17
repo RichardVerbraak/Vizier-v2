@@ -8,7 +8,7 @@ import Iframe from 'react-iframe'
 
 // Only addToWatchlist button if there is a user
 
-const Movie = ({ details, cast, addMovieToList }) => {
+const Movie = ({ details, cast, addMovieToList, success }) => {
 	return (
 		<div className='movie'>
 			<img

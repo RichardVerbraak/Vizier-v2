@@ -113,6 +113,7 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 		case 'ADD_TO_WATCHLIST_REQUEST': {
 			return {
 				loading: true,
+				success: false,
 			}
 		}
 		case 'ADD_TO_WATCHLIST_SUCCESS': {

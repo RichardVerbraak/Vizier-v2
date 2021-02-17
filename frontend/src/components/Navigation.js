@@ -9,6 +9,7 @@ import Search from './Search'
 
 import { getGenres } from '../actions/genres'
 import { logoutUser } from '../actions/users'
+import Button from './Button'
 
 // Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
 // in order for it to have access to the history prop
@@ -79,11 +80,9 @@ const Navigation = ({ history }) => {
 						)}
 					</div>
 
-					<div className='navbar__links--box'>
-						<Link to='/watchlist' className='navbar__links--link'>
-							Watchlist
-						</Link>
-					</div>
+					<Link to='/watchlist' className='navbar__links--box'>
+						<span className='navbar__links--title'>Watchlist</span>
+					</Link>
 				</div>
 
 				{user ? (
@@ -92,9 +91,11 @@ const Navigation = ({ history }) => {
 						<p>Logout</p>
 					</Link>
 				) : (
-					<Link to='/login' className='navbar__links--profile btn'>
-						Sign In
-					</Link>
+					<Button
+						url={'/login'}
+						className={'navbar__links--profile btn'}
+						text={'Sign In'}
+					/>
 				)}
 			</div>
 		</div>

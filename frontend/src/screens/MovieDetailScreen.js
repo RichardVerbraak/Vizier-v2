@@ -39,6 +39,11 @@ const MovieDetailScreen = ({ match, history }) => {
 		totalPages,
 	} = movieRecommended
 
+	const movieWatchList = useSelector((state) => {
+		return state.movieWatchList
+	})
+	const { success } = movieWatchList
+
 	const addMovieToList = () => {
 		dispatch(addToWatchList())
 	}
@@ -78,6 +83,7 @@ const MovieDetailScreen = ({ match, history }) => {
 						details={details}
 						cast={cast}
 						addMovieToList={addMovieToList}
+						success={success}
 					/>
 				)}
 

@@ -15,7 +15,7 @@ import { getMoviesByGenre } from '../actions/movies'
 // TODO: Make seperate components for movies and header (user info + sign in button etc)
 // TODO: Make components for the links
 
-const HomeScreen = ({ match, history }) => {
+const HomeScreen = ({ match }) => {
 	// Convert from string to number
 	const page = Number(match.params.page) || 1
 

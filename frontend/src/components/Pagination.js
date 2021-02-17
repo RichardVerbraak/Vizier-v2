@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Button from './Button'
+
 // TODO: Refactor this screen to something simpler, it works currently but I feel like it could be improved and could do without passing props around
 
 //#### Pagination will be rendered based on which props it will receive (aka which screen it's being rendered in)
@@ -28,21 +30,19 @@ const Pagination = ({
 			{searchQuery && (
 				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
-						<Link
-							className='page btn'
-							to={`/search/${searchQuery}/${page - 1}`}
-						>
-							Page {page - 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/search/${searchQuery}/${page - 1}`}
+							text={`Page ${page - 1}`}
+						/>
 					)}
 
 					{page < totalPages && (
-						<Link
-							className='page btn'
-							to={`/search/${searchQuery}/${page + 1}`}
-						>
-							Page {page + 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/search/${searchQuery}/${page + 1}`}
+							text={`Page ${page + 1}`}
+						/>
 					)}
 				</div>
 			)}
@@ -50,15 +50,19 @@ const Pagination = ({
 			{trending && !searchQuery && (
 				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
-						<Link className='page btn' to={`/discover/${trending}/${page - 1}`}>
-							Page {page - 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/discover/${trending}/${page - 1}`}
+							text={`Page ${page - 1}`}
+						/>
 					)}
 
 					{page < totalPages && (
-						<Link className='page btn' to={`/discover/${trending}/${page + 1}`}>
-							Page {page + 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/discover/${trending}/${page + 1}`}
+							text={`Page ${page + 1}`}
+						/>
 					)}
 				</div>
 			)}
@@ -66,15 +70,19 @@ const Pagination = ({
 			{genre && !searchQuery && (
 				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
-						<Link className='page btn' to={`/genres/${genre}/${page - 1}`}>
-							Page {page - 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/genres/${genre}/${page - 1}`}
+							text={`Page ${page - 1}`}
+						/>
 					)}
 
 					{page < totalPages && (
-						<Link className='page btn' to={`/genres/${genre}/${page + 1}`}>
-							Page {page + 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/genres/${genre}/${page + 1}`}
+							text={`Page ${page + 1}`}
+						/>
 					)}
 				</div>
 			)}
@@ -82,15 +90,19 @@ const Pagination = ({
 			{movieID && !searchQuery && (
 				<div className={`pagination ${buttonSpacing}`}>
 					{page > 1 && (
-						<Link className='page btn' to={`/movie/${movieID}/${page - 1}`}>
-							Page {page - 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/movie/${movieID}/${page - 1}`}
+							text={`Page ${page - 1}`}
+						/>
 					)}
 
 					{page < totalPages && (
-						<Link className='page btn' to={`/movie/${movieID}/${page + 1}`}>
-							Page {page + 1}
-						</Link>
+						<Button
+							className={'page btn'}
+							url={`/movie/${movieID}/${page + 1}`}
+							text={`Page ${page + 1}`}
+						/>
 					)}
 				</div>
 			)}

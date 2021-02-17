@@ -19,7 +19,6 @@ const WatchListScreen = ({ match, history }) => {
 	const movieWatchList = useSelector((state) => {
 		return state.movieWatchList
 	})
-
 	const { watchlist, loading, error } = movieWatchList
 
 	const userInfo = useSelector((state) => {
@@ -39,7 +38,7 @@ const WatchListScreen = ({ match, history }) => {
 			})
 		}
 		//eslint-disable-next-line
-	}, [dispatch, history])
+	}, [dispatch, history, user, success])
 
 	return (
 		<Fragment>
