@@ -9,15 +9,10 @@ import Search from './Search'
 
 import { getGenres } from '../actions/genres'
 import { logoutUser } from '../actions/users'
-import Button from './Button'
 
-// Either pass down history via HomeScreen => Navigation => Search or bring in Route from react-router-dom and render Search within the route
-// in order for it to have access to the history prop
-// TODO: Fix logout button still showing logout when there is no user
 // TODO: Better naming or HTML for the Genre dropdown link
-// IDEA: Load genres in HomeScreen and pass down to navigation and show a loader for homepage untill genre fetching is done
 
-const Navigation = ({ history }) => {
+const Navigation = () => {
 	const dispatch = useDispatch()
 
 	const genreList = useSelector((state) => state.genreList)
@@ -43,7 +38,7 @@ const Navigation = ({ history }) => {
 					Vizier
 				</Link>
 
-				<Search history={history} />
+				<Search />
 
 				<div className='navbar__links'>
 					<div className='navbar__links--box'>
@@ -91,11 +86,10 @@ const Navigation = ({ history }) => {
 						<p>Logout</p>
 					</Link>
 				) : (
-					<Button
-						url={'/login'}
-						className={'navbar__links--profile btn'}
-						text={'Sign In'}
-					/>
+					<Link to='/login' className='navbar__links--profile btn'>
+						<FontAwesomeIcon className='profile__icon' icon={faUser} />
+						<p>Sign In</p>
+					</Link>
 				)}
 			</div>
 		</div>

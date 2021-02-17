@@ -11,9 +11,7 @@ import { getMoviesByGenre } from '../actions/movies'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
 
-// TODO: Make error and loading component
-// TODO: Make seperate components for movies and header (user info + sign in button etc)
-// TODO: Make components for the links
+// TODO: Make error component
 
 const HomeScreen = ({ match }) => {
 	// Convert from string to number
@@ -95,10 +93,10 @@ const HomeScreen = ({ match }) => {
 
 				<Pagination
 					trending={trending}
-					page={page}
-					totalPages={totalPages}
 					genre={genre}
 					searchQuery={searchQuery}
+					page={page}
+					totalPages={totalPages}
 				/>
 			</div>
 		</Fragment>

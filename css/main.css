@@ -295,31 +295,30 @@ button {
           align-items: center;
   font-size: 1.3rem;
   background-color: #d72525;
-  border-radius: 5rem;
+  width: auto;
   border: none;
   color: #fff;
   font-family: "Quicksand", "sans-serif";
   letter-spacing: 0.2rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  padding: 2rem;
+  background-image: linear-gradient(-60deg, #453a3a 0%, #453838 transparent 50%);
+  background-size: 300%;
+  -webkit-transition: background-position 0.75s ease-out;
+  transition: background-position 0.75s ease-out;
+  padding: 2rem 3rem;
 }
 
 .btn__sign-in {
   color: #fff;
 }
 
-.btn__imdb, .btn__trailer, .btn__login {
-  width: 16rem;
-}
-
 .btn:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  background-position: 100%;
 }
 
 .search {
@@ -403,14 +402,13 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: auto;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 30%;
           flex: 0 0 30%;
+  margin-left: auto;
   color: #f7f7f7;
   font-weight: 300;
   font-size: 1.6rem;
-  align-items: center;
 }
 
 .navbar__links--box {
@@ -420,12 +418,18 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  cursor: pointer;
+  position: relative;
   border-top: solid 1px #d72525;
   border-bottom: solid 1px #d72525;
-  width: 12rem;
+  width: 14rem;
   margin: 0 2rem;
+  padding: 1.7rem 0.8rem;
+  color: #f7f7f7;
   text-decoration: none;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-backface-visibility: hidden;
@@ -434,14 +438,6 @@ button {
 
 .navbar__links--box:hover {
   background-color: #d72525;
-}
-
-.navbar__links--link {
-  color: #f7f7f7;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  padding: 1.7rem 0.8rem;
-  text-decoration: none;
 }
 
 .navbar__links--profile {
@@ -458,12 +454,7 @@ button {
   margin-left: auto;
 }
 
-.navbar__genres {
-  position: relative;
-  color: inherit;
-}
-
-.navbar__genres:hover > .navbar__dropdown {
+.navbar__links--box:hover > .navbar__dropdown {
   display: block;
   opacity: 1;
 }
@@ -471,11 +462,12 @@ button {
 .navbar__dropdown {
   position: absolute;
   top: 5.5rem;
-  left: -1.6rem;
+  left: 0rem;
   background-color: #2d2626;
   display: none;
   opacity: 0;
   z-index: 10000;
+  width: 14rem;
   list-style-type: none;
 }
 
