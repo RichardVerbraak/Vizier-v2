@@ -27,18 +27,15 @@ const WatchListScreen = ({ match, history }) => {
 	const { user, userLoading, userError } = userInfo
 
 	useEffect(() => {
-		if (user) {
-			dispatch(getWatchList())
-		}
+		dispatch(getWatchList())
 
-		if (watchlist) {
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth',
-			})
-		}
-		//eslint-disable-next-line
-	}, [dispatch, history, user, success])
+		// if (watchlist) {
+		// 	window.scrollTo({
+		// 		top: 0,
+		// 		behavior: 'smooth',
+		// 	})
+		// }
+	}, [dispatch, history, user])
 
 	return (
 		<Fragment>

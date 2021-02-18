@@ -167,16 +167,27 @@ const getWatchList = async (req, res, next) => {
 const addToWatchList = async (req, res, next) => {
 	try {
 		const user = req.body.user
-		const movie = req.body.details
+		const newMovie = req.body.details
 
 		if (user) {
 			const foundUser = await User.findById(user._id)
 
-			foundUser.watchlist.push(movie)
+			const alreadyExists = foundUser.watchlist.find((movie) => {
+				return movie.id === newMovie.id
+			})
 
-			await foundUser.save()
+			if (!alreadyExists) {
+				foundUser.watchlist.push(newMovie)
 
-			res.json({ message: `${movie.title} successfully added to watchlist!` })
+				await foundUser.save()
+
+				res.json({
+					message: `${newMovie.title} successfully added to watchlist!`,
+				})
+			} else {
+				res.status(400)
+				throw new Error('Movie already added to Watchlist')
+			}
 		} else {
 			res.status(500)
 			throw new Error('Server Error')
