@@ -190,7 +190,7 @@ const addToWatchList = async (req, res, next) => {
 			}
 		} else {
 			res.status(500)
-			throw new Error('Server Error')
+			throw new Error('Please sign in to add movies to your watchlist')
 		}
 	} catch (error) {
 		next(error)
