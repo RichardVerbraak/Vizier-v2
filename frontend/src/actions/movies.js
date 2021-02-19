@@ -201,6 +201,8 @@ export const addToWatchList = () => {
 export const getWatchList = () => {
 	return async (dispatch, getState) => {
 		try {
+			console.log('action called')
+
 			dispatch({
 				type: 'GET_WATCHLIST_REQUEST',
 			})

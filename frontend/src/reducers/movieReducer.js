@@ -108,7 +108,43 @@ export const movieCastReducer = (state = { cast: [] }, action) => {
 }
 
 // Watchlist
-export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
+export const movieWatchListReducer = (
+	state = { watchlist: [], loading: true },
+	action
+) => {
+	switch (action.type) {
+		case 'GET_WATCHLIST_REQUEST': {
+			return {
+				loading: true,
+			}
+		}
+
+		case 'GET_WATCHLIST_SUCCESS': {
+			return {
+				loading: false,
+				watchlist: action.payload,
+			}
+		}
+
+		case 'GET_WATCHLIST_FAIL': {
+			return {
+				loading: false,
+				error: action.payload,
+			}
+		}
+
+		// Reset watchlist to empty array on user logout, specifically empty so the Array.fill method fills the page with empty divs
+		case 'RESET_WATCHLIST': {
+			return { watchlist: [] }
+		}
+
+		default:
+			return state
+	}
+}
+
+// Watchlist add movies
+export const movieAddWatchListReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'ADD_TO_WATCHLIST_REQUEST': {
 			return {
@@ -126,25 +162,6 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 			return {
 				loading: false,
 				error: action.payload,
-			}
-		}
-
-		case 'GET_WATCHLIST_REQUEST': {
-			return {
-				loading: true,
-			}
-		}
-
-		case 'GET_WATCHLIST_SUCCESS': {
-			return {
-				loading: false,
-				watchlist: action.payload.watchlist,
-			}
-		}
-
-		case 'GET_WATCHLIST_FAIL': {
-			return {
-				loading: false,
 			}
 		}
 

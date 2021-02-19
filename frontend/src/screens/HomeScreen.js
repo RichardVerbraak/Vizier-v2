@@ -79,7 +79,7 @@ const HomeScreen = ({ match }) => {
 	return (
 		<Fragment>
 			<div className='container'>
-				<Header trending={trending} genre={genre} />
+				<Header trending={trending} genre={genre} title={'Movies'} />
 
 				{loading ? (
 					<Loader />

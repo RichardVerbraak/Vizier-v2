@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 
 // TODO: Add replacement image if there isnt a poster for the movie
 
-const Movies = (props) => {
-	console.log(props)
-
+const Movies = ({ movies }) => {
+	console.log(movies)
 	return (
 		<div className='movies'>
-			{props.movies.map((movie) => {
+			{movies.map((movie) => {
 				return (
 					<div key={movie.id} className='movies__item'>
 						<Link to={`/movie/${movie.id}`}>
@@ -22,9 +21,7 @@ const Movies = (props) => {
 					</div>
 				)
 			})}
-			{Array(20 - props.movies.length).fill(
-				<div className='movies__empty'></div>
-			)}
+			{Array(20 - movies.length).fill(<div className='movies__empty'></div>)}
 		</div>
 	)
 }

@@ -149,9 +149,10 @@ const getWatchList = async (req, res, next) => {
 
 		const foundUser = await User.findById(user._id)
 
+		console.log(user)
 		if (foundUser) {
 			res.status(201)
-			res.send(foundUser)
+			res.json(foundUser.watchlist)
 		} else {
 			res.status(500)
 			throw new Error('Server Error')

@@ -76,6 +76,10 @@ export const logoutUser = () => {
 			type: 'USER_LOGOUT',
 		})
 
+		dispatch({
+			type: 'RESET_WATCHLIST',
+		})
+
 		localStorage.removeItem('user')
 	}
 }
