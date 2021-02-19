@@ -163,7 +163,7 @@ const getWatchList = async (req, res, next) => {
 }
 
 //  @desc       Add movie to user's Watchlist
-//  @route      POST /api/movies/watchlist
+//  @route      POST /api/movies/watchlist/userWatchlist
 //  @access     Private
 const addToWatchList = async (req, res, next) => {
 	try {
@@ -197,6 +197,11 @@ const addToWatchList = async (req, res, next) => {
 		next(error)
 	}
 }
+
+//  @desc       Add movie to user's Watchlist
+//  @route      DELETE /api/movies/watchlist/userWatchlist
+//  @access     Private
+const removeFromWatchList = async (req, res) => {}
 
 export {
 	getMovies,

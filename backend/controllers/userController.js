@@ -1,11 +1,6 @@
 import User from '../models/userModel.js'
 import bcrypt from 'bcrypt'
-
-// Use error middleware?
-
-//TODO: Fix error handling
-
-// TODO: FIX REGISTER USER
+import jwt from 'jsonwebtoken'
 
 // @desc        Register the user
 // @route       POST /api/users
@@ -33,6 +28,9 @@ const registerUser = async (req, res, next) => {
 				_id: user._id,
 				name: user.name,
 				email: user.email,
+				token: jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+					expiresIn: '30d',
+				}),
 			})
 		} else {
 			res.status(400)
@@ -50,23 +48,26 @@ const loginUser = async (req, res, next) => {
 	try {
 		const { email, password } = req.body
 
-		// Check for form input
-		if (!password || !email) {
-			res.status(400)
-			throw new Error('Missing password or email')
-		}
-
 		const user = await User.findOne({ email })
+
+		if (!user) {
+			res.status(400)
+			throw new Error('Invalid data')
+		}
 
 		const matchPassword = await bcrypt.compare(password, user.password)
 
 		// If user exists AND passwords are a match => return id, name and email to be used in header component
+		// Also return a token to verify if its the same user on any route
 		if (user && matchPassword) {
 			res.status(201)
 			res.json({
 				_id: user.id,
 				email: user.email,
 				name: user.name,
+				token: jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+					expiresIn: '30d',
+				}),
 			})
 		} else {
 			res.status(401)
