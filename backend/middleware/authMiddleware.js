@@ -1,4 +1,3 @@
-// Check if the token is the same as the token the user has on him
 import jwt from 'jsonwebtoken'
 import User from '../models/userModel.js'
 
@@ -12,7 +11,7 @@ export const authorizeUser = async (req, res, next) => {
 		} else {
 			const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
 
-			const user = await User.findById(decodedToken.id)
+			const user = await User.findById(decodedToken.id).select('-password')
 
 			if (user) {
 				req.user = user

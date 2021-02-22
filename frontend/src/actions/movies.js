@@ -172,12 +172,13 @@ export const addToWatchList = () => {
 			const config = {
 				headers: {
 					'Content-Type': 'application/json',
+					Authorization: user.token,
 				},
 			}
 
 			const { data } = await axios.post(
 				'/api/movies/watchlist',
-				{ user, details },
+				{ details },
 				config
 			)
 
@@ -201,8 +202,6 @@ export const addToWatchList = () => {
 export const getWatchList = () => {
 	return async (dispatch, getState) => {
 		try {
-			console.log('action called')
-
 			dispatch({
 				type: 'GET_WATCHLIST_REQUEST',
 			})
@@ -213,13 +212,12 @@ export const getWatchList = () => {
 
 			const config = {
 				headers: {
-					'Content-Type': 'application/json',
+					Authorization: user.token,
 				},
 			}
 
-			const { data } = await axios.post(
+			const { data } = await axios.get(
 				'/api/movies/watchlist/userWatchlist',
-				user,
 				config
 			)
 

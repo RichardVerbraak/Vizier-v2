@@ -145,7 +145,7 @@ const getMovieCast = async (req, res, next) => {
 //  @access     Private
 const getWatchList = async (req, res, next) => {
 	try {
-		const user = req.body
+		const user = req.user
 
 		const foundUser = await User.findById(user._id)
 
@@ -167,7 +167,7 @@ const getWatchList = async (req, res, next) => {
 //  @access     Private
 const addToWatchList = async (req, res, next) => {
 	try {
-		const user = req.body.user
+		const user = req.user
 		const newMovie = req.body.details
 
 		if (user) {

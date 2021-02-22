@@ -9,6 +9,7 @@ import {
 	getWatchList,
 	addToWatchList,
 } from '../controllers/movieController.js'
+import { authorizeUser } from '../middleware/authMiddleware.js'
 
 const router = express.Router()
 
@@ -24,7 +25,7 @@ router.get('/:id', getMovieDetails)
 router.get('/:id/recommended/:page', getRecommendedMovies)
 
 // Maybe assign user to req.object instead of posting the user data to the server each time in order to fetch his watchlist
-router.post('/watchlist/userWatchlist', getWatchList)
-router.post('/watchlist', addToWatchList)
+router.get('/watchlist/userWatchlist', authorizeUser, getWatchList)
+router.post('/watchlist', authorizeUser, addToWatchList)
 
 export default router

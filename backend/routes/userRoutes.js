@@ -6,6 +6,6 @@ const router = express.Router()
 
 // TODO: Authorize user when registering and logging in
 router.post('/', registerUser)
-router.post('/login', authorizeUser, loginUser)
+router.post('/login', loginUser)
 
 export default router
