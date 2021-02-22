@@ -187,6 +187,7 @@ export const addToWatchList = () => {
 				payload: data.message,
 			})
 		} catch (error) {
+			console.log(error)
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_FAIL',
 				payload:

@@ -1,14 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 
 import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
+import { addToWatchList } from '../actions/movies'
+
 // Only addToWatchlist button if there is a user
 
-const Movie = ({ details, cast, addMovieToList, success }) => {
+const Movie = ({ details, cast, success }) => {
+	const dispatch = useDispatch()
+
+	const addMovieToList = () => {
+		dispatch(addToWatchList())
+	}
+
+	const userInfo = useSelector((state) => {
+		return state.userInfo
+	})
+	const { user, userLoading, userError } = userInfo
+
 	return (
 		<div className='movie'>
 			<img
@@ -76,12 +90,20 @@ const Movie = ({ details, cast, addMovieToList, success }) => {
 				</div>
 
 				<div className='movie__links'>
-					<button
-						onClick={addMovieToList}
-						className='movie__links--link btn btn__watchlist'
-					>
-						Add to watchlist
-					</button>
+					{user && (
+						<button
+							onClick={addMovieToList}
+							className='movie__links--link btn btn__watchlist'
+						>
+							Add to watchlist
+						</button>
+					)}
+
+					{!user && (
+						<p className='movie__links--link btn btn__watchlist'>
+							Sign in to add to watchlist
+						</p>
+					)}
 
 					{details.imdb_id && (
 						<a

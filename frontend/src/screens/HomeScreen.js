@@ -6,7 +6,7 @@ import Loader from '../components/Loader'
 import Movies from '../components/Movies'
 import Pagination from '../components/Pagination'
 
-import { getMovies, getMoviesBySearch } from '../actions/movies'
+import { getMovies, getMoviesBySearch, getWatchList } from '../actions/movies'
 import { getMoviesByGenre } from '../actions/movies'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
@@ -28,7 +28,6 @@ const HomeScreen = ({ match }) => {
 	const movieList = useSelector((state) => {
 		return state.movieList
 	})
-
 	const { movies, loading, error, totalPages } = movieList
 
 	const userInfo = useSelector((state) => {
@@ -74,7 +73,7 @@ const HomeScreen = ({ match }) => {
 			})
 		}
 		//eslint-disable-next-line
-	}, [dispatch, page, trending, searchQuery, genre])
+	}, [dispatch, page, trending, searchQuery, genre, user])
 
 	return (
 		<Fragment>

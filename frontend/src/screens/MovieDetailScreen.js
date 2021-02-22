@@ -10,7 +10,6 @@ import {
 	getMovieDetails,
 	getRecommendedMovies,
 	getMovieCast,
-	addToWatchList,
 } from '../actions/movies'
 
 const MovieDetailScreen = ({ match, history }) => {
@@ -39,28 +38,20 @@ const MovieDetailScreen = ({ match, history }) => {
 		totalPages,
 	} = movieRecommended
 
-	const movieWatchList = useSelector((state) => {
-		return state.movieWatchList
+	const movieAddWatchList = useSelector((state) => {
+		return state.movieAddWatchList
 	})
-	const { success } = movieWatchList
-
-	const addMovieToList = () => {
-		dispatch(addToWatchList())
-	}
+	const { success, loadingSuccess, errorSuccess } = movieAddWatchList
 
 	useEffect(() => {
-		if (movieID) {
-			dispatch(getMovieDetails(movieID))
-			dispatch(getMovieCast(movieID))
-			dispatch(getRecommendedMovies(movieID, page))
+		dispatch(getMovieDetails(movieID))
+		dispatch(getMovieCast(movieID))
+		dispatch(getRecommendedMovies(movieID, page))
 
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth',
-			})
-		} else {
-			history.push('/')
-		}
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		})
 
 		// Scrolls to recommended section instead of all the way to the top if you go through Recommended movie pages
 		if (page > 1) {
@@ -74,7 +65,7 @@ const MovieDetailScreen = ({ match, history }) => {
 	return (
 		<Fragment>
 			<div className='container'>
-				{loading || loadingCast ? (
+				{loading || loadingCast || loadingSuccess ? (
 					<Loader />
 				) : error ? (
 					<p>{error}</p>
@@ -82,8 +73,8 @@ const MovieDetailScreen = ({ match, history }) => {
 					<Movie
 						details={details}
 						cast={cast}
-						addMovieToList={addMovieToList}
 						success={success}
+						errorSuccess={errorSuccess}
 					/>
 				)}
 
