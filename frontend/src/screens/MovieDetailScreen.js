@@ -10,6 +10,7 @@ import {
 	getMovieDetails,
 	getRecommendedMovies,
 	getMovieCast,
+	getWatchList,
 } from '../actions/movies'
 
 const MovieDetailScreen = ({ match, history }) => {
@@ -43,10 +44,20 @@ const MovieDetailScreen = ({ match, history }) => {
 	})
 	const { success, loadingSuccess, errorSuccess } = movieAddWatchList
 
+	const watchList = useSelector((state) => {
+		return state.movieWatchList
+	})
+	const { watchlist, loadingWatchlist, errorWatchlist } = watchList
+
 	useEffect(() => {
-		dispatch(getMovieDetails(movieID))
-		dispatch(getMovieCast(movieID))
-		dispatch(getRecommendedMovies(movieID, page))
+		if (movieID) {
+			dispatch(getMovieDetails(movieID))
+			dispatch(getMovieCast(movieID))
+			dispatch(getRecommendedMovies(movieID, page))
+			dispatch(getWatchList())
+		} else {
+			history.push('/')
+		}
 
 		window.scrollTo({
 			top: 0,
@@ -65,7 +76,7 @@ const MovieDetailScreen = ({ match, history }) => {
 	return (
 		<Fragment>
 			<div className='container'>
-				{loading || loadingCast || loadingSuccess ? (
+				{loading || loadingCast || loadingSuccess || loadingWatchlist ? (
 					<Loader />
 				) : error ? (
 					<p>{error}</p>
@@ -75,6 +86,7 @@ const MovieDetailScreen = ({ match, history }) => {
 						cast={cast}
 						success={success}
 						errorSuccess={errorSuccess}
+						watchlist={watchlist}
 					/>
 				)}
 

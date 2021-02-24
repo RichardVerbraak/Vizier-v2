@@ -9,9 +9,9 @@ import Iframe from 'react-iframe'
 
 import { addToWatchList } from '../actions/movies'
 
-// Only addToWatchlist button if there is a user
+// TODO: Load stuff in MovieDetailScreen or component?
 
-const Movie = ({ details, cast, success }) => {
+const Movie = ({ details, cast, success, watchlist }) => {
 	const dispatch = useDispatch()
 
 	const addMovieToList = () => {
@@ -90,14 +90,22 @@ const Movie = ({ details, cast, success }) => {
 				</div>
 
 				<div className='movie__links'>
-					{user && (
-						<button
-							onClick={addMovieToList}
-							className='movie__links--link btn btn__watchlist'
-						>
-							Add to watchlist
-						</button>
-					)}
+					{user &&
+						watchlist &&
+						watchlist.map((movie) => {
+							return movie.id === details.id ? (
+								<p className='movie__links--link btn btn__watchlist'>
+									Remove from watchlist
+								</p>
+							) : (
+								<button
+									onClick={addMovieToList}
+									className='movie__links--link btn btn__watchlist'
+								>
+									Add to watchlist
+								</button>
+							)
+						})}
 
 					{!user && (
 						<p className='movie__links--link btn btn__watchlist'>
