@@ -157,6 +157,42 @@ export const getRecommendedMovies = (id, page) => {
 	}
 }
 
+// Change the action types and refactor all of them later
+export const getWatchList = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: 'GET_WATCHLIST_REQUEST',
+			})
+
+			const {
+				userInfo: { user },
+			} = getState()
+
+			const config = {
+				headers: {
+					Authorization: user.token,
+				},
+			}
+
+			const { data } = await axios.get('/api/movies/watchlist', config)
+
+			dispatch({
+				type: 'GET_WATCHLIST_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'GET_WATCHLIST_FAIL',
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
+			})
+		}
+	}
+}
+
 export const addToWatchList = () => {
 	return async (dispatch, getState) => {
 		try {
@@ -190,45 +226,6 @@ export const addToWatchList = () => {
 			console.log(error)
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_FAIL',
-				payload:
-					error.response && error.response.data.message
-						? error.response.data.message
-						: error,
-			})
-		}
-	}
-}
-
-// Change the action types and refactor all of them later
-export const getWatchList = () => {
-	return async (dispatch, getState) => {
-		try {
-			dispatch({
-				type: 'GET_WATCHLIST_REQUEST',
-			})
-
-			const {
-				userInfo: { user },
-			} = getState()
-
-			const config = {
-				headers: {
-					Authorization: user.token,
-				},
-			}
-
-			const { data } = await axios.get(
-				'/api/movies/watchlist/userWatchlist',
-				config
-			)
-
-			dispatch({
-				type: 'GET_WATCHLIST_SUCCESS',
-				payload: data,
-			})
-		} catch (error) {
-			dispatch({
-				type: 'GET_WATCHLIST_FAIL',
 				payload:
 					error.response && error.response.data.message
 						? error.response.data.message

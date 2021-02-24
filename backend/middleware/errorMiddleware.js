@@ -9,8 +9,6 @@
 export const errorHandler = (err, req, res, next) => {
 	const errorStatus = res.statusCode === 200 ? 500 : res.statusCode
 
-	console.log('error fired')
-
 	res.status(errorStatus)
 
 	res.json({

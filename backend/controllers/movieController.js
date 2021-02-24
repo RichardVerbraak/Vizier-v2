@@ -139,15 +139,16 @@ const getMovieCast = async (req, res, next) => {
 	}
 }
 
-// 	Assign user to req?
+const test = async (req, res, next) => {
+	res.send('test')
+}
+
 //  @desc       Get movies from user's Watchlist
-//  @route      POST /api/movies/watchlist
+//  @route      GET /api/movies/watchlist
 //  @access     Private
 const getWatchList = async (req, res, next) => {
 	try {
-		const user = req.user
-
-		const foundUser = await User.findById(user._id)
+		const foundUser = await User.findById(req.user.id)
 
 		if (foundUser) {
 			res.status(201)
@@ -161,17 +162,15 @@ const getWatchList = async (req, res, next) => {
 	}
 }
 
-// Fix error handling
 //  @desc       Add movie to user's Watchlist
-//  @route      POST /api/movies/watchlist/userWatchlist
+//  @route      POST /api/movies/watchlist
 //  @access     Private
 const addToWatchList = async (req, res, next) => {
 	try {
-		const user = req.user
-		const newMovie = req.body.details
+		const newMovie = req.body
 
-		if (user) {
-			const foundUser = await User.findById(user._id)
+		if (req.user) {
+			const foundUser = await User.findById(req.user._id)
 
 			const alreadyExists = foundUser.watchlist.find((movie) => {
 				return movie.id === newMovie.id
@@ -198,12 +197,17 @@ const addToWatchList = async (req, res, next) => {
 	}
 }
 
-//  @desc       Add movie to user's Watchlist
-//  @route      DELETE /api/movies/watchlist/userWatchlist
+//  @desc       Delete movie from user's Watchlist
+//  @route      DELETE /api/movies/watchlist
 //  @access     Private
-const removeFromWatchList = async (req, res) => {
+const deleteFromWatchList = async (req, res) => {
 	try {
-		const user = req.user
+		const movieID = req.body.id
+
+		const user = await User.findById(req.user.id)
+
+		console.log(user)
+		console.log(movieID)
 	} catch (error) {
 		next(error)
 	}
@@ -218,4 +222,6 @@ export {
 	getMovieCast,
 	getWatchList,
 	addToWatchList,
+	deleteFromWatchList,
+	test,
 }
