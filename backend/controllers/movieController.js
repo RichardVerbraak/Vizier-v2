@@ -139,10 +139,6 @@ const getMovieCast = async (req, res, next) => {
 	}
 }
 
-const test = async (req, res, next) => {
-	res.send('test')
-}
-
 //  @desc       Get movies from user's Watchlist
 //  @route      GET /api/movies/watchlist
 //  @access     Private
@@ -223,5 +219,4 @@ export {
 	getWatchList,
 	addToWatchList,
 	deleteFromWatchList,
-	test,
 }
