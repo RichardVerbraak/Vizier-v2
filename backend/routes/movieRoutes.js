@@ -32,7 +32,8 @@ router
 	.route('/watchlist')
 	.get(authorizeUser, getWatchList)
 	.post(authorizeUser, addToWatchList)
-	.delete(authorizeUser, deleteFromWatchList)
+
+router.delete('/watchlist/:id', authorizeUser, deleteFromWatchList)
 
 // Needs to be AFTER /watchlist, else it will match the wrong route
 router.get('/:id', getMovieDetails)

@@ -196,14 +196,19 @@ const addToWatchList = async (req, res, next) => {
 //  @desc       Delete movie from user's Watchlist
 //  @route      DELETE /api/movies/watchlist
 //  @access     Private
-const deleteFromWatchList = async (req, res) => {
+const deleteFromWatchList = async (req, res, next) => {
 	try {
-		const movieID = req.body.id
+		const movieID = req.params.id
 
-		const user = await User.findById(req.user.id)
-
-		console.log(user)
+		console.log(req.user)
 		console.log(movieID)
+
+		const deletedMovie = await User.updateOne(
+			{ _id: req.user.id },
+			{ $pull: { watchlist: { id: req.params.id } } }
+		)
+
+		console.log(deletedMovie)
 	} catch (error) {
 		next(error)
 	}
