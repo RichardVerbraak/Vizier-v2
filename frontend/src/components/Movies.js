@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // TODO: Add replacement image if there isnt a poster for the movie
+// Source on Array.from fix for React keys: https://stackoverflow.com/questions/49677220/reactjs-array-fill-with-key-in-jsx-element
+// Fill only returned the same span each time while from iterates on an array-like object, in this case just an array,-
+// and iterates over the array returning a div with the index as its key (the underscore is a convention when an argument is irrelevant)
 
 const Movies = ({ movies }) => {
 	return (
@@ -20,7 +23,10 @@ const Movies = ({ movies }) => {
 					</div>
 				)
 			})}
-			{Array(20 - movies.length).fill(<div className='movies__empty'></div>)}
+
+			{Array.from(Array(20 - movies.length), (_, i) => (
+				<div key={i} className='movies__empty'></div>
+			))}
 		</div>
 	)
 }
