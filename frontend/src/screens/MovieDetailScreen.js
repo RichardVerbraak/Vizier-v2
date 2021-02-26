@@ -13,7 +13,9 @@ import {
 	getRecommendedMovies,
 	getMovieCast,
 	getWatchList,
+	addToWatchList,
 } from '../actions/movies'
+import Header from '../components/Header'
 
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
@@ -24,7 +26,7 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieDetails = useSelector((state) => {
 		return state.movieDetails
 	})
-	const { loading, error, details } = movieDetails
+	const { loading: loadingDetails, errorDetails, details } = movieDetails
 
 	const movieCast = useSelector((state) => {
 		return state.movieCast
@@ -49,10 +51,19 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieWatchList = useSelector((state) => {
 		return state.movieWatchList
 	})
-	const { watchlist } = movieWatchList
+	const { watchlist, loading: loadingWatchList } = movieWatchList
+
+	const movieAddWatchList = useSelector((state) => {
+		return state.movieAddWatchList
+	})
+	const { success } = movieAddWatchList
+
+	const addMovie = () => {
+		dispatch(addToWatchList())
+	}
 
 	useEffect(() => {
-		if (user) {
+		if (user || success) {
 			dispatch(getWatchList())
 		}
 
@@ -76,27 +87,32 @@ const MovieDetailScreen = ({ match, history }) => {
 				behavior: 'smooth',
 			})
 		}
-	}, [dispatch, history, movieID, page])
+	}, [dispatch, history, movieID, page, user, success])
 
 	return (
 		<Fragment>
 			<Navigation history={history} />
 			<div className='container'>
-				{loading || loadingCast ? (
+				{loadingDetails || loadingCast || loadingWatchList ? (
 					<Loader />
-				) : error ? (
-					<ErrorMessage error={error} />
+				) : errorDetails ? (
+					<ErrorMessage error={errorDetails} />
 				) : (
-					<Movie details={details} cast={cast} />
+					<Movie
+						details={details}
+						cast={cast}
+						addMovie={addMovie}
+						watchlist={watchlist}
+					/>
 				)}
 
 				{loadingRecommended ? (
 					<Loader />
 				) : errorRecommended ? (
-					<p>{error}</p>
+					<p>{errorRecommended}</p>
 				) : (
 					<div>
-						<h1 className='header__recommended header__sub'>Recommended</h1>
+						<Header title={'Recommended'} />
 						<Movies movies={movies} />
 						<Pagination page={page} movieID={movieID} totalPages={totalPages} />
 					</div>

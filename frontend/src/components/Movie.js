@@ -9,7 +9,7 @@ import Iframe from 'react-iframe'
 
 // TODO: Load stuff in MovieDetailScreen or component?
 
-const Movie = ({ details, cast }) => {
+const Movie = ({ details, cast, addMovie, watchlist }) => {
 	return (
 		<div className='movie'>
 			<img
@@ -77,8 +77,6 @@ const Movie = ({ details, cast }) => {
 				</div>
 
 				<div className='movie__links'>
-					<button className='movie__links--link btn'>Add to watchlist</button>
-
 					{details.imdb_id && (
 						<a
 							className='movie__links--link btn btn__imdb'
