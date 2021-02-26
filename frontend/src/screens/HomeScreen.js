@@ -14,8 +14,7 @@ import { getMoviesByGenre } from '../actions/movies'
 
 // TODO: Make error component
 
-const HomeScreen = ({ match }) => {
-	// Convert from string to number
+const HomeScreen = ({ history, match }) => {
 	const page = Number(match.params.page) || 1
 
 	const trending = match.params.trending
@@ -78,7 +77,7 @@ const HomeScreen = ({ match }) => {
 
 	return (
 		<Fragment>
-			<Navigation />
+			<Navigation history={history} />
 			<div className='container'>
 				<Header trending={trending} genre={genre} title={'Movies'} />
 

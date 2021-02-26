@@ -42,4 +42,4 @@ const Search = ({ history }) => {
 	)
 }
 
-export default withRouter(Search)
+export default Search

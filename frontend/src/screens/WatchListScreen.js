@@ -16,7 +16,7 @@ import ErrorMessage from '../components/ErrorMessage'
 
 //! Not sure why I have to check watchlist before passing it down to movies here and not in other components for it to work
 
-const WatchListScreen = () => {
+const WatchListScreen = ({ history }) => {
 	const dispatch = useDispatch()
 
 	const watchList = useSelector((state) => {
@@ -37,7 +37,7 @@ const WatchListScreen = () => {
 
 	return (
 		<Fragment>
-			<Navigation />
+			<Navigation history={history} />
 			<div className='container'>
 				<Header title={'Watchlist'} />
 

@@ -19,7 +19,8 @@
 .env.test.local
 .env.production.local
 
-frontend/.eslintcache
+
+\frontend\.eslintcache
 
 
 npm-debug.log*

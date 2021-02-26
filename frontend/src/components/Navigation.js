@@ -12,7 +12,7 @@ import { logoutUser } from '../actions/users'
 
 // TODO: Better naming or HTML for the Genre dropdown link
 
-const Navigation = () => {
+const Navigation = ({ history }) => {
 	const dispatch = useDispatch()
 
 	const genreList = useSelector((state) => state.genreList)
@@ -27,9 +27,12 @@ const Navigation = () => {
 		dispatch(logoutUser())
 	}
 
+	// getGenres only once on pageload
 	useEffect(() => {
-		dispatch(getGenres())
-	}, [dispatch, user])
+		if (genres && genres.length === 0) {
+			dispatch(getGenres())
+		}
+	}, [dispatch, user, genres])
 
 	return (
 		<div className='navbar'>
@@ -38,7 +41,7 @@ const Navigation = () => {
 					Vizier
 				</Link>
 
-				<Search />
+				<Search history={history} />
 
 				<div className='navbar__links'>
 					<div className='navbar__links--box'>

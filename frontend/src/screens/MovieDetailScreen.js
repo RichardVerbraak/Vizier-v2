@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Navigation from '../components/Navigation'
 import Loader from '../components/Loader'
+import ErrorMessage from '../components/ErrorMessage'
 import Movie from '../components/Movie'
 import Movies from '../components/Movies'
 import Pagination from '../components/Pagination'
@@ -40,22 +41,25 @@ const MovieDetailScreen = ({ match, history }) => {
 		totalPages,
 	} = movieRecommended
 
-	const movieAddWatchList = useSelector((state) => {
-		return state.movieAddWatchList
+	const userInfo = useSelector((state) => {
+		return state.userInfo
 	})
-	const { loadingAdd } = movieAddWatchList
+	const { user } = userInfo
 
-	const watchList = useSelector((state) => {
+	const movieWatchList = useSelector((state) => {
 		return state.movieWatchList
 	})
-	const { watchlist, loadingWatchlist, errorWatchlist } = watchList
+	const { watchlist } = movieWatchList
 
 	useEffect(() => {
+		if (user) {
+			dispatch(getWatchList())
+		}
+
 		if (movieID) {
 			dispatch(getMovieDetails(movieID))
 			dispatch(getMovieCast(movieID))
 			dispatch(getRecommendedMovies(movieID, page))
-			dispatch(getWatchList())
 		} else {
 			history.push('/')
 		}
@@ -76,14 +80,14 @@ const MovieDetailScreen = ({ match, history }) => {
 
 	return (
 		<Fragment>
-			<Navigation />
+			<Navigation history={history} />
 			<div className='container'>
-				{loading || loadingCast || loadingAdd || loadingWatchlist ? (
+				{loading || loadingCast ? (
 					<Loader />
 				) : error ? (
-					<p>{error}</p>
+					<ErrorMessage error={error} />
 				) : (
-					<Movie details={details} cast={cast} watchlist={watchlist} />
+					<Movie details={details} cast={cast} />
 				)}
 
 				{loadingRecommended ? (
