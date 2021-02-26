@@ -158,6 +158,7 @@ const getWatchList = async (req, res, next) => {
 	}
 }
 
+// Return the newly added movie as response?
 //  @desc       Add movie to user's Watchlist
 //  @route      POST /api/movies/watchlist
 //  @access     Private
@@ -205,7 +206,7 @@ const deleteFromWatchList = async (req, res, next) => {
 
 		const deletedMovie = await User.updateOne(
 			{ _id: req.user.id },
-			{ $pull: { watchlist: { id: req.params.id } } }
+			{ $pull: { watchlist: { movieID } } }
 		)
 
 		console.log(deletedMovie)

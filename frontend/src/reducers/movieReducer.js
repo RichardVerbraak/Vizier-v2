@@ -108,10 +108,7 @@ export const movieCastReducer = (state = { cast: [] }, action) => {
 }
 
 // Watchlist
-export const movieWatchListReducer = (
-	state = { watchlist: [], loading: true },
-	action
-) => {
+export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 	switch (action.type) {
 		case 'GET_WATCHLIST_REQUEST': {
 			return {
@@ -144,7 +141,10 @@ export const movieWatchListReducer = (
 }
 
 // Watchlist add movies
-export const movieAddWatchListReducer = (state = {}, action) => {
+export const movieAddWatchListReducer = (
+	state = { success: false },
+	action
+) => {
 	switch (action.type) {
 		case 'ADD_TO_WATCHLIST_REQUEST': {
 			return {
@@ -155,7 +155,8 @@ export const movieAddWatchListReducer = (state = {}, action) => {
 		case 'ADD_TO_WATCHLIST_SUCCESS': {
 			return {
 				loading: false,
-				success: action.payload,
+				success: true,
+				message: action.payload,
 			}
 		}
 		case 'ADD_TO_WATCHLIST_FAIL': {

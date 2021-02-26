@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import Navigation from '../components/Navigation'
 import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Movies from '../components/Movies'
@@ -26,16 +27,17 @@ const WatchListScreen = () => {
 	const userInfo = useSelector((state) => {
 		return state.userInfo
 	})
-	const { user, userLoading, userError } = userInfo
+	const { user } = userInfo
 
 	useEffect(() => {
 		if (user) {
 			dispatch(getWatchList())
 		}
-	}, [user])
+	}, [dispatch, user])
 
 	return (
 		<Fragment>
+			<Navigation />
 			<div className='container'>
 				<Header title={'Watchlist'} />
 

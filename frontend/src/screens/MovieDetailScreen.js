@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Navigation from '../components/Navigation'
 import Loader from '../components/Loader'
 import Movie from '../components/Movie'
 import Movies from '../components/Movies'
@@ -42,7 +43,7 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieAddWatchList = useSelector((state) => {
 		return state.movieAddWatchList
 	})
-	const { success, loadingSuccess, errorSuccess } = movieAddWatchList
+	const { loadingAdd } = movieAddWatchList
 
 	const watchList = useSelector((state) => {
 		return state.movieWatchList
@@ -75,19 +76,14 @@ const MovieDetailScreen = ({ match, history }) => {
 
 	return (
 		<Fragment>
+			<Navigation />
 			<div className='container'>
-				{loading || loadingCast || loadingSuccess || loadingWatchlist ? (
+				{loading || loadingCast || loadingAdd || loadingWatchlist ? (
 					<Loader />
 				) : error ? (
 					<p>{error}</p>
 				) : (
-					<Movie
-						details={details}
-						cast={cast}
-						success={success}
-						errorSuccess={errorSuccess}
-						watchlist={watchlist}
-					/>
+					<Movie details={details} cast={cast} watchlist={watchlist} />
 				)}
 
 				{loadingRecommended ? (

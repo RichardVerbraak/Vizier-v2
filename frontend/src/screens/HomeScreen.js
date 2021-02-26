@@ -1,12 +1,13 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Navigation from '../components/Navigation'
 import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Movies from '../components/Movies'
 import Pagination from '../components/Pagination'
 
-import { getMovies, getMoviesBySearch, getWatchList } from '../actions/movies'
+import { getMovies, getMoviesBySearch } from '../actions/movies'
 import { getMoviesByGenre } from '../actions/movies'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
@@ -33,7 +34,7 @@ const HomeScreen = ({ match }) => {
 	const userInfo = useSelector((state) => {
 		return state.userInfo
 	})
-	const { user, userLoading, userError } = userInfo
+	const { user } = userInfo
 
 	const genreList = useSelector((state) => {
 		return state.genreList
@@ -77,6 +78,7 @@ const HomeScreen = ({ match }) => {
 
 	return (
 		<Fragment>
+			<Navigation />
 			<div className='container'>
 				<Header trending={trending} genre={genre} title={'Movies'} />
 

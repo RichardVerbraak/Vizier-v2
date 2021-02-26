@@ -13,10 +13,10 @@ import WatchListScreen from './screens/WatchListScreen'
 const App = () => {
 	return (
 		<Router>
-			<Route path='/login' component={LoginScreen} />
-			<Route path='/register' component={RegisterScreen} />
-			<Navigation />
 			<div>
+				<Route path='/login' component={LoginScreen} />
+				<Route path='/register' component={RegisterScreen} />
+
 				<Route path='/movie/:id/:page?' component={MovieDetailScreen} />
 
 				<Route path='/search/:query/:page?' component={HomeScreen} />

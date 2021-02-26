@@ -214,13 +214,13 @@ export const addToWatchList = () => {
 
 			const { data } = await axios.post(
 				'/api/movies/watchlist',
-				{ details },
+				details,
 				config
 			)
 
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_SUCCESS',
-				payload: data.message,
+				payload: data,
 			})
 		} catch (error) {
 			console.log(error)

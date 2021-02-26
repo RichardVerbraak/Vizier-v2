@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,22 +7,9 @@ import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
-import { addToWatchList } from '../actions/movies'
-
 // TODO: Load stuff in MovieDetailScreen or component?
 
-const Movie = ({ details, cast, success, watchlist }) => {
-	const dispatch = useDispatch()
-
-	const addMovieToList = () => {
-		dispatch(addToWatchList())
-	}
-
-	const userInfo = useSelector((state) => {
-		return state.userInfo
-	})
-	const { user, userLoading, userError } = userInfo
-
+const Movie = ({ details, cast }) => {
 	return (
 		<div className='movie'>
 			<img
@@ -90,29 +77,6 @@ const Movie = ({ details, cast, success, watchlist }) => {
 				</div>
 
 				<div className='movie__links'>
-					{user &&
-						watchlist &&
-						watchlist.map((movie) => {
-							return movie.id === details.id ? (
-								<p className='movie__links--link btn btn__watchlist'>
-									Remove from watchlist
-								</p>
-							) : (
-								<button
-									onClick={addMovieToList}
-									className='movie__links--link btn btn__watchlist'
-								>
-									Add to watchlist
-								</button>
-							)
-						})}
-
-					{!user && (
-						<p className='movie__links--link btn btn__watchlist'>
-							Sign in to add to watchlist
-						</p>
-					)}
-
 					{details.imdb_id && (
 						<a
 							className='movie__links--link btn btn__imdb'
