@@ -1,14 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
-import Navigation from './components/Navigation'
 
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import MovieDetailScreen from './screens/MovieDetailScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import WatchListScreen from './screens/WatchListScreen'
-
-//TODO: Only render Navigation inside some components
 
 const App = () => {
 	return (

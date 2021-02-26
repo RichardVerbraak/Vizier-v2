@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { registerUser } from '../actions/users'
+import ErrorMessage from '../components/ErrorMessage'
 
 //TODO: Make it look a bit less bland
 
@@ -11,6 +12,7 @@ const RegisterScreen = ({ history }) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [confirmPassword, setConfirmPassword] = useState('')
+	const [errorPassword, setErrorPassword] = useState('')
 
 	const dispatch = useDispatch()
 
@@ -31,9 +33,8 @@ const RegisterScreen = ({ history }) => {
 
 		// Make alert component
 		if (password !== confirmPassword) {
-			alert('Passwords do not match')
+			setErrorPassword('Passwords do not match')
 		} else {
-			// Push user to Home and log him simultaneously
 			dispatch(registerUser({ name, email, password }))
 		}
 	}
@@ -50,6 +51,7 @@ const RegisterScreen = ({ history }) => {
 			{error && <h1>{error}</h1>}
 
 			<form className='login__form' onSubmit={submitHandler}>
+				{errorPassword && <ErrorMessage error={errorPassword} />}
 				<input
 					className='login__form--input'
 					type='text'
@@ -62,7 +64,7 @@ const RegisterScreen = ({ history }) => {
 
 				<input
 					className='login__form--input'
-					type='text'
+					type='email'
 					placeholder='Enter email'
 					value={email}
 					onChange={(e) => {

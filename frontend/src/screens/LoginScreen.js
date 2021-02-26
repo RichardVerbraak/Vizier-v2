@@ -49,7 +49,7 @@ const LoginScreen = ({ history }) => {
 
 				<input
 					className='login__form--input'
-					type='text'
+					type='email'
 					placeholder='Email'
 					value={email}
 					onChange={(e) => {
