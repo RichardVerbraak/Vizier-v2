@@ -26,7 +26,7 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieDetails = useSelector((state) => {
 		return state.movieDetails
 	})
-	const { loading: loadingDetails, errorDetails, details } = movieDetails
+	const { loading: loadingDetails, error: errorDetails, details } = movieDetails
 
 	const movieCast = useSelector((state) => {
 		return state.movieCast
@@ -63,29 +63,28 @@ const MovieDetailScreen = ({ match, history }) => {
 	}
 
 	useEffect(() => {
-		if (user || success) {
-			dispatch(getWatchList())
-		}
+		// Fetch details
+		dispatch(getMovieDetails(movieID))
+		dispatch(getMovieCast(movieID))
+		dispatch(getRecommendedMovies(movieID, page))
 
-		if (movieID) {
-			dispatch(getMovieDetails(movieID))
-			dispatch(getMovieCast(movieID))
-			dispatch(getRecommendedMovies(movieID, page))
-		} else {
-			history.push('/')
-		}
-
+		// Scroll to top
 		window.scrollTo({
 			top: 0,
 			behavior: 'smooth',
 		})
 
-		// Scrolls to recommended section instead of all the way to the top if you go through Recommended movie pages
+		// Scrolls to recommended section when you go through Recommended movies
 		if (page > 1) {
 			window.scrollTo({
 				top: 1050,
 				behavior: 'smooth',
 			})
+		}
+
+		// If logged in OR successfully added to watchlist, get the new watchlist
+		if (user || success) {
+			dispatch(getWatchList())
 		}
 	}, [dispatch, history, movieID, page, user, success])
 
@@ -102,6 +101,7 @@ const MovieDetailScreen = ({ match, history }) => {
 						details={details}
 						cast={cast}
 						addMovie={addMovie}
+						user={user}
 						watchlist={watchlist}
 					/>
 				)}
@@ -109,7 +109,7 @@ const MovieDetailScreen = ({ match, history }) => {
 				{loadingRecommended ? (
 					<Loader />
 				) : errorRecommended ? (
-					<p>{errorRecommended}</p>
+					<ErrorMessage error={errorRecommended} />
 				) : (
 					<div>
 						<Header title={'Recommended'} />
