@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Button from './Button'
 
@@ -107,6 +108,15 @@ const Pagination = ({
 			)}
 		</div>
 	)
+}
+
+Pagination.propTypes = {
+	searchQuery: PropTypes.string,
+	trending: PropTypes.string,
+	genre: PropTypes.string,
+	movieID: PropTypes.number,
+	page: PropTypes.number,
+	totalPages: PropTypes.number,
 }
 
 export default Pagination

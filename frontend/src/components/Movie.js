@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -120,6 +122,14 @@ const Movie = ({ details, cast, addMovie, user, watchlist }) => {
 			</div>
 		</div>
 	)
+}
+
+Movie.propTypes = {
+	details: PropTypes.object.isRequired,
+	cast: PropTypes.array.isRequired,
+	addMovie: PropTypes.func,
+	user: PropTypes.object,
+	watchlist: PropTypes.array,
 }
 
 export default Movie

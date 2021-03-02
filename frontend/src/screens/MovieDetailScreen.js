@@ -21,7 +21,7 @@ import {
 // 1.
 
 const MovieDetailScreen = ({ match, history }) => {
-	const movieID = match.params.id
+	const movieID = Number(match.params.id)
 	const page = Number(match.params.page) || 1
 
 	const dispatch = useDispatch()

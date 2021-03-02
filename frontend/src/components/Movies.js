@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { Link } from 'react-router-dom'
 
 // TODO: Add replacement image if there isnt a poster for the movie
@@ -29,6 +31,10 @@ const Movies = ({ movies }) => {
 			))}
 		</div>
 	)
+}
+
+Movies.propTypes = {
+	movies: PropTypes.array.isRequired,
 }
 
 export default Movies
