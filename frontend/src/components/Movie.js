@@ -8,11 +8,17 @@ import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
 const Movie = ({ details, cast, addMovie, user, watchlist }) => {
+	const existingMovie = watchlist.find((movie) => {
+		return movie.id === details.id
+	})
+	console.log(watchlist)
+	console.log(existingMovie)
+
 	return (
 		<div className='movie'>
 			<img
 				className='movie__img'
-				src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+				src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
 				alt={`A poster of ${details.title}`}
 			></img>
 
@@ -81,9 +87,15 @@ const Movie = ({ details, cast, addMovie, user, watchlist }) => {
 						</button>
 					)}
 
-					<button className='movie__links--link btn' onClick={addMovie}>
-						Add to watchlist
-					</button>
+					{existingMovie && existingMovie.id === details.id ? (
+						<button className='movie__links--link btn' onClick={addMovie}>
+							Remove from watchlist
+						</button>
+					) : (
+						<button className='movie__links--link btn' onClick={addMovie}>
+							Add to watchlist
+						</button>
+					)}
 
 					{details.imdb_id && (
 						<a

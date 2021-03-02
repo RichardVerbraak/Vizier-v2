@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Navigation from '../components/Navigation'
+import Header from '../components/Header'
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
 import Movie from '../components/Movie'
@@ -13,8 +14,8 @@ import {
 	getRecommendedMovies,
 	getMovieCast,
 	addToWatchList,
+	getWatchList,
 } from '../actions/movies'
-import Header from '../components/Header'
 
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
@@ -31,7 +32,7 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieCast = useSelector((state) => {
 		return state.movieCast
 	})
-	const { loadingCast, cast } = movieCast
+	const { loading: loadingCast, cast } = movieCast
 
 	const movieRecommended = useSelector((state) => {
 		return state.movieRecommended
@@ -53,15 +54,26 @@ const MovieDetailScreen = ({ match, history }) => {
 	})
 	const { watchlist, loading: loadingWatchList } = movieWatchList
 
+	const movieAddWatchList = useSelector((state) => {
+		return state.movieAddWatchList
+	})
+	const { success } = movieAddWatchList
+
 	const addMovie = () => {
 		dispatch(addToWatchList())
 	}
 
 	useEffect(() => {
 		// Fetch details
-		dispatch(getMovieDetails(movieID))
-		dispatch(getMovieCast(movieID))
-		dispatch(getRecommendedMovies(movieID, page))
+		if (movieID) {
+			dispatch(getMovieDetails(movieID))
+			dispatch(getMovieCast(movieID))
+			dispatch(getRecommendedMovies(movieID, page))
+		}
+
+		if (user || success) {
+			dispatch(getWatchList())
+		}
 
 		// Scroll to top
 		window.scrollTo({
@@ -76,7 +88,7 @@ const MovieDetailScreen = ({ match, history }) => {
 				behavior: 'smooth',
 			})
 		}
-	}, [dispatch, history, movieID, page, watchlist, user])
+	}, [dispatch, history, movieID, page, user, success])
 
 	return (
 		<Fragment>
