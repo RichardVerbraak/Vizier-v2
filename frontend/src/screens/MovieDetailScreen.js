@@ -17,6 +17,9 @@ import {
 	getWatchList,
 } from '../actions/movies'
 
+// ## Render add / remove button when movie is addded
+// 1.
+
 const MovieDetailScreen = ({ match, history }) => {
 	const movieID = match.params.id
 	const page = Number(match.params.page) || 1
@@ -65,15 +68,9 @@ const MovieDetailScreen = ({ match, history }) => {
 
 	useEffect(() => {
 		// Fetch details
-		if (movieID) {
-			dispatch(getMovieDetails(movieID))
-			dispatch(getMovieCast(movieID))
-			dispatch(getRecommendedMovies(movieID, page))
-		}
-
-		if (user || success) {
-			dispatch(getWatchList())
-		}
+		dispatch(getMovieDetails(movieID))
+		dispatch(getMovieCast(movieID))
+		dispatch(getRecommendedMovies(movieID, page))
 
 		// Scroll to top
 		window.scrollTo({
@@ -88,7 +85,13 @@ const MovieDetailScreen = ({ match, history }) => {
 				behavior: 'smooth',
 			})
 		}
-	}, [dispatch, history, movieID, page, user, success])
+	}, [dispatch, history, movieID, page])
+
+	useEffect(() => {
+		if (user || success) {
+			dispatch(getWatchList())
+		}
+	}, [dispatch, user, success])
 
 	return (
 		<Fragment>
