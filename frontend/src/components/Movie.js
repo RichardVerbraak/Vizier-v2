@@ -7,8 +7,6 @@ import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
-// TODO: Load stuff in MovieDetailScreen or component?
-
 const Movie = ({ details, cast, addMovie, user, watchlist }) => {
 	return (
 		<div className='movie'>
@@ -77,15 +75,15 @@ const Movie = ({ details, cast, addMovie, user, watchlist }) => {
 				</div>
 
 				<div className='movie__links'>
-					<button className='movie__links--link btn' onClick={addMovie}>
-						Add to watchlist
-					</button>
-
 					{!user && (
 						<button className='movie__links--link btn'>
 							Please sign in to save to watchlist
 						</button>
 					)}
+
+					<button className='movie__links--link btn' onClick={addMovie}>
+						Add to watchlist
+					</button>
 
 					{details.imdb_id && (
 						<a

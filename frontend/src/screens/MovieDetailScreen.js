@@ -12,7 +12,6 @@ import {
 	getMovieDetails,
 	getRecommendedMovies,
 	getMovieCast,
-	getWatchList,
 	addToWatchList,
 } from '../actions/movies'
 import Header from '../components/Header'
@@ -28,10 +27,11 @@ const MovieDetailScreen = ({ match, history }) => {
 	})
 	const { loading: loadingDetails, error: errorDetails, details } = movieDetails
 
+	// Use errorCast with error component
 	const movieCast = useSelector((state) => {
 		return state.movieCast
 	})
-	const { loadingCast, errorCast, cast } = movieCast
+	const { loadingCast, cast } = movieCast
 
 	const movieRecommended = useSelector((state) => {
 		return state.movieRecommended
@@ -52,11 +52,6 @@ const MovieDetailScreen = ({ match, history }) => {
 		return state.movieWatchList
 	})
 	const { watchlist, loading: loadingWatchList } = movieWatchList
-
-	const movieAddWatchList = useSelector((state) => {
-		return state.movieAddWatchList
-	})
-	const { success } = movieAddWatchList
 
 	const addMovie = () => {
 		dispatch(addToWatchList())
@@ -81,12 +76,7 @@ const MovieDetailScreen = ({ match, history }) => {
 				behavior: 'smooth',
 			})
 		}
-
-		// If logged in OR successfully added to watchlist, get the new watchlist
-		if (user || success) {
-			dispatch(getWatchList())
-		}
-	}, [dispatch, history, movieID, page, user, success])
+	}, [dispatch, history, movieID, page, watchlist, user])
 
 	return (
 		<Fragment>

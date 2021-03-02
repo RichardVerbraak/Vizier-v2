@@ -24,7 +24,7 @@ const App = () => {
 
 				<Route path='/watchlist' component={WatchListScreen} />
 
-				<Route path='/' component={HomeScreen} exact>
+				<Route path='/' exact>
 					<Redirect to='/discover/popular' component={HomeScreen} />
 				</Route>
 			</div>
