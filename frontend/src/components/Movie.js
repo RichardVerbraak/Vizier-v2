@@ -9,12 +9,12 @@ import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 import CastSlider from './CastSlider'
 import Iframe from 'react-iframe'
 
+//# Src on mapping empty array https://stackoverflow.com/questions/63061563/returning-jsx-instead-of-empty-array-with-array-filter-map
+
 const Movie = ({ details, cast, addMovie, user, watchlist }) => {
-	const existingMovie = watchlist.find((movie) => {
+	const existingMovie = watchlist.filter((movie) => {
 		return movie.id === details.id
 	})
-	console.log(watchlist)
-	console.log(existingMovie)
 
 	return (
 		<div className='movie'>
@@ -89,13 +89,17 @@ const Movie = ({ details, cast, addMovie, user, watchlist }) => {
 						</button>
 					)}
 
-					{existingMovie && existingMovie.id === details.id ? (
-						<button className='movie__links--link btn' onClick={addMovie}>
-							Remove from watchlist
-						</button>
+					{existingMovie.length ? (
+						existingMovie.map((movie) => {
+							return (
+								<button key={movie.id} className='movie__links--link btn'>
+									Remove from Watchlist
+								</button>
+							)
+						})
 					) : (
-						<button className='movie__links--link btn' onClick={addMovie}>
-							Add to watchlist
+						<button onClick={addMovie} className='movie__links--link btn'>
+							Add to Watchlist
 						</button>
 					)}
 
@@ -133,6 +137,16 @@ Movie.propTypes = {
 }
 
 export default Movie
+
+// {existingMovie && existingMovie.id === details.id ? (
+// 	<button className='movie__links--link btn' onClick={addMovie}>
+// 		Remove from watchlist
+// 	</button>
+// ) : (
+// 	<button className='movie__links--link btn' onClick={addMovie}>
+// 		Add to watchlist
+// 	</button>
+// )}
 
 // Iframe
 // <div>
