@@ -1,4 +1,5 @@
 import axios from 'axios'
+import e from 'express'
 import User from '../models/userModel.js'
 
 // Do something else with the error handling
@@ -193,22 +194,29 @@ const addToWatchList = async (req, res, next) => {
 	}
 }
 
+// TODO: Improve error handling?
 //  @desc       Delete movie from user's Watchlist
 //  @route      DELETE /api/movies/watchlist
 //  @access     Private
 const deleteFromWatchList = async (req, res, next) => {
 	try {
-		const movieID = req.params.id
+		const movieID = Number(req.params.id)
 
-		console.log(req.user)
-		console.log(movieID)
-
-		const deletedMovie = await User.updateOne(
-			{ _id: req.user.id },
-			{ $pull: { watchlist: { movieID } } }
-		)
-
-		console.log(deletedMovie)
+		if (movieID) {
+			await User.updateOne(
+				{ _id: req.user._id },
+				{ $pull: { watchlist: { id: movieID } } },
+				(error, data) => {
+					if (error) {
+						res.status(500)
+						throw new Error('Server error')
+					}
+				}
+			)
+		} else {
+			res.status(404)
+			throw new Error('No movie ID found')
+		}
 	} catch (error) {
 		next(error)
 	}
