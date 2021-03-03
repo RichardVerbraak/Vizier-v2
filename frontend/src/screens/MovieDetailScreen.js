@@ -15,6 +15,7 @@ import {
 	getMovieCast,
 	addToWatchList,
 	getWatchList,
+	deleteFromWatchList,
 } from '../actions/movies'
 
 // ## Render add / remove button when movie is addded
@@ -60,10 +61,22 @@ const MovieDetailScreen = ({ match, history }) => {
 	const movieAddWatchList = useSelector((state) => {
 		return state.movieAddWatchList
 	})
-	const { success } = movieAddWatchList
+	const { success: successAdd, loading: loadingAdd } = movieAddWatchList
+
+	const movieDeleteWatchList = useSelector((state) => {
+		return state.movieDeleteWatchList
+	})
+	const {
+		success: successDelete,
+		loading: loadingDelete,
+	} = movieDeleteWatchList
 
 	const addMovie = () => {
 		dispatch(addToWatchList())
+	}
+
+	const deleteMovie = () => {
+		dispatch(deleteFromWatchList())
 	}
 
 	useEffect(() => {
@@ -88,10 +101,10 @@ const MovieDetailScreen = ({ match, history }) => {
 	}, [dispatch, history, movieID, page])
 
 	useEffect(() => {
-		if (user || success) {
+		if (user) {
 			dispatch(getWatchList())
 		}
-	}, [dispatch, user, success])
+	}, [dispatch, user])
 
 	return (
 		<Fragment>
@@ -105,9 +118,10 @@ const MovieDetailScreen = ({ match, history }) => {
 					<Movie
 						details={details}
 						cast={cast}
-						addMovie={addMovie}
 						user={user}
 						watchlist={watchlist}
+						addMovie={addMovie}
+						deleteMovie={deleteMovie}
 					/>
 				)}
 

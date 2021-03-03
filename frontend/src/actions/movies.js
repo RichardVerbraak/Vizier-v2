@@ -223,9 +223,48 @@ export const addToWatchList = () => {
 				payload: data,
 			})
 		} catch (error) {
-			console.log(error)
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_FAIL',
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
+			})
+		}
+	}
+}
+
+export const deleteFromWatchList = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: 'DELETE_FROM_WATCHLIST_REQUEST',
+			})
+
+			const {
+				userInfo: { user },
+				movieDetails: { details },
+			} = getState()
+
+			const config = {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: user.token,
+				},
+			}
+
+			const { data } = await axios.delete(
+				`/api/movies/watchlist/${details.id}`,
+				config
+			)
+
+			dispatch({
+				type: 'DELETE_FROM_WATCHLIST_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'DELETE_FROM_WATCHLIST_FAIL',
 				payload:
 					error.response && error.response.data.message
 						? error.response.data.message

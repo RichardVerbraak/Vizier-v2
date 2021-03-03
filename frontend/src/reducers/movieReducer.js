@@ -140,7 +140,7 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 	}
 }
 
-// Watchlist add movies
+// Watchlist add movie
 export const movieAddWatchListReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'ADD_TO_WATCHLIST_REQUEST': {
@@ -164,9 +164,32 @@ export const movieAddWatchListReducer = (state = {}, action) => {
 			}
 		}
 
-		case 'SUCCESS_RESET': {
+		default:
+			return state
+	}
+}
+
+// Watchlist delete movie
+export const movieDeleteWatchListReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'DELETE_FROM_WATCHLIST_REQUEST': {
 			return {
+				loading: true,
 				success: false,
+			}
+		}
+		case 'DELETE_FROM_WATCHLIST_SUCCESS': {
+			return {
+				loading: false,
+				success: true,
+				message: action.payload,
+			}
+		}
+		case 'DELETE_FROM_WATCHLIST_FAIL': {
+			return {
+				loading: false,
+				success: false,
+				error: action.payload,
 			}
 		}
 

@@ -11,7 +11,7 @@ import Iframe from 'react-iframe'
 
 //# Src on mapping empty array https://stackoverflow.com/questions/63061563/returning-jsx-instead-of-empty-array-with-array-filter-map
 
-const Movie = ({ details, cast, addMovie, user, watchlist }) => {
+const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 	const existingMovie = watchlist.filter((movie) => {
 		return movie.id === details.id
 	})
@@ -92,7 +92,11 @@ const Movie = ({ details, cast, addMovie, user, watchlist }) => {
 					{existingMovie.length ? (
 						existingMovie.map((movie) => {
 							return (
-								<button key={movie.id} className='movie__links--link btn'>
+								<button
+									onClick={deleteMovie}
+									key={movie.id}
+									className='movie__links--link btn'
+								>
 									Remove from Watchlist
 								</button>
 							)

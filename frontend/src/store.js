@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import {
 	movieAddWatchListReducer,
 	movieCastReducer,
+	movieDeleteWatchListReducer,
 	movieDetailReducer,
 	movieListRecommendedReducer,
 	movieListReducer,
@@ -23,6 +24,7 @@ const reducers = combineReducers({
 
 	movieWatchList: movieWatchListReducer,
 	movieAddWatchList: movieAddWatchListReducer,
+	movieDeleteWatchList: movieDeleteWatchListReducer,
 
 	genreList: genreReducer,
 

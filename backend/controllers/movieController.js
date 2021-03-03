@@ -179,7 +179,7 @@ const addToWatchList = async (req, res, next) => {
 
 				await foundUser.save()
 
-				res.status(200)
+				res.status(201)
 				res.json({ message: `${newMovie.title} added successfully` })
 			} else {
 				res.status(400)
@@ -210,12 +210,12 @@ const deleteFromWatchList = async (req, res, next) => {
 					if (error) {
 						res.status(500)
 						throw new Error('Server error')
+					} else {
+						res.status(201)
+						res.json({ message: 'Successfully removed' })
 					}
 				}
 			)
-		} else {
-			res.status(404)
-			throw new Error('No movie ID found')
 		}
 	} catch (error) {
 		next(error)
