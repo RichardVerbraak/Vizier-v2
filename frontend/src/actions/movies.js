@@ -222,6 +222,8 @@ export const addToWatchList = () => {
 				type: 'ADD_TO_WATCHLIST_SUCCESS',
 				payload: data,
 			})
+
+			dispatch(getWatchList())
 		} catch (error) {
 			dispatch({
 				type: 'ADD_TO_WATCHLIST_FAIL',
@@ -262,6 +264,8 @@ export const deleteFromWatchList = () => {
 				type: 'DELETE_FROM_WATCHLIST_SUCCESS',
 				payload: data,
 			})
+
+			dispatch(getWatchList())
 		} catch (error) {
 			dispatch({
 				type: 'DELETE_FROM_WATCHLIST_FAIL',

@@ -89,23 +89,23 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 						</button>
 					)}
 
-					{existingMovie.length ? (
-						existingMovie.map((movie) => {
-							return (
-								<button
-									onClick={deleteMovie}
-									key={movie.id}
-									className='movie__links--link btn'
-								>
-									Remove from Watchlist
+					{existingMovie.length
+						? existingMovie.map((movie) => {
+								return (
+									<button
+										onClick={deleteMovie}
+										key={movie.id}
+										className='movie__links--link btn'
+									>
+										Remove from Watchlist
+									</button>
+								)
+						  })
+						: user && (
+								<button onClick={addMovie} className='movie__links--link btn'>
+									Add to Watchlist
 								</button>
-							)
-						})
-					) : (
-						<button onClick={addMovie} className='movie__links--link btn'>
-							Add to Watchlist
-						</button>
-					)}
+						  )}
 
 					{details.imdb_id && (
 						<a

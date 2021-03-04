@@ -1,7 +1,7 @@
 import React from 'react'
 
-const notFound = ({ searchQuery }) => {
-	return <div>Test</div>
+const notFound = () => {
+	return <div>Not Found</div>
 }
 
 export default notFound

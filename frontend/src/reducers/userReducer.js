@@ -26,6 +26,7 @@ export const userReducer = (state = { user: {} }, action) => {
 
 		case 'USER_LOGIN_SUCCESS':
 			return {
+				...state,
 				loading: false,
 				user: action.payload,
 			}

@@ -31,6 +31,7 @@ export const movieListRecommendedReducer = (state = { movies: [] }, action) => {
 	switch (action.type) {
 		case 'GET_RECOMMENDED_MOVIES_REQUEST': {
 			return {
+				...state,
 				loading: true,
 			}
 		}
@@ -58,6 +59,7 @@ export const movieDetailReducer = (state = { details: {} }, action) => {
 	switch (action.type) {
 		case 'GET_MOVIE_DETAILS_REQUEST': {
 			return {
+				...state,
 				loading: true,
 			}
 		}
@@ -112,6 +114,7 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 	switch (action.type) {
 		case 'GET_WATCHLIST_REQUEST': {
 			return {
+				...state,
 				loading: true,
 			}
 		}
@@ -149,6 +152,7 @@ export const movieAddWatchListReducer = (state = {}, action) => {
 				success: false,
 			}
 		}
+
 		case 'ADD_TO_WATCHLIST_SUCCESS': {
 			return {
 				loading: false,
@@ -156,12 +160,17 @@ export const movieAddWatchListReducer = (state = {}, action) => {
 				message: action.payload,
 			}
 		}
+
 		case 'ADD_TO_WATCHLIST_FAIL': {
 			return {
 				loading: false,
 				success: false,
 				error: action.payload,
 			}
+		}
+
+		case 'ADD_TO_WATCHLIST_RESET': {
+			return {}
 		}
 
 		default:
@@ -191,6 +200,10 @@ export const movieDeleteWatchListReducer = (state = {}, action) => {
 				success: false,
 				error: action.payload,
 			}
+		}
+
+		case 'DELETE_FROM_WATCHLIST_RESET': {
+			return {}
 		}
 
 		default:

@@ -79,8 +79,13 @@ const MovieDetailScreen = ({ match, history }) => {
 		dispatch(deleteFromWatchList())
 	}
 
+	console.log(watchlist)
+
 	useEffect(() => {
-		// Fetch details
+		if (user) {
+			dispatch(getWatchList())
+		}
+
 		dispatch(getMovieDetails(movieID))
 		dispatch(getMovieCast(movieID))
 		dispatch(getRecommendedMovies(movieID, page))
@@ -98,13 +103,7 @@ const MovieDetailScreen = ({ match, history }) => {
 				behavior: 'smooth',
 			})
 		}
-	}, [dispatch, history, movieID, page])
-
-	useEffect(() => {
-		if (user) {
-			dispatch(getWatchList())
-		}
-	}, [dispatch, user])
+	}, [dispatch, history, movieID, page, user])
 
 	return (
 		<Fragment>

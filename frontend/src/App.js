@@ -7,6 +7,8 @@ import MovieDetailScreen from './screens/MovieDetailScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import WatchListScreen from './screens/WatchListScreen'
 
+import notFound from './components/notFound'
+
 const App = () => {
 	return (
 		<Router>
@@ -27,6 +29,8 @@ const App = () => {
 				<Route path='/' exact>
 					<Redirect to='/discover/popular' component={HomeScreen} />
 				</Route>
+
+				<Route component={notFound} />
 			</div>
 		</Router>
 	)

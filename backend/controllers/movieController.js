@@ -177,9 +177,10 @@ const addToWatchList = async (req, res, next) => {
 			if (!alreadyExists) {
 				foundUser.watchlist.push(newMovie)
 
-				await foundUser.save()
+				const updatedUser = await foundUser.save()
 
 				res.status(201)
+				// res.json(updatedUser.watchlist)
 				res.json({ message: `${newMovie.title} added successfully` })
 			} else {
 				res.status(400)
