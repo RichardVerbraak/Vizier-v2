@@ -16,8 +16,9 @@ import ErrorMessage from '../components/ErrorMessage'
 
 //! Not sure why I have to check watchlist before passing it down to movies here and not in other components for it to work
 
-const WatchListScreen = ({ history }) => {
+const WatchListScreen = ({ history, location }) => {
 	const dispatch = useDispatch()
+	const page = location.search ? Number(location.search.split('=')[1]) : 1
 
 	const watchList = useSelector((state) => {
 		return state.movieWatchList

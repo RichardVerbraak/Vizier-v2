@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import {
+	BrowserRouter as Router,
+	Redirect,
+	Route,
+	Switch,
+} from 'react-router-dom'
 
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
@@ -12,7 +17,7 @@ import notFound from './components/notFound'
 const App = () => {
 	return (
 		<Router>
-			<div>
+			<Switch>
 				<Route path='/login' component={LoginScreen} />
 				<Route path='/register' component={RegisterScreen} />
 
@@ -24,14 +29,14 @@ const App = () => {
 
 				<Route path='/discover/:trending/:page?' component={HomeScreen} />
 
-				<Route path='/watchlist' component={WatchListScreen} />
+				<Route path='/watchlist/:page?' component={WatchListScreen} />
 
 				<Route path='/' exact>
 					<Redirect to='/discover/popular' component={HomeScreen} />
 				</Route>
 
 				<Route component={notFound} />
-			</div>
+			</Switch>
 		</Router>
 	)
 }

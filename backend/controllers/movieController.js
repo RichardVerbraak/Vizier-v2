@@ -140,15 +140,27 @@ const getMovieCast = async (req, res, next) => {
 	}
 }
 
+// /api/movies/watchlist/?page=1
+
 //  @desc       Get movies from user's Watchlist
 //  @route      GET /api/movies/watchlist
 //  @access     Private
 const getWatchList = async (req, res, next) => {
 	try {
-		const foundUser = await User.findById(req.user.id)
+		const moviesPerPage = 20
+		const page = Number(req.query.page) || 1
+
+		console.log(page)
+
+		const skip = moviesPerPage * (page - 1)
+
+		const foundUser = await User.findById(req.user.id, {
+			watchlist: { $slice: [skip, 20] },
+		})
 
 		if (foundUser) {
 			res.status(201)
+
 			res.json(foundUser.watchlist)
 		} else {
 			res.status(500)
@@ -180,7 +192,6 @@ const addToWatchList = async (req, res, next) => {
 				const updatedUser = await foundUser.save()
 
 				res.status(201)
-				// res.json(updatedUser.watchlist)
 				res.json({ message: `${newMovie.title} added successfully` })
 			} else {
 				res.status(400)
