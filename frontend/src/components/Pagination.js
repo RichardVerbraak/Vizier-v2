@@ -21,12 +21,11 @@ const Pagination = ({
 	page,
 	movieID,
 	totalPages,
+	totalPagesRecommended,
 	totalPagesWatchList,
 }) => {
 	// Pushes the 'Page 2' button to the right side if it's the only button
 	const buttonSpacing = page === 1 && 'flex-end'
-
-	console.log(totalPagesWatchList, page)
 
 	return (
 		<div>
@@ -100,7 +99,7 @@ const Pagination = ({
 						/>
 					)}
 
-					{page < totalPages && (
+					{page < totalPagesRecommended && (
 						<Button
 							className={'page btn'}
 							url={`/movie/${movieID}/${page + 1}`}

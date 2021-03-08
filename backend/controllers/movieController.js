@@ -140,34 +140,33 @@ const getMovieCast = async (req, res, next) => {
 	}
 }
 
-// /api/movies/watchlist/?page=1
-
+// TODO: Refactor?
 //  @desc       Get movies from user's Watchlist
 //  @route      GET /api/movies/watchlist
 //  @access     Private
 const getWatchList = async (req, res, next) => {
 	try {
-		const moviesPerPage = 20
-		const page = Number(req.query.page) || 1
-
 		const user = await User.findById(req.user.id)
 
-		const watchlistLength = user.watchlist.length
+		if (req.query.page) {
+			const page = Number(req.query.page) || 1
+			const moviesPerPage = 20
 
-		const skip = moviesPerPage * (page - 1)
+			const watchlistLength = user.watchlist.length
 
-		const foundUser = await User.findById(req.user.id, {
-			watchlist: { $slice: [skip, 20] },
-		})
+			const skip = moviesPerPage * (page - 1)
 
-		const watchlist = foundUser.watchlist
+			const foundUser = await User.findById(req.user.id, {
+				watchlist: { $slice: [skip, 20] },
+			})
 
-		if (foundUser) {
+			const watchlist = foundUser.watchlist
+
 			res.status(201)
 			res.json({ watchlist, pages: Math.ceil(watchlistLength / moviesPerPage) })
 		} else {
-			res.status(500)
-			throw new Error('Server Error')
+			res.status(201)
+			res.json(user.watchlist)
 		}
 	} catch (error) {
 		next(error)

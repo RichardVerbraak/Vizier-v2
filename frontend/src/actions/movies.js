@@ -196,6 +196,42 @@ export const getWatchList = (page = 1) => {
 	}
 }
 
+// Gets all watchlist movies, without pagination
+export const getWatchListAll = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: 'GET_WATCHLIST_ALL_REQUEST',
+			})
+
+			const {
+				userInfo: { user },
+			} = getState()
+
+			const config = {
+				headers: {
+					Authorization: user.token,
+				},
+			}
+
+			const { data } = await axios.get('/api/movies/watchlist', config)
+
+			dispatch({
+				type: 'GET_WATCHLIST_ALL_SUCCESS',
+				payload: data,
+			})
+		} catch (error) {
+			dispatch({
+				type: 'GET_WATCHLIST_ALL_FAIL',
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error,
+			})
+		}
+	}
+}
+
 export const addToWatchList = () => {
 	return async (dispatch, getState) => {
 		try {

@@ -14,8 +14,8 @@ import {
 	getRecommendedMovies,
 	getMovieCast,
 	addToWatchList,
-	getWatchList,
 	deleteFromWatchList,
+	getWatchListAll,
 } from '../actions/movies'
 
 // ## Render add / remove button when movie is addded
@@ -83,7 +83,7 @@ const MovieDetailScreen = ({ match, history }) => {
 
 	useEffect(() => {
 		if (user) {
-			dispatch(getWatchList())
+			dispatch(getWatchListAll())
 		}
 
 		dispatch(getMovieDetails(movieID))
