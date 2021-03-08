@@ -53,10 +53,10 @@ const MovieDetailScreen = ({ match, history }) => {
 	})
 	const { user } = userInfo
 
-	const movieWatchList = useSelector((state) => {
-		return state.movieWatchList
+	const movieWatchListAll = useSelector((state) => {
+		return state.movieWatchListAll
 	})
-	const { watchlist, loading: loadingWatchList } = movieWatchList
+	const { watchlist, loading: loadingWatchList } = movieWatchListAll
 
 	const movieAddWatchList = useSelector((state) => {
 		return state.movieAddWatchList

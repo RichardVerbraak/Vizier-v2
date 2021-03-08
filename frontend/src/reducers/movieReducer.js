@@ -134,6 +134,18 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 			}
 		}
 
+		// Reset watchlist to empty array on user logout, specifically empty so the Array.fill method fills the page with empty divs
+		case 'RESET_WATCHLIST': {
+			return { watchlist: [] }
+		}
+
+		default:
+			return state
+	}
+}
+
+export const movieWatchListAllReducer = (state = { watchlist: [] }, action) => {
+	switch (action.type) {
 		case 'GET_WATCHLIST_ALL_REQUEST': {
 			return {
 				loading: true,

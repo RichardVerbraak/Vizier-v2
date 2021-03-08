@@ -20,10 +20,10 @@ const WatchListScreen = ({ history, location }) => {
 	const dispatch = useDispatch()
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
 
-	const watchList = useSelector((state) => {
+	const movieWatchList = useSelector((state) => {
 		return state.movieWatchList
 	})
-	const { watchlist, totalPagesWatchList, loading, error } = watchList
+	const { watchlist, totalPagesWatchList, loading, error } = movieWatchList
 
 	const userInfo = useSelector((state) => {
 		return state.userInfo
