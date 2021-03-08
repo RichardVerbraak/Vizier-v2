@@ -18,12 +18,9 @@ import {
 	getWatchListAll,
 } from '../actions/movies'
 
-// ## Render add / remove button when movie is addded
-// 1.
-
-const MovieDetailScreen = ({ match, history }) => {
+const MovieDetailScreen = ({ match, history, location }) => {
 	const movieID = Number(match.params.id)
-	const page = Number(match.params.page) || 1
+	const page = location.search ? Number(location.search.split('=')[1]) : 1
 
 	const dispatch = useDispatch()
 
@@ -45,7 +42,7 @@ const MovieDetailScreen = ({ match, history }) => {
 		loading: loadingRecommended,
 		error: errorRecommended,
 		movies,
-		totalPagesRecommended,
+		totalPages,
 	} = movieRecommended
 
 	const userInfo = useSelector((state) => {
@@ -78,8 +75,6 @@ const MovieDetailScreen = ({ match, history }) => {
 	const deleteMovie = () => {
 		dispatch(deleteFromWatchList())
 	}
-
-	console.log(watchlist)
 
 	useEffect(() => {
 		if (user) {
@@ -135,7 +130,9 @@ const MovieDetailScreen = ({ match, history }) => {
 						<Pagination
 							page={page}
 							movieID={movieID}
-							totalPagesRecommended={totalPagesRecommended}
+							totalPages={totalPages}
+							match={match}
+							location={location}
 						/>
 					</div>
 				)}

@@ -16,14 +16,14 @@ import ErrorMessage from '../components/ErrorMessage'
 
 //! Not sure why I have to check watchlist before passing it down to movies here and not in other components for it to work
 
-const WatchListScreen = ({ history, location }) => {
+const WatchListScreen = ({ history, location, match }) => {
 	const dispatch = useDispatch()
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
 
 	const movieWatchList = useSelector((state) => {
 		return state.movieWatchList
 	})
-	const { watchlist, totalPagesWatchList, loading, error } = movieWatchList
+	const { watchlist, totalPages, loading, error } = movieWatchList
 
 	const userInfo = useSelector((state) => {
 		return state.userInfo
@@ -36,6 +36,8 @@ const WatchListScreen = ({ history, location }) => {
 		}
 	}, [dispatch, user, page])
 
+	console.log(match)
+	console.log(location)
 	return (
 		<Fragment>
 			<Navigation history={history} />
@@ -51,7 +53,12 @@ const WatchListScreen = ({ history, location }) => {
 				) : (
 					<div>
 						<Movies movies={watchlist} />
-						<Pagination totalPagesWatchList={totalPagesWatchList} page={page} />
+						<Pagination
+							totalPages={totalPages}
+							page={page}
+							match={match}
+							location={location}
+						/>
 					</div>
 				)}
 			</div>
