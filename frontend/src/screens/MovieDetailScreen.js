@@ -45,7 +45,7 @@ const MovieDetailScreen = ({ match, history }) => {
 		loading: loadingRecommended,
 		error: errorRecommended,
 		movies,
-		totalPages,
+		totalPagesRecommended,
 	} = movieRecommended
 
 	const userInfo = useSelector((state) => {
@@ -132,7 +132,11 @@ const MovieDetailScreen = ({ match, history }) => {
 					<div>
 						<Header title={'Recommended'} />
 						<Movies movies={movies} />
-						<Pagination page={page} movieID={movieID} totalPages={totalPages} />
+						<Pagination
+							page={page}
+							movieID={movieID}
+							totalPagesRecommended={totalPagesRecommended}
+						/>
 					</div>
 				)}
 			</div>

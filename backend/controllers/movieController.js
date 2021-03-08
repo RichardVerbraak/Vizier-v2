@@ -150,7 +150,9 @@ const getWatchList = async (req, res, next) => {
 		const moviesPerPage = 20
 		const page = Number(req.query.page) || 1
 
-		console.log(page)
+		const user = await User.findById(req.user.id)
+
+		const watchlistLength = user.watchlist.length
 
 		const skip = moviesPerPage * (page - 1)
 
@@ -158,10 +160,11 @@ const getWatchList = async (req, res, next) => {
 			watchlist: { $slice: [skip, 20] },
 		})
 
+		const watchlist = foundUser.watchlist
+
 		if (foundUser) {
 			res.status(201)
-
-			res.json(foundUser.watchlist)
+			res.json({ watchlist, pages: Math.ceil(watchlistLength / moviesPerPage) })
 		} else {
 			res.status(500)
 			throw new Error('Server Error')

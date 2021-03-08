@@ -21,9 +21,12 @@ const Pagination = ({
 	page,
 	movieID,
 	totalPages,
+	totalPagesWatchList,
 }) => {
 	// Pushes the 'Page 2' button to the right side if it's the only button
 	const buttonSpacing = page === 1 && 'flex-end'
+
+	console.log(totalPagesWatchList, page)
 
 	return (
 		<div>
@@ -101,6 +104,26 @@ const Pagination = ({
 						<Button
 							className={'page btn'}
 							url={`/movie/${movieID}/${page + 1}`}
+							text={`Page ${page + 1}`}
+						/>
+					)}
+				</div>
+			)}
+
+			{totalPagesWatchList && !searchQuery && (
+				<div className={`pagination ${buttonSpacing}`}>
+					{page > 1 && (
+						<Button
+							className={'page btn'}
+							url={`/watchlist/?page=${page - 1}`}
+							text={`Page ${page - 1}`}
+						/>
+					)}
+
+					{page < totalPagesWatchList && (
+						<Button
+							className={'page btn'}
+							url={`/watchlist/?page=${page + 1}`}
 							text={`Page ${page + 1}`}
 						/>
 					)}

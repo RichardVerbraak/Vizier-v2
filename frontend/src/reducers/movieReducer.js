@@ -39,7 +39,7 @@ export const movieListRecommendedReducer = (state = { movies: [] }, action) => {
 			return {
 				loading: false,
 				movies: action.payload.results,
-				totalPages: action.payload.total_pages,
+				totalPagesRecommended: action.payload.total_pages,
 			}
 		}
 		case 'GET_RECOMMENDED_MOVIES_FAIL': {
@@ -122,7 +122,8 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 		case 'GET_WATCHLIST_SUCCESS': {
 			return {
 				loading: false,
-				watchlist: action.payload,
+				watchlist: action.payload.watchlist,
+				totalPagesWatchList: action.payload.pages,
 			}
 		}
 

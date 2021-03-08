@@ -23,7 +23,7 @@ const WatchListScreen = ({ history, location }) => {
 	const watchList = useSelector((state) => {
 		return state.movieWatchList
 	})
-	const { watchlist, loading, error } = watchList
+	const { watchlist, totalPagesWatchList, loading, error } = watchList
 
 	const userInfo = useSelector((state) => {
 		return state.userInfo
@@ -32,9 +32,9 @@ const WatchListScreen = ({ history, location }) => {
 
 	useEffect(() => {
 		if (user) {
-			dispatch(getWatchList())
+			dispatch(getWatchList(page))
 		}
-	}, [dispatch, user])
+	}, [dispatch, user, page])
 
 	return (
 		<Fragment>
@@ -51,6 +51,7 @@ const WatchListScreen = ({ history, location }) => {
 				) : (
 					<div>
 						<Movies movies={watchlist} />
+						<Pagination totalPagesWatchList={totalPagesWatchList} page={page} />
 					</div>
 				)}
 			</div>

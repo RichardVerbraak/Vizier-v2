@@ -158,7 +158,7 @@ export const getRecommendedMovies = (id, page) => {
 }
 
 // Change the action types and refactor all of them later
-export const getWatchList = () => {
+export const getWatchList = (page = 1) => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch({
@@ -175,7 +175,10 @@ export const getWatchList = () => {
 				},
 			}
 
-			const { data } = await axios.get('/api/movies/watchlist', config)
+			const { data } = await axios.get(
+				`/api/movies/watchlist/?page=${page}`,
+				config
+			)
 
 			dispatch({
 				type: 'GET_WATCHLIST_SUCCESS',
