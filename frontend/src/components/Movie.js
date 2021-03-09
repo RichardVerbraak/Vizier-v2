@@ -111,6 +111,8 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 						<a
 							className='movie__links--link btn btn__imdb'
 							href={`https://www.imdb.com/title/${details.imdb_id}/`}
+							target='_blank'
+							rel='noreferrer'
 						>
 							IMDB
 						</a>

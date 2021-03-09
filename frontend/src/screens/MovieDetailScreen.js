@@ -35,16 +35,6 @@ const MovieDetailScreen = ({ match, history, location }) => {
 	})
 	const { loading: loadingCast, cast } = movieCast
 
-	// const movieRecommended = useSelector((state) => {
-	// 	return state.movieRecommended
-	// })
-	// const {
-	// 	loading: loadingRecommended,
-	// 	error: errorRecommended,
-	// 	movies,
-	// 	totalPages,
-	// } = movieRecommended
-
 	const movieList = useSelector((state) => {
 		return state.movieList
 	})

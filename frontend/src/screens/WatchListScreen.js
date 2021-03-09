@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import Navigation from '../components/Navigation'
 import Header from '../components/Header'
@@ -13,7 +12,7 @@ import ErrorMessage from '../components/ErrorMessage'
 
 // TODO: Add other error message? (Bigger ones for when there arent any movies or user goes to a route that doesnt exist)
 
-const WatchListScreen = ({ history, location, match }) => {
+const WatchListScreen = ({ history, location }) => {
 	const dispatch = useDispatch()
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
 
@@ -33,8 +32,6 @@ const WatchListScreen = ({ history, location, match }) => {
 		}
 	}, [dispatch, user, page])
 
-	console.log(match)
-	console.log(location)
 	return (
 		<Fragment>
 			<Navigation history={history} />
