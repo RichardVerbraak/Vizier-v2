@@ -117,7 +117,6 @@ const MovieDetailScreen = ({ match, history, location }) => {
 						<Pagination
 							page={page}
 							totalPages={totalPages}
-							match={match}
 							location={location}
 						/>
 					</div>

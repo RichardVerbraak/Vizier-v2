@@ -56,7 +56,6 @@ const WatchListScreen = ({ history, location, match }) => {
 						<Pagination
 							totalPages={totalPages}
 							page={page}
-							match={match}
 							location={location}
 						/>
 					</div>

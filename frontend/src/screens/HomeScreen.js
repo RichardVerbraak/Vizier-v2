@@ -15,8 +15,6 @@ import { getMoviesByGenre } from '../actions/movies'
 // TODO: Make error component
 
 const HomeScreen = ({ history, match, location }) => {
-	console.log(location)
-	console.log(match)
 	// const page = Number(match.params.page) || 1
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
 
@@ -94,12 +92,7 @@ const HomeScreen = ({ history, match, location }) => {
 					</div>
 				)}
 
-				<Pagination
-					location={location}
-					page={page}
-					match={match}
-					totalPages={totalPages}
-				/>
+				<Pagination location={location} page={page} totalPages={totalPages} />
 			</div>
 		</Fragment>
 	)
