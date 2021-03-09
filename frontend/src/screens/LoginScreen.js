@@ -8,7 +8,6 @@ import Loader from '../components/Loader'
 import { loginUser } from '../actions/users'
 
 // IDEA: Maybe add a nice loader while loading in the movies the user has on his watchlist like: Welcome John...
-// TODO: Add error when it's the wrong password
 
 const LoginScreen = ({ history }) => {
 	const [email, setEmail] = useState('')

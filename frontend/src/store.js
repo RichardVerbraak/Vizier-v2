@@ -7,7 +7,6 @@ import {
 	movieCastReducer,
 	movieDeleteWatchListReducer,
 	movieDetailReducer,
-	movieListRecommendedReducer,
 	movieListReducer,
 	movieWatchListAllReducer,
 	movieWatchListReducer,
@@ -19,7 +18,6 @@ const middleware = [thunk]
 
 const reducers = combineReducers({
 	movieList: movieListReducer,
-	movieRecommended: movieListRecommendedReducer,
 	movieDetails: movieDetailReducer,
 	movieCast: movieCastReducer,
 

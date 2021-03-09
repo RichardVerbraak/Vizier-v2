@@ -132,22 +132,47 @@ export const getMovieCast = (id) => {
 	}
 }
 
+// export const getRecommendedMovies = (id, page) => {
+// 	return async (dispatch) => {
+// 		try {
+// 			dispatch({
+// 				type: 'GET_RECOMMENDED_MOVIES_REQUEST',
+// 			})
+
+// 			const { data } = await axios.get(`/api/movies/${id}/recommended/${page}`)
+
+// 			dispatch({
+// 				type: 'GET_RECOMMENDED_MOVIES_SUCCESS',
+// 				payload: data,
+// 			})
+// 		} catch (error) {
+// 			dispatch({
+// 				type: 'GET_RECOMMENDED_MOVIES_FAIL',
+// 				payload:
+// 					error.response && error.response.data.message
+// 						? error.response.data.message
+// 						: error,
+// 			})
+// 		}
+// 	}
+// }
+
 export const getRecommendedMovies = (id, page) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
-				type: 'GET_RECOMMENDED_MOVIES_REQUEST',
+				type: 'GET_MOVIES_REQUEST',
 			})
 
 			const { data } = await axios.get(`/api/movies/${id}/recommended/${page}`)
 
 			dispatch({
-				type: 'GET_RECOMMENDED_MOVIES_SUCCESS',
+				type: 'GET_MOVIES_SUCCESS',
 				payload: data,
 			})
 		} catch (error) {
 			dispatch({
-				type: 'GET_RECOMMENDED_MOVIES_FAIL',
+				type: 'GET_MOVIES_FAIL',
 				payload:
 					error.response && error.response.data.message
 						? error.response.data.message

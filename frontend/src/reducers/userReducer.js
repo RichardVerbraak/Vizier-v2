@@ -1,4 +1,4 @@
-// Refactor?
+// Refactor to separate reducers?
 export const userReducer = (state = { user: {} }, action) => {
 	switch (action.type) {
 		// Register

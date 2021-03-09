@@ -25,34 +25,7 @@ export const movieListReducer = (state = { movies: [] }, action) => {
 	}
 }
 
-// Remove this reducer?
 // Recommended Movies
-export const movieListRecommendedReducer = (state = { movies: [] }, action) => {
-	switch (action.type) {
-		case 'GET_RECOMMENDED_MOVIES_REQUEST': {
-			return {
-				...state,
-				loading: true,
-			}
-		}
-		case 'GET_RECOMMENDED_MOVIES_SUCCESS': {
-			return {
-				loading: false,
-				movies: action.payload.results,
-				totalPages: action.payload.total_pages,
-			}
-		}
-		case 'GET_RECOMMENDED_MOVIES_FAIL': {
-			return {
-				loading: false,
-				error: action.payload,
-			}
-		}
-
-		default:
-			return state
-	}
-}
 
 // Movie details
 export const movieDetailReducer = (state = { details: {} }, action) => {
@@ -82,7 +55,6 @@ export const movieDetailReducer = (state = { details: {} }, action) => {
 }
 
 // Movie cast members
-// No clue why I have to return state here in order for it to work and not in other reducers???
 export const movieCastReducer = (state = { cast: [] }, action) => {
 	switch (action.type) {
 		case 'GET_MOVIE_CAST_REQUEST': {
@@ -144,6 +116,7 @@ export const movieWatchListReducer = (state = { watchlist: [] }, action) => {
 	}
 }
 
+// All movies from users watchlist, used to filter and conditionally render add / remove button
 export const movieWatchListAllReducer = (state = { watchlist: [] }, action) => {
 	switch (action.type) {
 		case 'GET_WATCHLIST_ALL_REQUEST': {

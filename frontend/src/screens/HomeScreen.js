@@ -15,13 +15,10 @@ import { getMoviesByGenre } from '../actions/movies'
 // TODO: Make error component
 
 const HomeScreen = ({ history, match, location }) => {
-	// const page = Number(match.params.page) || 1
+	// URL params
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
-
 	const trending = match.params.trending
-
 	const searchQuery = match.params.query || ''
-
 	const genre = match.params.genre || ''
 
 	const dispatch = useDispatch()
@@ -61,8 +58,6 @@ const HomeScreen = ({ history, match, location }) => {
 
 			if (genreID) {
 				dispatch(getMoviesByGenre(page, genreID.id))
-			} else {
-				// Insert message with 'something went wrong'
 			}
 		}
 

@@ -11,10 +11,7 @@ import Pagination from '../components/Pagination'
 import { getWatchList } from '../actions/movies'
 import ErrorMessage from '../components/ErrorMessage'
 
-// TODO: Add in pages to the backend so pagination can be added in
 // TODO: Add other error message? (Bigger ones for when there arent any movies or user goes to a route that doesnt exist)
-
-//! Not sure why I have to check watchlist before passing it down to movies here and not in other components for it to work
 
 const WatchListScreen = ({ history, location, match }) => {
 	const dispatch = useDispatch()
