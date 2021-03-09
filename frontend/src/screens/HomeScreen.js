@@ -95,10 +95,7 @@ const HomeScreen = ({ history, match, location }) => {
 				)}
 
 				<Pagination
-					trending={trending}
 					location={location}
-					genre={genre}
-					searchQuery={searchQuery}
 					page={page}
 					match={match}
 					totalPages={totalPages}

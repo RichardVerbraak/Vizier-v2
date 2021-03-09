@@ -11,6 +11,7 @@ import { getGenres } from '../actions/genres'
 import { logoutUser } from '../actions/users'
 
 // TODO: Better naming or HTML for the Genre dropdown link
+// Add Button component for the links to other pages with match and location
 
 const Navigation = ({ history }) => {
 	const dispatch = useDispatch()

@@ -55,19 +55,6 @@ const MovieDetailScreen = ({ match, history, location }) => {
 	})
 	const { watchlist, loading: loadingWatchList } = movieWatchListAll
 
-	const movieAddWatchList = useSelector((state) => {
-		return state.movieAddWatchList
-	})
-	const { success: successAdd, loading: loadingAdd } = movieAddWatchList
-
-	const movieDeleteWatchList = useSelector((state) => {
-		return state.movieDeleteWatchList
-	})
-	const {
-		success: successDelete,
-		loading: loadingDelete,
-	} = movieDeleteWatchList
-
 	const addMovie = () => {
 		dispatch(addToWatchList())
 	}
@@ -129,7 +116,6 @@ const MovieDetailScreen = ({ match, history, location }) => {
 						<Movies movies={movies} />
 						<Pagination
 							page={page}
-							movieID={movieID}
 							totalPages={totalPages}
 							match={match}
 							location={location}
