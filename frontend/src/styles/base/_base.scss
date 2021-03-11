@@ -17,4 +17,8 @@ body {
 .container {
 	max-width: 154rem;
 	margin: 0 auto;
+
+	@media screen and (max-width: 1700px) {
+		max-width: 130rem;
+	}
 }

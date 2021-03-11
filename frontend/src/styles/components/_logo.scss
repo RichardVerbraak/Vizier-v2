@@ -34,6 +34,10 @@
 	&__navbar {
 		margin-right: 14rem;
 		text-decoration: none;
+
+		@media screen and (max-width: 1700px) {
+			margin-right: 8rem;
+		}
 	}
 
 	// Increased font size and line width

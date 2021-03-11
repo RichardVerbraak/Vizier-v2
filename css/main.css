@@ -72,6 +72,12 @@ body {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1700px) {
+  .container {
+    max-width: 130rem;
+  }
+}
+
 body {
   font-family: "Quicksand", "sans-serif";
   font-weight: 400;
@@ -227,6 +233,12 @@ a {
   text-decoration: none;
 }
 
+@media screen and (max-width: 1700px) {
+  .logo__navbar {
+    margin-right: 8rem;
+  }
+}
+
 .logo__login {
   font-size: 4rem;
 }
@@ -333,6 +345,14 @@ button {
   position: relative;
 }
 
+@media screen and (max-width: 1700px) {
+  .search {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+  }
+}
+
 .search__input {
   font-family: "Quicksand", "sans-serif";
   font-weight: bold;
@@ -386,6 +406,12 @@ button {
       -ms-flex-align: center;
           align-items: center;
   width: 154rem;
+}
+
+@media screen and (max-width: 1700px) {
+  .navbar__container {
+    max-width: 130rem;
+  }
 }
 
 .navbar__links {
@@ -497,7 +523,7 @@ button {
 }
 
 .header__box--main {
-  font-size: 4.4rem;
+  font-size: 4rem;
   font-weight: 400;
   letter-spacing: 1.4rem;
   text-transform: uppercase;
@@ -525,6 +551,13 @@ button {
   grid-row-gap: 5.4rem;
 }
 
+@media screen and (max-width: 1700px) {
+  .movies {
+    -ms-grid-columns: (minmax(11rem, 28.7rem))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(11rem, 28.7rem));
+  }
+}
+
 .movies__item {
   -webkit-box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
           box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
@@ -540,8 +573,8 @@ button {
 
 .movies__item-img {
   display: block;
-  -o-object-fit: fill;
-     object-fit: fill;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
   height: 100%;
   width: 100%;

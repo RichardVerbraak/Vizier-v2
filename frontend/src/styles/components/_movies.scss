@@ -4,6 +4,10 @@
 	grid-column-gap: 5rem;
 	grid-row-gap: 5.4rem;
 
+	@media screen and (max-width: 1700px) {
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 28.7rem));
+	}
+
 	// Setting border radius on both fixes small whitespace (idk why)
 	&__item {
 		box-shadow: $box-shadow;
@@ -22,8 +26,8 @@
 		&-img {
 			display: block;
 
-			// Cover didn't work as good?
-			object-fit: fill;
+			// Changed from fill to cover for media queries
+			object-fit: cover;
 			border-radius: 5px;
 
 			height: 100%;

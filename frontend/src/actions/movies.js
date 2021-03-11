@@ -28,7 +28,7 @@ export const getMovies = (page, trending) => {
 	}
 }
 
-export const getMoviesByGenre = (page = '', genreID) => {
+export const getMoviesByGenre = (page = 1, genreID) => {
 	return async (dispatch) => {
 		try {
 			dispatch({
@@ -157,7 +157,6 @@ export const getRecommendedMovies = (id, page) => {
 	}
 }
 
-// Change the action types and refactor all of them later
 export const getWatchList = (page = 1) => {
 	return async (dispatch, getState) => {
 		try {
@@ -196,7 +195,7 @@ export const getWatchList = (page = 1) => {
 	}
 }
 
-// Gets all watchlist movies, without pagination
+// Gets all watchlist movies to filter for existing movies, in Movie component
 export const getWatchListAll = () => {
 	return async (dispatch, getState) => {
 		try {

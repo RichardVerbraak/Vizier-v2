@@ -4,6 +4,10 @@
 	align-items: center;
 	flex: 0 0 30%;
 
+	@media screen and (max-width: 1700px) {
+		flex: 0 0 25%;
+	}
+
 	position: relative;
 
 	&__input {
