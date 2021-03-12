@@ -30,6 +30,10 @@
 		@media screen and (max-width: 900px) {
 			max-width: 90rem;
 		}
+
+		@media screen and (max-width: 780px) {
+			max-width: 80rem;
+		}
 	}
 
 	&__links {
@@ -43,6 +47,10 @@
 		color: $color-grey-white;
 		font-weight: 300;
 		font-size: 1.6rem;
+
+		@media screen and (max-width: 780px) {
+			display: none;
+		}
 
 		&--box {
 			display: flex;
@@ -94,6 +102,10 @@
 
 			@media screen and (max-width: 1700px) {
 				padding: 1.8rem 2rem;
+			}
+
+			@media screen and (max-width: 780px) {
+				display: none;
 			}
 		}
 	}

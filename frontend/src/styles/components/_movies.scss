@@ -22,6 +22,10 @@
 		grid-row-gap: 4.4rem;
 	}
 
+	@media screen and (max-width: 780px) {
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 38rem));
+	}
+
 	// Setting border radius on both fixes small whitespace (idk why)
 	&__item {
 		box-shadow: $box-shadow;

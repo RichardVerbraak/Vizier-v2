@@ -9,6 +9,7 @@ import Search from './Search'
 
 import { getGenres } from '../actions/genres'
 import { logoutUser } from '../actions/users'
+import HamburgerMenu from './HamburgerMenu'
 
 // TODO: Better naming or HTML for the Genre dropdown link
 // Add Button component for the links to other pages with match and location
@@ -95,6 +96,8 @@ const Navigation = ({ history }) => {
 						<p>Sign In</p>
 					</Link>
 				)}
+
+				<HamburgerMenu />
 			</div>
 		</div>
 	)

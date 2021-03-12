@@ -1,0 +1,55 @@
+.hamburger {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: white;
+
+	cursor: pointer;
+
+	&__line {
+		width: 5rem;
+		height: 2px;
+		background-color: $color-primary;
+
+		&:first-child {
+			margin-bottom: 1.5rem;
+		}
+
+		&:nth-child(2) {
+			opacity: 1;
+		}
+
+		&:last-child {
+			margin-top: 1.5rem;
+		}
+
+		transition: all 1s;
+	}
+}
+
+.active {
+	& > .hamburger__line {
+		&:first-child {
+			transform: rotate(-45deg) translateX(-11px) translateY(10px);
+			margin: 0;
+		}
+
+		// Remove middle line on active
+		&:nth-child(2) {
+			opacity: 0;
+			display: none;
+		}
+
+		&:last-child {
+			transform: rotate(45deg) translateX(-9px) translateY(-9px);
+			margin: 0;
+		}
+
+		transition: all 1s;
+	}
+}
+
+.not-active {
+}
