@@ -8,12 +8,26 @@
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 28.7rem));
 	}
 
+	@media screen and (max-width: 1450px) {
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 35rem));
+	}
+
+	@media screen and (max-width: 1000px) {
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 31.4rem));
+	}
+
+	@media screen and (max-width: 900px) {
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 27.3rem));
+		grid-column-gap: 4rem;
+		grid-row-gap: 4.4rem;
+	}
+
 	// Setting border radius on both fixes small whitespace (idk why)
 	&__item {
 		box-shadow: $box-shadow;
 
 		// Not entirely sure what height looks best (44.5rem previously)
-		height: 40.5rem;
+		// height: 40.5rem;
 
 		border-radius: 5px;
 		transition: all 0.2s;
