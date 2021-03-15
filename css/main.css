@@ -120,6 +120,18 @@ body {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .container {
+    max-width: 60rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    max-width: 55rem;
+  }
+}
+
 body {
   font-family: "Quicksand", "sans-serif";
   font-weight: 400;
@@ -324,6 +336,12 @@ a {
   }
 }
 
+@media screen and (max-width: 780px) {
+  .logo__navbar {
+    margin-right: 0;
+  }
+}
+
 .logo__login {
   font-size: 4rem;
 }
@@ -441,8 +459,8 @@ button {
 @media screen and (max-width: 780px) {
   .search {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 35%;
-            flex: 0 0 35%;
+        -ms-flex: 0 0 45%;
+            flex: 0 0 45%;
   }
 }
 
@@ -534,6 +552,18 @@ button {
 @media screen and (max-width: 780px) {
   .navbar__container {
     max-width: 80rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar__container {
+    max-width: 60rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .navbar__container {
+    max-width: 55rem;
   }
 }
 
@@ -736,6 +766,20 @@ button {
   .movies {
     -ms-grid-columns: (minmax(11rem, 38rem))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(11rem, 38rem));
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .movies {
+    -ms-grid-columns: (minmax(11rem, 28rem))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(11rem, 28rem));
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .movies {
+    -ms-grid-columns: (minmax(11rem, 25rem))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(11rem, 25rem));
   }
 }
 
@@ -1007,6 +1051,20 @@ button {
           justify-content: flex-end;
 }
 
+.hamburger__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 7rem;
+  height: 6rem;
+}
+
 .hamburger {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1015,13 +1073,6 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: white;
   cursor: pointer;
 }
 
@@ -1029,8 +1080,8 @@ button {
   width: 5rem;
   height: 2px;
   background-color: #d72525;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .hamburger__line:first-child {
@@ -1046,13 +1097,13 @@ button {
 }
 
 .active > .hamburger__line {
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: opacity 12s transform 0.3s;
+  transition: opacity 12s transform 0.3s;
 }
 
 .active > .hamburger__line:first-child {
-  -webkit-transform: rotate(-45deg) translateX(-11px) translateY(10px);
-          transform: rotate(-45deg) translateX(-11px) translateY(10px);
+  -webkit-transform: rotate(-45deg) translateX(0px) translateY(0px);
+          transform: rotate(-45deg) translateX(0px) translateY(0px);
   margin: 0;
 }
 
@@ -1062,8 +1113,8 @@ button {
 }
 
 .active > .hamburger__line:last-child {
-  -webkit-transform: rotate(45deg) translateX(-9px) translateY(-9px);
-          transform: rotate(45deg) translateX(-9px) translateY(-9px);
+  -webkit-transform: rotate(45deg) translateX(-1px) translateY(-1px);
+          transform: rotate(45deg) translateX(-1px) translateY(-1px);
   margin: 0;
 }
 /*# sourceMappingURL=main.css.map */

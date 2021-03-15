@@ -1,10 +1,15 @@
-.hamburger {
+.hamburger__container {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
-	background-color: white;
+	width: 7rem;
+	height: 6rem;
+}
+
+.hamburger {
+	display: flex;
+	flex-direction: column;
 
 	cursor: pointer;
 
@@ -25,14 +30,14 @@
 			margin-top: 1.5rem;
 		}
 
-		transition: all 1s;
+		transition: all 0.3s;
 	}
 }
 
 .active {
 	& > .hamburger__line {
 		&:first-child {
-			transform: rotate(-45deg) translateX(-11px) translateY(10px);
+			transform: rotate(-45deg) translateX(0px) translateY(0px);
 			margin: 0;
 		}
 
@@ -43,11 +48,11 @@
 		}
 
 		&:last-child {
-			transform: rotate(45deg) translateX(-9px) translateY(-9px);
+			transform: rotate(45deg) translateX(-1px) translateY(-1px);
 			margin: 0;
 		}
 
-		transition: all 1s;
+		transition: opacity 12s transform 0.3s;
 	}
 }
 

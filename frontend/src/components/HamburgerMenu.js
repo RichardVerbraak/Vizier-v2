@@ -7,7 +7,7 @@ const HamburgerMenu = () => {
 	console.log(active)
 
 	return (
-		<div>
+		<div className='hamburger__container'>
 			<MediaQuery maxDeviceWidth={780}>
 				<div
 					className={`hamburger ${active ? 'active' : 'not-active'}`}
