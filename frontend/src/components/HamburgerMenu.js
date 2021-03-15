@@ -10,7 +10,7 @@ const HamburgerMenu = () => {
 		<div className='hamburger__container'>
 			<MediaQuery maxDeviceWidth={780}>
 				<div
-					className={`hamburger ${active ? 'active' : 'not-active'}`}
+					className={`hamburger ${active ? 'hamburger__active' : 'not-active'}`}
 					onClick={() => {
 						setActive(!active)
 					}}
@@ -18,6 +18,17 @@ const HamburgerMenu = () => {
 					<span className='hamburger__line'></span>
 					<span className='hamburger__line'></span>
 					<span className='hamburger__line'></span>
+				</div>
+
+				<div
+					className={`sidebar ${
+						active ? 'sidebar__active' : 'sidebar__not-active'
+					}`}
+				>
+					<div className='sidebar__links'>
+						<p className='sidebar__links--link'>Link 1</p>
+						<p className='sidebar__links--link'>Link 2</p>
+					</div>
 				</div>
 			</MediaQuery>
 		</div>

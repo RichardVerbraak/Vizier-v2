@@ -1,0 +1,38 @@
+.sidebar {
+	position: absolute;
+	background-color: #2d2626;
+
+	height: 100%;
+	width: 0;
+	top: 0;
+	left: 0;
+	z-index: 100;
+
+	transition: all 1s ease-in-out;
+
+	&__links {
+		display: flex;
+		flex-direction: column;
+		padding: 2rem;
+
+		&--link {
+			padding: 1rem;
+			color: #e86666;
+		}
+	}
+
+	&__not-active {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&__active {
+		display: flex;
+		flex-direction: column;
+
+		visibility: visible;
+		opacity: 1;
+
+		width: 33vw;
+	}
+}
