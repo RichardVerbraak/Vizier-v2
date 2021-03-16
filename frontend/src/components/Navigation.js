@@ -10,6 +10,7 @@ import Search from './Search'
 import { getGenres } from '../actions/genres'
 import { logoutUser } from '../actions/users'
 import HamburgerMenu from './HamburgerMenu'
+import MediaQuery from 'react-responsive'
 
 // TODO: Better naming or HTML for the Genre dropdown link
 // Add Button component for the links to other pages with match and location
@@ -39,9 +40,11 @@ const Navigation = ({ history }) => {
 	return (
 		<div className='navbar'>
 			<div className='navbar__container'>
-				<Link to='/' className='logo logo__navbar'>
-					Vizier
-				</Link>
+				<MediaQuery minDeviceWidth={500}>
+					<Link to='/' className='logo logo__navbar'>
+						Vizier
+					</Link>
+				</MediaQuery>
 
 				<Search history={history} />
 
@@ -97,7 +100,13 @@ const Navigation = ({ history }) => {
 					</Link>
 				)}
 
-				<HamburgerMenu />
+				<HamburgerMenu
+					genres={genres}
+					loading={loading}
+					error={error}
+					user={user}
+					logout={logout}
+				/>
 			</div>
 		</div>
 	)

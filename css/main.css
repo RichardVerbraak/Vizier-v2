@@ -132,6 +132,12 @@ body {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .container {
+    max-width: 40rem;
+  }
+}
+
 body {
   font-family: "Quicksand", "sans-serif";
   font-weight: 400;
@@ -464,6 +470,14 @@ button {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .search {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 65%;
+            flex: 0 0 65%;
+  }
+}
+
 .search__input {
   font-family: "Quicksand", "sans-serif";
   font-weight: bold;
@@ -564,6 +578,12 @@ button {
 @media screen and (max-width: 550px) {
   .navbar__container {
     max-width: 55rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar__container {
+    max-width: 40rem;
   }
 }
 
@@ -780,6 +800,13 @@ button {
   .movies {
     -ms-grid-columns: (minmax(11rem, 25rem))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(11rem, 25rem));
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movies {
+    -ms-grid-columns: (minmax(11rem, 18rem))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(11rem, 18rem));
   }
 }
 
@@ -1119,15 +1146,20 @@ button {
 }
 
 .sidebar {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
   background-color: #2d2626;
   height: 100%;
   width: 0;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+}
+
+.sidebar__container {
+  padding: 4rem 1rem;
 }
 
 .sidebar__links {
@@ -1138,12 +1170,17 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
 }
 
 .sidebar__links--link {
-  padding: 1rem;
+  padding: 1.5rem;
   color: #e86666;
+}
+
+.sidebar__heading {
+  color: #e8e0e0;
+  padding-left: 1.5rem;
 }
 
 .sidebar__not-active {

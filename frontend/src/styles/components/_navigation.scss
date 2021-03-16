@@ -42,6 +42,10 @@
 		@media screen and (max-width: 550px) {
 			max-width: 55rem;
 		}
+
+		@media screen and (max-width: 500px) {
+			max-width: 40rem;
+		}
 	}
 
 	&__links {

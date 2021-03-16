@@ -1,24 +1,36 @@
+// Add overlay to background?
+
 .sidebar {
-	position: absolute;
+	position: fixed;
+	overflow-y: scroll;
 	background-color: #2d2626;
 
 	height: 100%;
 	width: 0;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 1000;
 
 	transition: all 1s ease-in-out;
+
+	&__container {
+		padding: 4rem 1rem;
+	}
 
 	&__links {
 		display: flex;
 		flex-direction: column;
-		padding: 2rem;
+		padding: 2rem 1.5rem;	
 
 		&--link {
-			padding: 1rem;
+			padding: 1.5rem;
 			color: #e86666;
 		}
+	}
+
+	&__heading {
+		color: #e8e0e0;
+		padding-left: 1.5rem;
 	}
 
 	&__not-active {

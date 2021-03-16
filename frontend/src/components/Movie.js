@@ -46,9 +46,13 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 							{details.release_date && details.release_date.split('-')[0]}
 						</p>
 						<p className='movie__details--info-text'>{details.runtime}min</p>
-						<p className='movie__details--info-text'>
-							{details.spoken_languages && details.spoken_languages[0].name}
-						</p>
+
+						{details.spoken_languages &&
+							details.spoken_languages.length > 0 && (
+								<p className='movie__details--info-text'>
+									{details.spoken_languages && details.spoken_languages[0].name}
+								</p>
+							)}
 					</div>
 				</div>
 
