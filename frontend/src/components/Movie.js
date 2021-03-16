@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 
 import CastSlider from './CastSlider'
-import Iframe from 'react-iframe'
 
 //# Src on mapping empty array https://stackoverflow.com/questions/63061563/returning-jsx-instead-of-empty-array-with-array-filter-map
+
+// Could use Optional Chaining (details?.title) instead of (details.title && details.title),
+//  but I would have to eject in CRA and use Babel manually
 
 const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 	const existingMovie = watchlist.filter((movie) => {
@@ -147,24 +149,3 @@ Movie.propTypes = {
 }
 
 export default Movie
-
-// {existingMovie && existingMovie.id === details.id ? (
-// 	<button className='movie__links--link btn' onClick={addMovie}>
-// 		Remove from watchlist
-// 	</button>
-// ) : (
-// 	<button className='movie__links--link btn' onClick={addMovie}>
-// 		Add to watchlist
-// 	</button>
-// )}
-
-// Iframe
-// <div>
-// 							<span className='movie__links--link btn btn__trailer'>
-// 								Trailer
-// 							</span>
-// 							<Iframe
-// 								url={`http://www.youtube.com/embed/${details.videos.results[0].key}`}
-// 								className='movie__links--iframe'
-// 							/>
-// 						</div>

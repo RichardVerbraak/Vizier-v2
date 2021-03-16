@@ -3,6 +3,7 @@
 
 .movie {
 	display: flex;
+	align-items: center;
 	margin-bottom: 12rem;
 
 	&__img {
@@ -11,12 +12,16 @@
 		border-radius: 5px;
 
 		margin-right: 15rem;
+
+		@media screen and (max-width: 1450px) {
+			margin-right: 10rem;
+		}
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
-		flex: 0 0 50%;
+		flex: 1 1 50%;
 	}
 
 	&__heading {
@@ -127,6 +132,8 @@
 		font-weight: 500;
 		line-height: 3rem;
 
+		margin-bottom: 3.5rem;
+
 		&--text {
 			color: $color-grey-black;
 		}
@@ -152,7 +159,11 @@
 			height: 14rem;
 			object-fit: cover;
 			box-shadow: $box-shadow;
-			margin-right: 2rem;
+
+			@media screen and (max-width: 1450px) {
+				width: 8rem;
+				height: 10rem;
+			}
 		}
 
 		&--box {
@@ -163,18 +174,20 @@
 	// Add margin right for links
 	&__links {
 		display: flex;
-		// width: 85%;
+		justify-content: space-between;
+		width: 75%;
 
-		&--link {
-			&:not(:last-child) {
-				margin-right: 4rem;
-			}
+		margin-top: 3.5rem;
+
+		@media screen and (max-width: 1450px) {
+			width: 100%;
 		}
 
-		// &--iframe {
-		// 	display: none !important;
-		// 	opacity: 0;
-		// }
+		&--link {
+			
+		}
+
+		
 	}
 }
 
@@ -182,126 +195,3 @@
 	width: 100%;
 	overflow: hidden;
 }
-
-// .movie {
-// 	grid-column: center-start / center-end;
-// 	display: grid;
-// 	grid-template-columns: 50rem 1fr;
-// 	column-gap: 9rem;
-// 	margin-top: 7.5rem;
-
-// 	// Some look better with object fit off?
-// 	&__img {
-// 		box-shadow: $box-shadow;
-// 		// object-fit: cover;
-// 		height: 70rem;
-// 		width: 50rem;
-// 		border-radius: 5px;
-// 	}
-
-// 	&__content {
-// 		display: grid;
-// 		grid-template-rows: min-content;
-// 		row-gap: 3rem;
-// 	}
-
-// 	&__heading {
-// 	}
-
-// 	&__heading-main {
-// 		font-size: 4.4rem;
-// 		font-weight: 300;
-// 		letter-spacing: 0.2em;
-// 		text-transform: uppercase;
-// 		color: #151515;
-// 		margin-bottom: 0.8rem;
-// 	}
-
-// 	&__heading-sub {
-// 		font-size: 2.6rem;
-// 		font-weight: 500;
-// 		letter-spacing: 0.2em;
-// 		text-transform: uppercase;
-// 		color: #151515;
-// 	}
-
-// 	&__details {
-// 		display: flex;
-// 		justify-content: space-between;
-// 		font-family: 'Montserrat';
-// 		letter-spacing: 0.1em;
-// 		font-weight: 600;
-
-// 		// Temporary
-// 		width: 80%;
-
-// 		color: rgba($color: #d72525, $alpha: 0.75);
-
-// 		&--genre {
-// 			font-size: 1.9rem;
-// 			font-weight: 600;
-// 		}
-
-// 		&--score {
-// 			font-size: 1.8rem;
-// 		}
-
-// 		&--runtime {
-// 			font-size: 1.8rem;
-// 		}
-// 	}
-
-// 	&__overview {
-// 		font-size: 1.9rem;
-// 		font-family: 'Montserrat';
-// 		font-weight: 500;
-// 		line-height: 3rem;
-// 		width: 70%;
-
-// 		&--text {
-// 			color: $color-grey-black;
-// 		}
-// 	}
-
-// 	&__cast {
-// 		display: flex;
-// 		justify-content: space-between;
-// 		align-items: center;
-
-// 		// Need overflow hidden for the slick track (otherwise it's width would be 30k+ pixels wide)
-// 		width: 75%;
-// 		overflow: hidden;
-
-// 		&--img {
-// 			display: block;
-// 			width: 12rem;
-// 			height: 14rem;
-// 			object-fit: cover;
-// 			box-shadow: $box-shadow;
-// 			margin-right: 2rem;
-// 		}
-
-// 		&--box {
-// 			display: flex;
-// 		}
-// 	}
-
-// 	&__links {
-// 		display: flex;
-// 		justify-content: space-between;
-// 		align-items: center;
-
-// 		width: 70%;
-// 	}
-// }
-
-// .slick-slider {
-// 	display: flex;
-// 	width: 100%;
-// }
-
-// .slick-list {
-// 	padding: 0 !important;
-// 	margin: 0;
-// 	overflow: hidden;
-// }

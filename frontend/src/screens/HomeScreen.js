@@ -75,7 +75,12 @@ const HomeScreen = ({ history, match, location }) => {
 		<Fragment>
 			<Navigation history={history} />
 			<div className='container'>
-				<Header trending={trending} genre={genre} title={'Movies'} />
+				<Header
+					trending={trending}
+					genre={genre}
+					title={'Movies'}
+					search={searchQuery}
+				/>
 
 				{loading ? (
 					<Loader />

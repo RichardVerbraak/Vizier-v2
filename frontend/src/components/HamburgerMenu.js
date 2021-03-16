@@ -8,8 +8,8 @@ const HamburgerMenu = ({ loading, error, genres, user, logout }) => {
 	console.log(active)
 
 	return (
-		<div className='hamburger__container'>
-			<MediaQuery maxDeviceWidth={780}>
+		<MediaQuery maxDeviceWidth={780}>
+			<div className='hamburger__container'>
 				<div
 					className={`hamburger ${active ? 'hamburger__active' : 'not-active'}`}
 					onClick={() => {
@@ -64,6 +64,10 @@ const HamburgerMenu = ({ loading, error, genres, user, logout }) => {
 						<div className='sidebar__profile'>
 							<h3 className='sidebar__heading'>Profile</h3>
 							<ul className='sidebar__links'>
+								<Link to='/watchlist' className='sidebar__links--link'>
+									<span className='navbar__links--title'>Watchlist</span>
+								</Link>
+
 								{user ? (
 									<Link
 										to='/'
@@ -77,16 +81,12 @@ const HamburgerMenu = ({ loading, error, genres, user, logout }) => {
 										<p>Sign In</p>
 									</Link>
 								)}
-
-								<Link to='/watchlist' className='sidebar__links--link'>
-									<span className='navbar__links--title'>Watchlist</span>
-								</Link>
 							</ul>
 						</div>
 					</div>
 				</div>
-			</MediaQuery>
-		</div>
+			</div>
+		</MediaQuery>
 	)
 }
 
