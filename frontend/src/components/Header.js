@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// TODO: Uppercase first letter (or uppercase everything) and remove underscore from top_rated
-// OR operator or two h3s?
 const Header = ({ trending, genre, title, search }) => {
 	return (
 		<div className='header'>
@@ -17,6 +15,7 @@ const Header = ({ trending, genre, title, search }) => {
 }
 
 Header.propTypes = {
+	search: PropTypes.string,
 	trending: PropTypes.string,
 	genre: PropTypes.string,
 	title: PropTypes.string,

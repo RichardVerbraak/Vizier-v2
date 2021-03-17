@@ -16,6 +16,20 @@ const CastSlider = ({ cast }) => {
 		speed: 500,
 		slidesToShow: 4,
 		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 900,
+				settings: {
+					slidesToShow: 5,
+				},
+			},
+			{
+				breakpoint: 700,
+				settings: {
+					slidesToShow: 4,
+				},
+			},
+		],
 	}
 
 	return (

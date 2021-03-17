@@ -18,13 +18,12 @@ const Movies = ({ movies }) => {
 							<img
 								key={movie.id}
 								src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-								className='movies__item-img'
+								className='movies__item--img'
 								alt={`A poster of ${movie.title}`}
 							></img>
 							<img
-								key={movie.id}
 								src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-								className='movies__item-img-back'
+								className='movies__item--img-back'
 								alt={`A poster of ${movie.title}`}
 							></img>
 						</Link>

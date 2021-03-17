@@ -5,8 +5,6 @@ import MediaQuery from 'react-responsive'
 const HamburgerMenu = ({ loading, error, genres, user, logout }) => {
 	const [active, setActive] = useState(false)
 
-	console.log(active)
-
 	return (
 		<MediaQuery maxDeviceWidth={780}>
 			<div className='hamburger__container'>

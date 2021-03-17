@@ -1,8 +1,4 @@
 .header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
 	margin-bottom: 6rem;
 
 	&__box {
@@ -13,6 +9,11 @@
 			text-transform: uppercase;
 
 			margin-bottom: 1.4rem;
+
+			@media screen and (max-width: 500px) {
+				font-size: 3rem;
+				letter-spacing: 1rem;				
+			}
 		}
 
 		&--sub {
@@ -23,9 +24,5 @@
 		}
 	}
 
-	// Recommended header
-	&__recommended {
-		font-size: 4rem;
-		margin-bottom: 6rem;
-	}
+	
 }

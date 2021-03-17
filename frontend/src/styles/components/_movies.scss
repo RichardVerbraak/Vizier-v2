@@ -39,21 +39,16 @@
 	}
 
 	// Setting border radius on both fixes small whitespace (idk why)
-	&__item {
-		// box-shadow: $box-shadow;
-
-		// Not entirely sure what height looks best (44.5rem previously)
-		// height: 40.5rem;
-
+	&__item {		
 		border-radius: 5px;
 		transition: all 0.2s;
 		position: relative;
 		cursor: default;
 
-		// Fix minor shake
+		// Fix minor shake during animation
 		backface-visibility: hidden;
 
-		&-img {
+		&--img {
 			display: block;
 			position: relative;
 			// Changed from fill to cover for media queries
@@ -63,7 +58,12 @@
 			height: 100%;
 			width: 100%;
 
+			// Fix rogue white line appearing at random times
+			backface-visibility: hidden;
+
 			z-index: 10;
+
+			box-shadow: $box-shadow;
 
 			&-back {
 				position: absolute;
@@ -74,7 +74,7 @@
 				
 				top: 0;
 				left: 0;
-				transform: scale(1.05);
+				transform: scale(1.08);
 				transition: all 0.5s ease
 			}
 		}
@@ -83,7 +83,7 @@
 			transform: scale(1.05);
 		}
 
-		&:hover > a > &-img-back {		
+		&:hover > a > &--img-back {		
 			opacity: 1;
 			filter: blur(2.4rem)
 		}
@@ -118,17 +118,6 @@
 
 			backface-visibility: hidden;
 		}
-
-		// &::after {
-		//     content: "";
-		//     display: inline-block;
-		//     width: 100%;
-		//     height: 10%;
-		//     background-color:rgba(55, 242, 73, 0.95);
-		//     position: absolute;
-		//     bottom: 0;
-		//     left: 0;
-		// }
 	}
 
 	&__empty {

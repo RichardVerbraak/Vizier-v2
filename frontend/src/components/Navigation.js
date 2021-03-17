@@ -112,7 +112,4 @@ const Navigation = ({ history }) => {
 	)
 }
 
-// Instead of 'Logout'
-// <p className='profile__name'>{user.name.split(' ')[0]} </p>
-
 export default Navigation
