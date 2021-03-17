@@ -40,7 +40,7 @@
 
 	// Setting border radius on both fixes small whitespace (idk why)
 	&__item {
-		box-shadow: $box-shadow;
+		// box-shadow: $box-shadow;
 
 		// Not entirely sure what height looks best (44.5rem previously)
 		// height: 40.5rem;
@@ -55,18 +55,40 @@
 
 		&-img {
 			display: block;
-
+			position: relative;
 			// Changed from fill to cover for media queries
 			object-fit: cover;
 			border-radius: 5px;
 
 			height: 100%;
 			width: 100%;
+
+			z-index: 10;
+
+			&-back {
+				position: absolute;
+				opacity: 0;
+
+				height: 100%;
+				width: 100%;
+				
+				top: 0;
+				left: 0;
+				transform: scale(1.05);
+				transition: all 0.5s ease
+			}
 		}
 
 		&:hover {
 			transform: scale(1.05);
 		}
+
+		&:hover > a > &-img-back {		
+			opacity: 1;
+			filter: blur(2.4rem)
+		}
+
+		
 
 		&:hover > &--button {
 			opacity: 0.95;

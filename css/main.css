@@ -811,8 +811,6 @@ button {
 }
 
 .movies__item {
-  -webkit-box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
-          box-shadow: 8px 6px 6px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -824,16 +822,37 @@ button {
 
 .movies__item-img {
   display: block;
+  position: relative;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
   height: 100%;
   width: 100%;
+  z-index: 10;
+}
+
+.movies__item-img-back {
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .movies__item:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.movies__item:hover > a > .movies__item-img-back {
+  opacity: 1;
+  -webkit-filter: blur(2.4rem);
+          filter: blur(2.4rem);
 }
 
 .movies__item:hover > .movies__item--button {
