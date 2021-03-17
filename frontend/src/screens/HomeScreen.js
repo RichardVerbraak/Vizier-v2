@@ -17,6 +17,7 @@ import { getMoviesByGenre } from '../actions/movies'
 const HomeScreen = ({ history, match, location }) => {
 	// URL params
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
+
 	const trending = match.params.trending
 	const searchQuery = match.params.query || ''
 	const genre = match.params.genre || ''
