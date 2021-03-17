@@ -16,14 +16,18 @@
 		flex: 0 0 65%;
 	}
 
-	position: relative;
-
 	&__input {
 		font-family: $font-primary;
 		font-weight: bold;
 		font-size: 1.3rem;
 
-		width: 100%;
+		@media screen and (max-width: 900px) {
+			font-size: 1rem;
+			letter-spacing: 0.1rem;
+		}
+
+		position: relative;
+		width: 80%;
 
 		// maybe no uppercase?
 		text-transform: uppercase;
@@ -44,6 +48,7 @@
 		&:focus,
 		&:active {
 			outline: none;
+			width: 100%;
 
 			// Have an transition effect with the search bar increasing in width, only it's difficult with an absolute positioned icon
 		}
@@ -51,10 +56,15 @@
 
 	&__submit {
 		color: $color-grey-black;
-		position: absolute;
+		position: relative;
+
+		top: -6px;
 		right: 2rem;
 	}
 
 	&__icon {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 }
