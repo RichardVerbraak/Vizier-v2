@@ -8,24 +8,22 @@ const Pagination = ({ page, totalPages, location }) => {
 	const buttonSpacing = page === 1 && 'flex-end'
 
 	return (
-		<div>
-			<div className={`pagination ${buttonSpacing}`}>
-				{page > 1 && (
-					<Button
-						className={'page btn'}
-						url={`${location.pathname}?page=${page - 1}`}
-						text={`Page ${page - 1}`}
-					/>
-				)}
+		<div className={`pagination ${buttonSpacing}`}>
+			{page > 1 && (
+				<Button
+					className={'page btn'}
+					url={`${location.pathname}?page=${page - 1}`}
+					text={`Page ${page - 1}`}
+				/>
+			)}
 
-				{page < totalPages && (
-					<Button
-						className={'page btn'}
-						url={`${location.pathname}?page=${page + 1}`}
-						text={`Page ${page + 1}`}
-					/>
-				)}
-			</div>
+			{page < totalPages && (
+				<Button
+					className={'page btn'}
+					url={`${location.pathname}?page=${page + 1}`}
+					text={`Page ${page + 1}`}
+				/>
+			)}
 		</div>
 	)
 }

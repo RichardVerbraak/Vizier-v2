@@ -62,12 +62,11 @@ const HomeScreen = ({ history, match, location }) => {
 		}
 
 		// Smooth scroll to top, not perfect but not sure how to improve upon
-		if (movies) {
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth',
-			})
-		}
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		})
+
 		//eslint-disable-next-line
 	}, [dispatch, page, trending, searchQuery, genre, user])
 
