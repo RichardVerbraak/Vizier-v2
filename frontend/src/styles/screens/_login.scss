@@ -12,21 +12,17 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		width: 50vw;
+		width: 30vw;
+
+		@media screen and (max-width: 700px) {
+			width: 30vw;
+		}
 
 		&--input {
 			border: 1px solid #d72525;
 			background: #ffffff;
 			padding: 2.5rem 3.5rem;
-			width: 60%;
-
-			@media screen and (max-width: 1450px) {
-				width: 80%;
-			}
-
-			@media screen and (max-width: 500px) {
-				width: 100%;
-			}
+			width: 100%;
 
 			color: $color-black;
 

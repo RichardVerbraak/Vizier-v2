@@ -38,8 +38,12 @@
 
 		padding: 1rem 2rem;
 
-		@media screen and (max-width: 1000px) {
+		@media screen and (max-width: $bp-1000) {
 			padding: 0.7rem 2rem;
+		}
+
+		@media screen and (max-width: $bp-780) {
+			padding: 1rem 2rem;
 		}
 
 		border: none;

@@ -47,9 +47,9 @@ const RegisterScreen = ({ history }) => {
 			</div>
 
 			{loading && <h1>Loading...</h1>}
-			{error && <h1>{error}</h1>}
 
 			<form className='login__form' onSubmit={submitHandler}>
+				{error && <ErrorMessage error={error} />}
 				{errorPassword && <ErrorMessage error={errorPassword} />}
 				<input
 					className='login__form--input'
