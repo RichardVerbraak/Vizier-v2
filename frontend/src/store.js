@@ -31,6 +31,8 @@ const reducers = combineReducers({
 	userInfo: userReducer,
 })
 
+// User gets saved to localStorage upon registering/logging in
+// This sets the user reducer's initial state to the one in localStorage if there is one
 const userFromLocalStorage = localStorage.getItem('user')
 	? JSON.parse(localStorage.getItem('user'))
 	: null

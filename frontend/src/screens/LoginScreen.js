@@ -7,8 +7,6 @@ import Loader from '../components/Loader'
 
 import { loginUser } from '../actions/users'
 
-// IDEA: Maybe add a nice loader while loading in the movies the user has on his watchlist like: Welcome John...
-
 const LoginScreen = ({ history }) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -26,7 +24,6 @@ const LoginScreen = ({ history }) => {
 
 	const { loading, error, user } = userInfo
 
-	// Redirect to home if logged in
 	useEffect(() => {
 		if (user) {
 			history.push('/')

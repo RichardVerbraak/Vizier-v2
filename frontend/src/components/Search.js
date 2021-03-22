@@ -17,7 +17,6 @@ const Search = ({ history }) => {
 			history.push(`/search/${search}`)
 			setSearch('')
 		} else {
-			// Message that search doesnt have any input
 			history.push('/')
 		}
 	}

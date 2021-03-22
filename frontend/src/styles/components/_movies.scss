@@ -39,7 +39,7 @@
 	}
 
 	// Setting border radius on both fixes small whitespace (idk why)
-	&__item {		
+	&__item {
 		border-radius: 5px;
 		transition: all 0.2s;
 		position: relative;
@@ -51,8 +51,9 @@
 		&--img {
 			display: block;
 			position: relative;
-			// Changed from fill to cover for media queries
+
 			object-fit: cover;
+
 			border-radius: 5px;
 
 			height: 100%;
@@ -71,11 +72,11 @@
 
 				height: 100%;
 				width: 100%;
-				
+
 				top: 0;
 				left: 0;
 				transform: scale(1.08);
-				transition: all 0.5s ease
+				transition: all 0.5s ease;
 			}
 		}
 
@@ -83,12 +84,10 @@
 			transform: scale(1.05);
 		}
 
-		&:hover > a > &--img-back {		
+		&:hover > a > &--img-back {
 			opacity: 1;
-			filter: blur(2.4rem)
+			filter: blur(2.4rem);
 		}
-
-		
 
 		&:hover > &--button {
 			opacity: 0.95;

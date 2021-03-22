@@ -31,7 +31,6 @@ const RegisterScreen = ({ history }) => {
 	const submitHandler = (e) => {
 		e.preventDefault()
 
-		// Make alert component
 		if (password !== confirmPassword) {
 			setErrorPassword('Passwords do not match')
 		} else {

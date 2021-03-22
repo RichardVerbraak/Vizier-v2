@@ -29,7 +29,6 @@ const MovieDetailScreen = ({ match, history, location }) => {
 	})
 	const { loading: loadingDetails, error: errorDetails, details } = movieDetails
 
-	// Use errorCast with error component
 	const movieCast = useSelector((state) => {
 		return state.movieCast
 	})
@@ -78,14 +77,6 @@ const MovieDetailScreen = ({ match, history, location }) => {
 			top: 0,
 			behavior: 'smooth',
 		})
-
-		// Scrolls to recommended section when you go through Recommended movies
-		if (page > 1) {
-			window.scrollTo({
-				top: 1050,
-				behavior: 'smooth',
-			})
-		}
 	}, [dispatch, history, movieID, page, user])
 
 	return (

@@ -12,9 +12,6 @@ import { logoutUser } from '../actions/users'
 import HamburgerMenu from './HamburgerMenu'
 import MediaQuery from 'react-responsive'
 
-// TODO: Better naming or HTML for the Genre dropdown link
-// Add Button component for the links to other pages with match and location
-
 const Navigation = ({ history }) => {
 	const dispatch = useDispatch()
 

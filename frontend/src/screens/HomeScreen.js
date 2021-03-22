@@ -12,12 +12,8 @@ import { getMoviesByGenre } from '../actions/movies'
 
 // Notes are in the older project on all the issues I had including links, might compile them in a single file later on
 
-// TODO: Make error component
-
 const HomeScreen = ({ history, match, location }) => {
-	// URL params
 	const page = location.search ? Number(location.search.split('=')[1]) : 1
-
 	const trending = match.params.trending
 	const searchQuery = match.params.query || ''
 	const genre = match.params.genre || ''
