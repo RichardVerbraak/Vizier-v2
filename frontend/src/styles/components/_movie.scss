@@ -10,7 +10,7 @@
 		flex-direction: column;
 	}
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: $bp-500) {
 		margin-bottom: 8rem;
 	}
 
@@ -26,16 +26,16 @@
 
 		max-width: 100%;
 
-		@media screen and (max-width: 1450px) {
+		@media screen and (max-width: $bp-1450) {
 			margin-right: 10rem;
 		}
 
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: $bp-900) {
 			margin-right: 0;
 			margin-bottom: 12rem;
 		}
 
-		@media screen and (max-width: 700px) {
+		@media screen and (max-width: $bp-700) {
 			margin-bottom: 8rem;
 		}
 	}
@@ -96,7 +96,7 @@
 			justify-content: space-between;
 			flex: 0 0 40%;
 
-			@media screen and (max-width: 700px) {
+			@media screen and (max-width: $bp-700) {
 				flex: 0 0 60%;
 			}
 
@@ -125,7 +125,7 @@
 		&--links {
 			display: flex;
 
-			@media screen and (max-width: 700px) {
+			@media screen and (max-width: $bp-700) {
 				flex-direction: column;
 			}
 
@@ -145,7 +145,7 @@
 				// Fix text shake during animation
 				backface-visibility: hidden;
 
-				@media screen and (max-width: 700px) {
+				@media screen and (max-width: $bp-700) {
 					margin: 0;
 					padding: 1rem 0rem;
 				}
@@ -195,7 +195,7 @@
 			object-fit: cover;
 			box-shadow: $box-shadow;
 
-			@media screen and (max-width: 1450px) {
+			@media screen and (max-width: $bp-1450) {
 				width: 8rem;
 				height: 10rem;
 			}
@@ -213,31 +213,31 @@
 
 		margin-top: 3.5rem;
 
-		@media screen and (max-width: 1450px) {
+		@media screen and (max-width: $bp-1450) {
 			width: 100%;
 		}
 
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: $bp-900) {
 			width: 75%;
 		}
 
-		@media screen and (max-width: 700px) {
+		@media screen and (max-width: $bp-700) {
 			width: 100%;
 		}
 
-		@media screen and (max-width: 500px) {
+		@media screen and (max-width: $bp-500) {
 			flex-direction: column;
 			align-items: flex-start;
 		}
 
 		&--link {
-			@media screen and (max-width: 1200px) {
+			@media screen and (max-width: $bp-1200) {
 				letter-spacing: 0;
 				font-weight: normal;
 				text-transform: initial;
 			}
 
-			@media screen and (max-width: 500px) {
+			@media screen and (max-width: $bp-500) {
 				margin: 1rem;
 			}
 		}

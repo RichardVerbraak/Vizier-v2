@@ -4,15 +4,15 @@
 	align-items: center;
 	flex: 0 0 30%;
 
-	@media screen and (max-width: 1700px) {
+	@media screen and (max-width: $bp-1700) {
 		flex: 0 0 25%;
 	}
 
-	@media screen and (max-width: 780px) {
+	@media screen and (max-width: $bp-780) {
 		flex: 0 0 45%;
 	}
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: $bp-500) {
 		flex: 0 0 65%;
 	}
 
@@ -21,16 +21,13 @@
 		font-weight: bold;
 		font-size: 1.3rem;
 
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: $bp-900) {
 			font-size: 1rem;
 			letter-spacing: 0.1rem;
 		}
 
 		position: relative;
 		width: 80%;
-
-		// maybe no uppercase?
-		text-transform: uppercase;
 
 		letter-spacing: $letter-spacing-small;
 		background-color: $color-grey-white;
@@ -53,8 +50,6 @@
 		&:active {
 			outline: none;
 			width: 100%;
-
-			// Have an transition effect with the search bar increasing in width, only it's difficult with an absolute positioned icon
 		}
 	}
 

@@ -1,7 +1,7 @@
 .logo {
 	font-size: 2.7rem;
 
-	@media screen and (max-width: 1080px) {
+	@media screen and (max-width: $bp-1080) {
 		font-size: 2.2rem;
 	}
 
@@ -18,7 +18,7 @@
 		display: inline-block;
 		width: 10rem;
 
-		@media screen and (max-width: 950px) {
+		@media screen and (max-width: $bp-950) {
 			width: 8rem;
 		}
 
@@ -32,7 +32,7 @@
 		top: -40%;
 		left: -20%;
 
-		@media screen and (max-width: 950px) {
+		@media screen and (max-width: $bp-950) {
 			left: -15%;
 		}
 		animation: 1.4s rightToLeft;
@@ -42,7 +42,7 @@
 		bottom: -40%;
 		right: -20%;
 
-		@media screen and (max-width: 950px) {
+		@media screen and (max-width: $bp-950) {
 			right: -15%;
 		}
 
@@ -54,15 +54,15 @@
 		margin-right: 14rem;
 		text-decoration: none;
 
-		@media screen and (max-width: 1700px) {
+		@media screen and (max-width: $bp-1700) {
 			margin-right: 8rem;
 		}
 
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: $bp-900) {
 			margin-right: 5rem;
 		}
 
-		@media screen and (max-width: 780px) {
+		@media screen and (max-width: $bp-780) {
 			margin-right: 0;
 		}
 	}

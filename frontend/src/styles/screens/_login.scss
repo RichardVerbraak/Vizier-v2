@@ -14,7 +14,7 @@
 		flex-direction: column;
 		width: 30vw;
 
-		@media screen and (max-width: 700px) {
+		@media screen and (max-width: $bp-700) {
 			width: 30vw;
 		}
 

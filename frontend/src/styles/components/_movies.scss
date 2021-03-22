@@ -4,37 +4,37 @@
 	grid-column-gap: 5rem;
 	grid-row-gap: 5.4rem;
 
-	@media screen and (max-width: 1700px) {
+	@media screen and (max-width: $bp-1700) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 28.7rem));
 	}
 
-	@media screen and (max-width: 1450px) {
+	@media screen and (max-width: $bp-1450) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 35rem));
 	}
 
-	@media screen and (max-width: 1000px) {
+	@media screen and (max-width: $bp-1000) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 31.4rem));
 	}
 
-	@media screen and (max-width: 900px) {
+	@media screen and (max-width: $bp-900) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 27.3rem));
 		grid-column-gap: 4rem;
 		grid-row-gap: 4.4rem;
 	}
 
-	@media screen and (max-width: 780px) {
+	@media screen and (max-width: $bp-780) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 38rem));
 	}
 
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: $bp-700) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 28rem));
 	}
 
-	@media screen and (max-width: 550px) {
+	@media screen and (max-width: $bp-550) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 25rem));
 	}
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: $bp-500) {
 		grid-template-columns: repeat(auto-fit, minmax(11rem, 18rem));
 	}
 

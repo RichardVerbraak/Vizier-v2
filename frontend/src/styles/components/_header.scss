@@ -10,9 +10,9 @@
 
 			margin-bottom: 1.4rem;
 
-			@media screen and (max-width: 500px) {
+			@media screen and (max-width: $bp-500) {
 				font-size: 3rem;
-				letter-spacing: 1rem;				
+				letter-spacing: 1rem;
 			}
 		}
 
@@ -23,6 +23,4 @@
 			text-transform: uppercase;
 		}
 	}
-
-	
 }
