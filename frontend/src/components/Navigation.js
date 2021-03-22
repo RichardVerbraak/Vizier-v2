@@ -21,7 +21,7 @@ const Navigation = ({ history }) => {
 
 	const userInfo = useSelector((state) => state.userInfo)
 
-	const { user, userLoading, userError } = userInfo
+	const { user } = userInfo
 
 	const logout = () => {
 		dispatch(logoutUser())

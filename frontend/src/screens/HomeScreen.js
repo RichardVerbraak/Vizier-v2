@@ -33,7 +33,7 @@ const HomeScreen = ({ history, match, location }) => {
 	const genreList = useSelector((state) => {
 		return state.genreList
 	})
-	const { genres, genreLoading, genreError } = genreList
+	const { genres } = genreList
 
 	useEffect(() => {
 		// Search for movies if any query
