@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faDotCircle } from '@fortawesome/free-solid-svg-icons';
 
-import CastSlider from './CastSlider'
+import CastSlider from './CastSlider';
 
 //# Src on mapping empty array https://stackoverflow.com/questions/63061563/returning-jsx-instead-of-empty-array-with-array-filter-map
 
@@ -14,8 +14,10 @@ import CastSlider from './CastSlider'
 
 const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 	const existingMovie = watchlist.filter((movie) => {
-		return movie.id === details.id
-	})
+		return movie.id === details.id;
+	});
+
+	console.log(details);
 
 	return (
 		<div className='movie'>
@@ -74,7 +76,7 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 										/>
 										{genre.name}
 									</Link>
-								)
+								);
 							})}
 					</div>
 				</div>
@@ -104,7 +106,7 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 									>
 										Remove from Watchlist
 									</button>
-								)
+								);
 						  })
 						: user && (
 								<button onClick={addMovie} className='movie__links--link btn'>
@@ -136,8 +138,8 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 Movie.propTypes = {
 	details: PropTypes.object.isRequired,
@@ -145,6 +147,6 @@ Movie.propTypes = {
 	addMovie: PropTypes.func,
 	user: PropTypes.object,
 	watchlist: PropTypes.array,
-}
+};
 
-export default Movie
+export default Movie;

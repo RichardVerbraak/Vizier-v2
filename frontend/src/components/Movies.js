@@ -31,7 +31,7 @@ const Movies = ({ movies }) => {
 				);
 			})}
 
-			{Array.from(Array(20 - movies.length), (_, i) => (
+			{Array.from(Array(21 - movies.length), (_, i) => (
 				<div key={i} className='movies__empty'></div>
 			))}
 		</div>
