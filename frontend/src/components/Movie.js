@@ -17,8 +17,6 @@ const Movie = ({ details, cast, addMovie, deleteMovie, user, watchlist }) => {
 		return movie.id === details.id;
 	});
 
-	console.log(details);
-
 	return (
 		<div className='movie'>
 			<img
