@@ -5,9 +5,10 @@ import store from './store'
 import './styles/main.scss'
 import App from './App'
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(
 	<Provider store={store}>
 		<App />
-	</Provider>,
-	document.getElementById('root')
+	</Provider>
 )
