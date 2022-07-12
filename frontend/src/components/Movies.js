@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // TODO: Add replacement image if there isnt a poster for the movie
 // Source on Array.from fix for React keys: https://stackoverflow.com/questions/49677220/reactjs-array-fill-with-key-in-jsx-element
@@ -28,18 +28,18 @@ const Movies = ({ movies }) => {
 							></img>
 						</Link>
 					</div>
-				);
+				)
 			})}
 
-			{Array.from(Array(21 - movies.length), (_, i) => (
+			{Array.from(Array(20 - movies.length), (_, i) => (
 				<div key={i} className='movies__empty'></div>
 			))}
 		</div>
-	);
-};
+	)
+}
 
 Movies.propTypes = {
 	movies: PropTypes.array.isRequired,
-};
+}
 
-export default Movies;
+export default Movies
