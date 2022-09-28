@@ -8,7 +8,13 @@ import { Link } from 'react-router-dom'
 // Fill only returned the same span each time while from iterates on an array-like object, in this case just an array,-
 // and iterates over the array returning a div with the index as its key (the underscore is a convention when an argument is irrelevant)
 
+// 20 vs 21 results bug from MovieDB API
+// MovieDB API keeps changing their results for fetching movies as in, all of the API fetches 20 results per page
+// but Recommended movies are fetching 21 results causing the app to crash since I hardcoded the new array to expect 20 results
+
 const Movies = ({ movies }) => {
+	console.log(movies)
+
 	return (
 		<div className='movies'>
 			{movies.map((movie) => {
@@ -31,7 +37,7 @@ const Movies = ({ movies }) => {
 				)
 			})}
 
-			{Array.from(Array(20 - movies.length), (_, i) => (
+			{Array.from(Array(21 - movies.length), (_, i) => (
 				<div key={i} className='movies__empty'></div>
 			))}
 		</div>

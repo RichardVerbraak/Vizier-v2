@@ -11,6 +11,7 @@ import { getWatchList } from '../actions/movies'
 import ErrorMessage from '../components/ErrorMessage'
 
 // TODO: Add other error message? (Bigger ones for when there arent any movies or user goes to a route that doesnt exist)
+// Bug?: Watchlist is being fetched unnecessarily
 
 const WatchListScreen = ({ history, location }) => {
 	const dispatch = useDispatch()
